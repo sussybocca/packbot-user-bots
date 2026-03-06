@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PackBot – Editor</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <header>
+        <h1><a href="/">PackBot</a> / Editor</h1>
+    </header>
+    <main>
+        <div class="mode-switcher">
+            <button id="simple-mode-btn" class="active">Simple Mode</button>
+            <button id="code-mode-btn">Code Mode</button>
+        </div>
+
+        <!-- Simple Mode Panel -->
+        <div id="simple-panel" class="panel">
+            <h2>Describe your bot</h2>
+            <textarea id="bot-description" placeholder="e.g. A friendly chatbot that tells jokes and gives weather updates." rows="6"></textarea>
+            <label for="bot-name">Bot name (folder name, no spaces)</label>
+            <input type="text" id="bot-name" placeholder="my-awesome-bot">
+            <button id="generate-bot">Generate & Push Bot</button>
+            <div id="simple-output"></div>
+        </div>
+
+        <!-- Code Mode Panel (hidden by default) -->
+        <div id="code-panel" class="panel hidden">
+            <h2>Code your bot</h2>
+            <div class="file-tabs">
+                <button class="file-tab active" data-file="logic.txt">logic.txt</button>
+                <button class="file-tab" data-file="index.html">index.html</button>
+                <button class="file-tab" data-file="script.js">script.js</button>
+                <button class="file-tab" data-file="style.css">style.css</button>
+                <button id="add-file-btn">+ Add file</button>
+            </div>
+            <textarea id="file-editor" placeholder="File content..." spellcheck="false"></textarea>
+            <div class="code-controls">
+                <label for="code-bot-name">Bot name</label>
+                <input type="text" id="code-bot-name" placeholder="my-coded-bot">
+                <button id="push-code-bot">Push to GitHub</button>
+            </div>
+        </div>
+
+        <!-- Preview area -->
+        <section id="preview">
+            <h2>Preview</h2>
+            <iframe id="preview-frame" src="about:blank" sandbox="allow-scripts allow-same-origin"></iframe>
+        </section>
+    </main>
+    <script src="/js/github-api.js"></script>
+    <script src="/js/bot-generator.js"></script>
+    <script src="/js/app.js"></script>
+</body>
+</html>
