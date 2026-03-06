@@ -1,3 +1,1 @@
-# This is your bot logic
-# Format: pattern : response
-hello : Hello from code mode!
+add
