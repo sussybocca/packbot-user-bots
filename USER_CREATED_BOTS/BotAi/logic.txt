@@ -1,0 +1,29 @@
+# BotAI knowledge base
+# Format: pattern :: response
+# Lines starting with # are ignored. Empty lines too.
+# pattern is case‑insensitive substring match.
+
+hello :: Hi there! How can I assist you today?
+hi :: Hello! What's on your mind?
+hey :: Hey! Feel free to ask me anything.
+
+how are you :: I'm just a pattern matcher, but I'm functioning perfectly!
+what is your name :: I'm BotAI, your local logic‑driven assistant.
+who created you :: I was built with HTML, CSS, and JavaScript, powered by the logic in this very file.
+
+weather :: I don't have live internet access, but you can check outside! 🌤️
+time :: I live in the browser – look at your device clock for the time.
+help :: I respond to patterns from logic.txt. Try asking about my name, creator, or just say hello.
+
+bye :: Goodbye! Come back anytime.
+goodbye :: See you later! 👋
+
+love :: ❤️ That's lovely! I'm here for you.
+joke :: Why don't scientists trust atoms? Because they make up everything! 😄
+
+meaning of life :: According to my logic.txt, it's 42 – but also to learn, grow, and enjoy.
+robot :: I'm a pure frontend bot, no hardware, just code.
+what can you do :: I can match your messages to patterns in logic.txt. Add more patterns to make me smarter!
+
+coffee :: I can't drink coffee, but I run on electricity and JavaScript!
+music :: I don't have ears, but I bet you have great taste.
