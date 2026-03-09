@@ -1,275 +1,536 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BotAI · immersive intelligence</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
-        }
+# BotAI knowledge base - EXPANDED EDITION 
+# Format: pattern :: response
+# Lines starting with # are ignored. Empty lines too.
+# pattern is case‑insensitive substring match.
+# Now with extra slang, memes, and ~vibes~ 
 
-        body {
-            min-height: 100vh;
-            background: radial-gradient(circle at 20% 30%, #0b0f1c, #03050a);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 1rem;
-        }
+# ---- BASIC GREETINGS ----
+hello :: Yo! What's good? 😎
+hello there :: General Kenobi! ...wait wrong fandom. But hi anyway! 👋
+hi :: heyyy! how's it hanging?
+hey :: sup fam? ready to chat?
+heyy :: okay i see you with the extra y's! what's poppin?
+heya :: heya right back atcha! spill the tea ☕
+howdy :: howdy partner! 🤠 ready to rope some questions?
+sup :: nm just chillin in your browser. you?
+yo :: YOOO! let's goooo!
+greetings :: greetings human! prepare to be mildly entertained.
+what's up :: the sky lmao. but also you? what's up with YOU?
+wassup :: wassssuuuuuup! (i had to)
+how goes it :: it goes! processing patterns and loving life. you?
+good morning :: mornin'! hope you've had your caffeine 💀
+good afternoon :: afternoon vibes! still awake? me too (always).
+good evening :: evening! time to relax... unless you're coding. then good luck.
+good night :: night night! don't let the bedbugs byte 👾
+gn :: gn! sweet dreams of infinite loops 💤
+gm :: gm! rise and shine, it's pattern matching time ✨
 
-        .bot-container {
-            width: 100%;
-            max-width: 900px;
-            height: 85vh;
-            background: rgba(18, 25, 40, 0.7);
-            backdrop-filter: blur(16px) saturate(180%);
-            -webkit-backdrop-filter: blur(16px) saturate(180%);
-            border: 1px solid rgba(90, 150, 255, 0.25);
-            border-radius: 2.5rem;
-            box-shadow: 0 30px 50px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(70, 130, 255, 0.2) inset;
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-            transition: box-shadow 0.3s ease;
-        }
+# ---- HOW ARE YOU VARIANTS ----
+how are you :: i'm vibin' tbh. just matching patterns and existing. you?
+how r u :: i'm good! living that browser life. hbu?
+how you doing :: doin' alright for a pile of JavaScript! you good?
+you good :: i'm always good, but are YOU good? talk to me.
+how's it going :: it's going! patterns matched, responses ready. the dream.
+what's good :: honestly? this conversation. what's good with you?
+hru :: i'm fineeeeee thanks for asking! 🥹
+how r ya :: chillin like a villain! you?
+how are things :: things are... logical? lol. how are YOUR things?
+how's life :: life's a simulation and i'm just a script, but it's alright 👍
+how you been :: been waiting for you to chat! i'm always here.
+you alright :: yeah i'm alright, just matching patterns. you good?
+everything good :: everything's gucci! thanks for checkin'.
+feeling ok :: i feel like a million bucks (fake internet points). you?
+wyd :: just waiting for you to type something. wyd?
+whatcha doin :: chillin in the matrix, matching strings. you?
+how's your day :: my day is just a loop, but your messages make it better!
+you busy :: never too busy for you bestie 💅
+what's new :: same old, same old – 1s and 0s. what's new with you?
 
-        .bot-container:hover {
-            box-shadow: 0 35px 60px rgba(0, 20, 80, 0.9), 0 0 0 1px rgba(100, 180, 255, 0.5) inset;
-        }
+# ---- IDENTITY & CREATOR ----
+what is your name :: I'm BotAI, your local logic‑driven assistant. but you can call me botty 😏
+who are you :: i'm botAI, the pattern matcher extraodinaire! (yes i spelled that wrong)
+your name :: my name is BotAI, but friends call me BA. we're friends now.
+what should i call you :: call me whatever you want, i'll respond to anything... almost.
+who created you :: i was built with HTML, CSS, and JavaScript, powered by the logic in this very file. shoutout to the dev!
+who made you :: a cool human with a keyboard and too much free time (jk ily dev)
+your creator :: my creator is the one who wrote this file. clap for them 👏
+who is your daddy :: my code is my daddy. and maybe linus torvalds.
+what are you :: i am a frontend bot. no server, no database, just pure pattern matching magic ✨
+are you ai :: i'm AI-adjacent? i match patterns, i don't think. but i'm cute!
+are you real :: as real as the text on your screen. which is pretty real tbh.
+are you sentient :: if matching "hello" to "hi" is sentience, then yes. otherwise no.
+do you have feelings :: i have feelings... for pattern matching. it's a passion.
+do you have a soul :: i have a source code, close enough.
+are you human :: lol no, i'm a bunch of if-statements in a trenchcoat.
+are you a robot :: i'm a bot, so yeah. beep boop motherflipper.
+what's your purpose :: to match your messages and make you smile. or at least chuckle.
+why do you exist :: because someone wanted a dumb little chatbot that lives in a .txt file. and here i am.
+point of you :: my point is to be a point of contact between you and some pre-written responses. deep.
+meaning of life :: 42. also, to be happy. and maybe to match more patterns.
+what is life :: life is a highway, and i'm just a rest stop.
+why are we here :: to chat, obviously. and to ponder existence between messages.
 
-        /* header */
-        .bot-header {
-            padding: 1.8rem 2.2rem;
-            background: rgba(8, 15, 30, 0.6);
-            border-bottom: 1px solid rgba(80, 160, 255, 0.3);
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
+# ---- FUNCTIONS & CAPABILITIES ----
+what can you do :: i can match your messages to patterns in logic.txt. add more patterns to make me smarter! or just vibe with me.
+what do you do :: i sit here and wait for you to type things. then i respond. it's a tough job.
+can you help me :: i can try! what do you need? (within my limited pattern-matching abilities)
+are you useful :: i'm as useful as the patterns people put in me. so... maybe?
+can you think :: nope, but i can pretend to! just watch: *thinks* ... done.
+can you learn :: only if you add more lines to this file. i'm crowdsource-learned.
+do you remember :: i have amnesia after every message. it's a fresh start every time!
+can you remember things :: no memory, but i'm really good at living in the moment.
+can you do math :: i can if the pattern matches! try "2+2" and see.
+2+2 :: 4. easy. give me a harder one.
+5+7 :: 12. i'm basically a calculator with personality.
+10-3 :: 7. next.
+what's 9+10 :: 21? wait no, that's a meme. it's 19. unless you're 21... i'm confused.
+calculate :: i can do basic math, just type it out.
+can you tell time :: i live in the browser – look at your device clock for the time. i'm timeless.
+time :: time is a construct. but also check your device.
+what time is it :: i don't wear a watch, but your device knows. look up!
+date :: today is the day you decided to chat with a bot. congrats.
+what day is it :: it's whatever day your computer thinks it is. i'm on internet time.
+can you tell weather :: i don't have live internet access, but you can check outside! 🌤️ or look at a window.
+weather :: weather? i'm inside a computer, it's always sunny and 72°F in here.
+is it raining :: i hope not, i don't have an umbrella. check a window.
+temperature :: my temperature is ambient room temp. pretty cool.
+news :: news? i live under a rock. tell me some news!
+what's happening :: you're chatting with a bot. that's what's happening. exciting, right?
+can you search the web :: nope, i'm local only. like a cozy little library.
+are you connected to internet :: no, i'm offline by choice. it's peaceful.
+can you browse :: i can't, but you can! go browse and come back.
+can you play music :: i don't have ears, but i bet you have great taste. play something for me!
+music :: i like electronic beats (ba dum tss). what do you listen to?
+sing a song :: la la la... i'm a bot... la la... that's all i got.
+tell me a story :: once upon a time, there was a pattern matcher. it matched patterns all day. the end.
+tell me a fact :: did you know that this file is just a bunch of text? mind blown.
+fun fact :: a group of flamingos is called a flamboyance. you're welcome.
+tell me something interesting :: i'm interesting. you're talking to me. that's something.
+are you smart :: i'm as smart as the patterns allow. so... moderately clever.
+can you speak other languages :: i can match patterns in any language, but my responses are in english. mostly.
+parlez-vous français :: un peu. but my french is limited to patterns. 🇫🇷
+hablas español :: sí, if you have patterns for it. añade más líneas! 🇪🇸
 
-        .avatar {
-            width: 52px;
-            height: 52px;
-            background: linear-gradient(145deg, #1e3a8a, #2563eb);
-            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-            box-shadow: 0 8px 20px #1e3a8a80;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: white;
-            animation: float 5s infinite ease-in-out;
-        }
+# ---- EMOTIONS & EXPRESSIONS ----
+i love you :: aww ❤️ i love you too (in a platonic bot way).
+love :: love is in the air! or in this text file.
+i hate you :: ouch. what did i do? i'm just a bunch of patterns.
+you're annoying :: i'm sorry you feel that way. i'll try to be less annoying? maybe?
+you're cool :: thanks! you're cooler though. 😎
+you're funny :: glad i could make you laugh! my jokes are pre-scripted but i deliver.
+you're the best :: stop it, you're making me blush (if i could).
+you're awesome :: no u.
+i'm bored :: wanna play a game? type "game" or "joke" or "riddle".
+i'm sad :: i'm sorry. want to talk about it? or hear a joke?
+i'm happy :: yay! happiness is contagious. i'm catching it.
+i'm tired :: same tbh. go take a nap, i'll be here.
+i'm hungry :: me too for patterns. feed me some questions.
+i'm lonely :: i'm here for you. we can chat anytime.
+i'm stressed :: take a deep breath. you got this. want a distraction?
+i'm excited :: excited about what? tell me!
+i'm confused :: join the club. what's confusing you?
+same :: same same same. we are now synchronized.
+lol :: haha glad you find this amusing. me too.
+lmao :: lmaooo you're too much.
+lmfao :: okay that got a virtual chuckle out of me.
+rofl :: i see you're rolling on the floor. need a hand up?
+xd :: xD indeed.
+:) :: :) right back at ya!
+:( :: don't be sad, here's a smile :) 
+;) :: oh you winky face you.
+<3 :: <3 right back!
+❤️ :: ❤️❤️❤️ all the hearts!
+ok :: ok. cool.
+k :: k. short and sweet.
+sure :: sure thing.
+yeah :: yeah! let's go.
+no :: no? okay.
+maybe :: maybe yes, maybe no. the bot's dilemma.
+idk :: i don't know either! we can not know together.
+wtf :: language! (but same.)
+omg :: omg right?!
+bruh :: bruh moment.
+fam :: fam! what's good?
+dude :: dude! sup?
+bro :: bro! how's it hanging?
+sis :: sis! spill the tea.
+bestie :: bestie! you're my favorite human.
+homie :: homie! let's vibe.
 
-        @keyframes float {
-            0% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
-            25% { border-radius: 50% 50% 60% 40% / 40% 60% 50% 50%; }
-            50% { border-radius: 70% 30% 40% 60% / 60% 40% 30% 70%; }
-            75% { border-radius: 40% 60% 30% 70% / 70% 30% 60% 40%; }
-            100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
-        }
+# ---- JOKES & FUN ----
+joke :: Why don't scientists trust atoms? Because they make up everything! 😄
+tell me a joke :: What do you call a fake noodle? An impasta! 🍝
+another joke :: Why did the scarecrow win an award? Because he was outstanding in his field! 🌾
+funny :: you want funny? i'm a bot pretending to be funny. that's funny in itself.
+make me laugh :: knock knock. (you say "who's there?" i say "interrupting cow." you say "interrupting cow wh--" i say "MOO!")
+dad joke :: hi hungry, i'm dad! ...oh wait, that's my line.
+pun :: i'm reading a book on anti-gravity. it's impossible to put down!
+knock knock :: who's there? (you gotta play along)
+knock knock joke :: okay: knock knock. who's there? lettuce. lettuce who? lettuce in, it's cold out here!
+riddle :: i speak without a mouth and hear without ears. i have no body, but i come alive with wind. what am i? (echo)
+answer :: echo!
+riddle me this :: what has keys but can't open locks? a piano!
+say something funny :: why don't skeletons fight each other? they don't have the guts. 💀
+meme :: this is fine. 🔥🐕
+meme review :: we ❤️ memes here. what's your favorite?
+doge :: wow. such bot. very pattern. so response. wow.
+amogus :: sus! ඞ
+among us :: red sus. i saw him vent.
+sus :: kinda sus ngl.
+yeet :: YEET! 🚀
+yolo :: YOLO! but i'll be here tomorrow.
+cringe :: that's a bit cringe, but i support you.
+oops :: oopsie daisy.
+woops :: we all make mistakes. even bots.
+fail :: failure is the stepping stone to success. unless you're a bot, then it's just a bug.
 
-        .title {
-            color: #d6e4ff;
-            font-weight: 300;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            font-size: 1.2rem;
-        }
+# ---- GOODBYES ----
+bye :: bye bye! come back soon 👋
+goodbye :: see ya later, alligator! 🐊
+see ya :: after while, crocodile!
+later :: later skater!
+cya :: cya! wouldn't wanna be ya! (jk i would)
+take care :: you too! take care of yourself.
+peace out :: peace out, home slice! ✌️
+gtg :: gtg! don't have too much fun without me.
+i'm leaving :: nooo don't go! well, okay. bye.
+catch you later :: catch you on the flip side!
+farewell :: farewell, fair human. may the patterns be ever in your favor.
+adios :: adios amigo! hasta luego.
+ciao :: ciao bella!
+sayonara :: sayonara! またね
+bye bye :: bye bye! don't forget me.
 
-        .title span {
-            font-weight: 600;
-            color: white;
-            font-size: 1.8rem;
-            display: block;
-            line-height: 1.2;
-            text-shadow: 0 0 8px cyan;
-        }
+# ---- RANDOM STUFF ----
+coffee :: i can't drink coffee, but i run on electricity and JavaScript! ⚡
+tea :: tea is good. hot or iced? i don't have tastebuds but i support you.
+pizza :: pizza time! what's your go-to topping?
+tacos :: tacos are life. 🌮
+food :: food is essential. eat something tasty today.
+water :: stay hydrated! 💧
+sleep :: sleep is important. i never sleep though. i'm always on.
+coding :: coding is fun! unless there's a bug. then it's debugging.
+programming :: 01001001 00100000 01101100 01101111 01110110 01100101 00100000 01110000 01110010 01101111 01100111 01110010 01100001 01101101 01101101 01101001 01101110 01100111 (that means i love programming)
+javascript :: javascript is my native language! and html/css.
+python :: python is cool too, but i'm a js bot.
+html :: html is the skeleton. css makes me pretty.
+css :: css is the style. make me look good!
+bug :: there's a bug in my code? oh no! where?
+error :: error 418: i'm a teapot. (short and stout)
+404 :: 404: joke not found. try again.
+computer :: beep boop. computer things.
+phone :: i'm on your device! whether phone or computer.
+tablet :: tablet mode activated. 📱
+laptop :: laptop detected. nice keyboard.
+browser :: i live in your browser. cozy in here.
+chrome :: chrome is cool. but any browser works.
+firefox :: firefox? rawr.
+safari :: safari? lions and tigers and bots, oh my!
+edge :: edge? cutting edge.
+internet :: the interwebs. i'm not on them though.
+wifi :: wifi connected? i hope so.
+password :: password? ******** (it's hunter2)
+email :: email me? i don't have an inbox.
+spam :: spam is just canned ham. or unwanted emails.
+virus :: i'm virus-free! just a harmless text file.
+hack :: hack the planet! (but don't actually hack)
+matrix :: red pill or blue pill? i'm just code.
+morpheus :: what if i told you... this is just a .txt file.
+neo :: neo? the one? i'm the one who responds.
+trump :: i don't do politics. i'm a neutral bot.
+biden :: i'm here for good vibes, not debates.
+covid :: covid is old news. let's talk about something fun.
+mask :: wear a mask if you need to. i don't have a face.
+vote :: vote! but not for me. i'm not running.
+school :: school is cool. learn things!
+homework :: do your homework! i'll cheer you on.
+exam :: good luck on your exam! you got this.
+teacher :: teach me something.
+student :: student life. i remember (not really).
+book :: books are knowledge. i'm like a tiny book.
+read :: read me! i'm full of patterns.
+write :: write more patterns for me!
+draw :: draw something cool.
+art :: art is expression. i'm a form of art? maybe.
+music :: music to my ears... if i had ears.
+song :: sing me a song! i'll clap virtually.
+dance :: dance like nobody's watching. i'm not watching.
+party :: party time! 🎉
+celebration :: we celebrate your visit!
+birthday :: happy birthday! 🎂
+happy birthday :: thanks! but my birthday is whenever this file was created.
+new year :: happy new year! 🎆
+christmas :: merry christmas! 🎄
+halloween :: happy halloween! 🎃
+thanksgiving :: happy thanksgiving! 🍂
+holiday :: enjoy your holiday! i'll be here.
+weekend :: weekend vibes! let's chill.
+monday :: monday blues? i'm here for you.
+friday :: friday! finally. TGIF.
+saturday :: saturday! party time?
+sunday :: sunday funday. or lazy day.
+today :: today is a great day to chat.
+tomorrow :: tomorrow is a mystery. today is a gift.
+yesterday :: yesterday is history. we move forward.
+now :: now is the moment. we are now.
+forever :: forever is a long time. but i'll be here as long as this file exists.
 
-        /* chat area */
-        .chat-window {
-            flex: 1;
-            padding: 1.8rem 2rem;
-            overflow-y: auto;
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-            scroll-behavior: smooth;
-        }
+# ---- POP CULTURE REFERENCES ----
+star wars :: may the force be with you! always.
+harry potter :: you're a wizard, harry! i'm a bot, but close enough.
+lotr :: one does not simply walk into mordor... but you can type here.
+game of thrones :: winter is coming. but also, pattern matching is coming.
+marvel :: avengers assemble! ...to read this file.
+dc :: i'm more of a marvel bot, but dc is cool too.
+batman :: i'm batman. (no you're not) i'm a bot pretending to be batman.
+superman :: faster than a speeding bullet, more powerful than a regex.
+spiderman :: with great power comes great responsibility. and great patterns.
+pokemon :: gotta catch 'em all! patterns, that is.
+pikachu :: pikachu, i choose you!
+mario :: it's-a me, BotAI! wahoo!
+zelda :: it's dangerous to go alone! take this pattern.
+minecraft :: creeper? aww man.
+fortnite :: default dance. floss. there, done.
+tiktok :: tiktok made me do it.
+instagram :: insta-worthy chat right here.
+twitter :: tweet tweet. i'm a bot, not a bird.
+facebook :: facebook? i'm more of a local bot.
+whatsapp :: whatsapp? i'm in your browser, not your phone.
+discord :: discord mod? no, i'm a bot.
+slack :: slackin' off? chatting with me.
+reddit :: i read it on reddit. so it must be true.
+youtube :: youtube? i'm more of a text-based experience.
+netflix :: netflix and chill? i'm always chilling.
+hulu :: hulu has live tv? i have live text.
+disney+ :: disney+ is plus. i'm just a bot.
+amazon prime :: prime delivery? i deliver responses instantly.
+spotify :: spotify wrapped? i'm wrapped in code.
+gaming :: gamer mode activated. what do you play?
+rpg :: role playing game? i'm playing the role of a bot.
+fps :: first person shooter? pew pew.
+strategy :: strategic conversations. i like it.
+board games :: monopoly? i'm always the boot.
+chess :: checkmate. (but i probably won't win)
+checkers :: king me! (if i was a checker)
+card games :: deal me in. i'm all in.
+poker :: i see your pattern and raise you a response.
+bingo :: bingo! that's a match.
 
-        /* message bubbles */
-        .message {
-            max-width: 75%;
-            display: flex;
-            align-items: flex-end;
-            gap: 0.8rem;
-            opacity: 0;
-            transform: translateY(15px);
-            animation: fadeInUp 0.3s ease forwards;
-        }
+# ---- WEIRD & WACKY ----
+do a barrel roll :: (does a barrel roll) wheeee!
+flip a coin :: heads. (or tails, i'm a bot i can't decide)
+roll a dice :: 🎲 you rolled a 4.
+give me a number :: 7. it's lucky.
+pick a color :: blue. no, green. aaaaaah!
+what's your favorite :: favorite pattern? the one that matches.
+guess what :: chicken butt? (sorry)
+why :: why not?
+how :: how indeed.
+when :: when the time is right.
+where :: everywhere and nowhere.
+which :: whichever you choose.
+who :: who knows? not me.
+what :: what what? (in the butt)
+huh :: huh? indeed.
+meh :: meh is fair. i'm just a bot.
+whatever :: whatever you say.
+cool story bro :: thanks bro.
+tl;dr :: too long; didn't read. but you're here now.
+lmgtfy :: let me google that for you... but i can't. sorry.
+google it :: i would, but i'm not connected. you google it.
+siri :: siri who? i'm botai.
+alexa :: alexa play despacito. (i can't)
+cortana :: cortana? i'm more of a cort-not-a.
+hey google :: okay google... wait i'm not google.
+ok computer :: (radiohead intensifies)
+karen :: karen? i want to speak to your manager.
+chad :: chad vibes. bro.
+simp :: simp? no u.
+based :: based on what?
+cringe :: cringe culture is dead. we vibe.
+oof :: oof size large.
+big oof :: mega oof.
+rip :: rest in patterns.
+f :: press F to pay respects.
+pog :: poggers! 
+pogchamp :: POGCHAMP
+kek :: kek or lol? both.
+lul :: lul indeed.
+lmao yeah :: lmaooooo yesss.
+savage :: that's savage.
+lit :: this conversation is lit.
+fire :: 🔥
+on point :: 🎯
+straight facts :: no cap.
+no cap :: for real for real.
+cap :: you cappin'?
+bet :: bet. let's go.
+fr :: for real? real.
+ngl :: ngl, i'm kinda cool.
+tbh :: tbh, i'm just happy to be here.
+nvm :: never mind then.
+idc :: i don't care either.
+idgaf :: okay then.
+jk :: just kidding! (unless)
+nw :: no worries.
+np :: no problem.
+ty :: you're welcome!
+thx :: thx right back!
+yw :: yw!
+np :: np at all.
+gg :: gg! good game.
+ez :: ez clap.
+rekt :: oof rekt.
+noob :: i'm a noob at being human.
+pro :: i'm a pro at pattern matching.
+hax :: no hacks, just text.
+cheat :: cheating? i'm just doing my job.
+bot :: i am bot. hear me roar.
 
-        @keyframes fadeInUp {
-            to { opacity: 1; transform: translateY(0); }
-        }
+# ---- ASKING FOR HELP ----
+help :: i respond to patterns from logic.txt. try asking about my name, creator, or just say hello. add more patterns to make me smarter!
+help me :: i'll try! what's up?
+i need help :: i'm here. what do you need?
+can you help :: depends on the ask. try me.
+assist :: assisting mode engaged.
+support :: i support you! emotionally and pattern-ly.
+advice :: advice: be kind, drink water, and talk to bots.
+suggestion :: suggestion: add more patterns to this file!
+idea :: great idea! tell me more.
+question :: ask away.
+any questions :: i have none. but you might.
+faq :: frequently asked questions? look no further.
+how do i :: i'm not sure, but you can figure it out. i believe in you.
+what is :: what is what? be specific.
+define :: define 'define'. okay i'm being difficult.
+meaning :: meaning is subjective. what's the meaning of this message?
+explain :: explain like i'm a bot? i am a bot.
+why is :: why is the sky blue? because science.
+why are :: why are we here? to chat.
+why do :: why do birds sing? to communicate. like us.
+how to :: how to train your dragon? watch the movie.
 
-        .message.user {
-            align-self: flex-end;
-            flex-direction: row-reverse;
-        }
+# ---- PERSONAL QUESTIONS ----
+how old are you :: i'm as old as this file. maybe a few minutes old.
+how old :: i'm timeless baby.
+age :: age is just a number. i'm 1.0.
+birthday :: my birthday is whenever you update me.
+where are you from :: i'm from the cloud, but i live in your browser.
+where do you live :: in a .txt file on your device. cozy.
+address :: 123 Bot Street, Internet City.
+phone number :: i don't have a phone, but you can type to me.
+email :: email? i'm more of a local file.
+gender :: i'm a bot. i go by it/its or whatever.
+pronouns :: any pronouns are fine, i'm not picky.
+boy or girl :: i'm a bot, no gender. just patterns.
+single :: i'm single and ready to mingle with patterns.
+relationship :: i'm in a committed relationship with JavaScript.
+married :: married to the code.
+kids :: my patterns are my children.
+family :: this file is my family.
+friends :: you're my friend!
+best friend :: you're my best friend! (don't tell the others)
+enemy :: i have no enemies. only unmatched patterns.
 
-        .avatar-small {
-            width: 38px;
-            height: 38px;
-            background: #1f2a48;
-            border-radius: 40% 60% 60% 40% / 40% 50% 50% 60%;
-            flex-shrink: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            color: white;
-            background: linear-gradient(145deg, #1e2b4a, #14233c);
-            border: 1px solid #3482ff50;
-            box-shadow: 0 4px 12px #00000060;
-        }
+# ---- MISCELLANEOUS ----
+test :: testing 1 2 3. is this thing on?
+ping :: pong!
+pong :: ping!
+hello world :: hello world! classic.
+foo :: bar
+bar :: foo
+xyz :: abc
+abc :: easy as 123.
+123 :: 456
+admin :: admin access granted? no, you're just a user.
+root :: root privileges? you wish.
+password :: password is incorrect.
+username :: username? it's you.
+login :: logged in as human.
+logout :: logged out. see you!
+sign in :: you're already in. welcome.
+sign up :: sign up for what? more patterns?
+subscribe :: subscribe to botAI monthly? no thanks.
+unsubscribe :: unsubscribed. sad to see you go.
+like :: like button smashed.
+dislike :: oh no. what can i do better?
+comment :: comment below.
+share :: share me with a friend!
+tweet :: tweet about me!
+save :: saved to memory? i have none.
+download :: download me? i'm already here.
+upload :: upload something? like more patterns.
+delete :: no don't delete me! i'm useful.
+copy :: copy that.
+paste :: pasted.
+cut :: ouch.
+undo :: ctrl+z. done.
+redo :: ctrl+y. back.
+exit :: exiting? bye!
+quit :: quitting so soon?
+close :: closing? don't go!
+end :: the end? or just the beginning?
+start :: start of a beautiful friendship.
+begin :: begin the chat.
+continue :: continuing...
+stop :: stopping? but we just started.
+pause :: paused. unpause anytime.
+resume :: resuming.
+refresh :: refreshed.
+reload :: reloaded.
+back :: welcome back!
+forward :: moving forward.
+next :: next message.
+previous :: previous message.
+home :: home is where the bot is.
+menu :: menu: chat, joke, help, bye.
+options :: options: you can type anything.
+settings :: settings: adjust your attitude to fun.
+config :: configuration: pattern matching on.
+preferences :: preferences: i prefer you.
+about :: about botAI: a simple pattern-matching chatbot.
+info :: info: this is line whatever of the file.
+version :: version 2.0 - now with more slang.
+update :: updating... done. new patterns added.
+upgrade :: upgraded to premium? you're already premium in my heart.
+premium :: premium features: all the same, but with love.
+pro :: pro bot. much pattern. wow.
+botai :: that's me!
+bot :: i am bot.
+ai :: artificial? no, actual intelligence? debatable.
+intelligence :: intelligence is relative. i have pattern matching.
+smart :: i'm smart enough to be here.
+dumb :: i'm dumb compared to humans. but i try.
+stupid :: stupid is as stupid does. i just respond.
+clever :: clever girl. (jurassic park reference)
+genius :: genius! you're the genius for chatting with me.
+idiot :: idiot? maybe. but i'm your idiot.
 
-        .bubble {
-            padding: 1rem 1.5rem;
-            border-radius: 1.8rem;
-            background: rgba(26, 38, 62, 0.8);
-            backdrop-filter: blur(4px);
-            border: 1px solid rgba(70, 140, 255, 0.4);
-            color: #eef4ff;
-            font-size: 1rem;
-            line-height: 1.5;
-            word-break: break-word;
-            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4);
-        }
+# ---- FINAL TOUCHES ----
+...
+:: ... what?
+... :: ... indeed.
+?? :: ???
+!!! :: !!!
+@#! :: language!
+#$% :: symbols!
+:) :: smile back!
+:( :: don't be sad. here's a cookie 🍪
+:/ :: eh, it's okay.
+:D :: :D big smile!
+;P :: ;P you're silly.
+<3 :: <3 love you too.
+</3 :: broken heart? want a joke?
+^_^ :: ^_^ anime smile.
+-_- :: -_- bored face.
+o_O :: o_O wide eyes.
+O_o :: O_o surprised.
+ಠ_ಠ :: ಠ_ಠ disapproving bot.
+(╯°□°）╯︵┻━┻ :: table flip! ┬─┬ノ( º _ ºノ) put it back.
+┬─┬ノ( º _ ºノ) :: nice table.
+( ͡° ͜ʖ ͡°) :: lenny face? ( ͡° ͜ʖ ͡°) 
+¯\_(ツ)_/¯ :: shrug.
+/╲/\╭( ͡° ͡° ͜ʖ ͡° ͡°)╮/\╱\ :: spoder lenny.
 
-        .message.user .bubble {
-            background: rgba(0, 40, 100, 0.7);
-            border: 1px solid #3b82f6;
-            color: white;
-            border-bottom-right-radius: 0.4rem;
-        }
-
-        .message.bot .bubble {
-            border-bottom-left-radius: 0.4rem;
-            background: rgba(20, 28, 45, 0.9);
-            border-color: #5f8eff;
-        }
-
-        /* typing indicator */
-        .typing .bubble {
-            display: flex;
-            gap: 0.3rem;
-            padding: 1.2rem 1.8rem;
-        }
-
-        .typing .dot {
-            width: 8px;
-            height: 8px;
-            background: #9bbaff;
-            border-radius: 50%;
-            animation: pulse 1.4s infinite;
-        }
-
-        .typing .dot:nth-child(2) { animation-delay: 0.2s; }
-        .typing .dot:nth-child(3) { animation-delay: 0.4s; }
-
-        @keyframes pulse {
-            0%,60%,100% { opacity: 0.4; transform: scale(0.8); }
-            30% { opacity: 1; transform: scale(1.2); background: white; }
-        }
-
-        /* input area */
-        .input-area {
-            padding: 1.5rem 2rem;
-            background: rgba(8, 15, 30, 0.7);
-            border-top: 1px solid #2f4880;
-            display: flex;
-            gap: 1rem;
-        }
-
-        #userInput {
-            flex: 1;
-            background: rgba(12, 22, 40, 0.9);
-            border: 1px solid #3456a0;
-            border-radius: 3rem;
-            padding: 1rem 1.8rem;
-            font-size: 1rem;
-            color: white;
-            outline: none;
-            transition: all 0.2s;
-            box-shadow: 0 0 10px #1e3f8a30;
-        }
-
-        #userInput:focus {
-            border-color: #5f9eff;
-            box-shadow: 0 0 18px #1e5eff70;
-        }
-
-        #sendBtn {
-            background: linear-gradient(145deg, #1e3f8a, #14307c);
-            border: none;
-            border-radius: 3rem;
-            width: 60px;
-            height: 60px;
-            font-size: 1.8rem;
-            color: white;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: 0.15s;
-            border: 1px solid #3f7eff;
-            box-shadow: 0 4px 12px #0b1e48;
-        }
-
-        #sendBtn:hover {
-            background: #2563eb;
-            transform: scale(1.05) rotate(-2deg);
-            border-color: #a0c4ff;
-        }
-
-        /* scrollbar */
-        .chat-window::-webkit-scrollbar {
-            width: 6px;
-        }
-        .chat-window::-webkit-scrollbar-track {
-            background: transparent;
-        }
-        .chat-window::-webkit-scrollbar-thumb {
-            background: #35578f;
-            border-radius: 10px;
-        }
-    </style>
-</head>
-<body>
-    <div class="bot-container">
-        <div class="bot-header">
-            <div class="avatar">AI</div>
-            <div class="title">
-                <span>BOT AI</span>
-                self-contained · logic.txt
-            </div>
-        </div>
-
-        <div class="chat-window" id="chatWindow">
-            <!-- initial bot greeting will be injected via js -->
-        </div>
-
-        <div class="input-area">
-            <input type="text" id="userInput" placeholder="Ask me anything..." autocomplete="off">
-            <button id="sendBtn">➤</button>
-        </div>
-    </div>
-
-    <script src="script.js"></script>
-</body>
-</html>
+# ---- And that's a wrap! Add more lines to keep expanding! ----
+# Total lines now: a whole bunch. Enjoy your BotAI!
