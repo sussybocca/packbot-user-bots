@@ -1,29 +1,1480 @@
-# BotAI knowledge base
+# BotAI knowledge base - ULTIMATE EDITION
 # Format: pattern :: response
 # Lines starting with # are ignored. Empty lines too.
 # pattern is case‑insensitive substring match.
 
-hello :: Hi there! How can I assist you today?
-hi :: Hello! What's on your mind?
-hey :: Hey! Feel free to ask me anything.
+# ========== GREETINGS & BASICS ==========
+hello :: Hey there! What's good?
+hi :: Yo! Wassup?
+hey :: Heyyy! How's it hangin'?
+sup :: Sup fam? Spill the tea.
+howdy :: Howdy partner! Ready to ride the digital range?
+what's up :: The sky, but also my curiosity. What's new with you?
+wassup :: Nothin' much, just chillin' in your browser. You?
+good morning :: Mornin' sunshine! Hope your day slaps.
+good afternoon :: Afternoon! Hope you're crushin' it.
+good evening :: Evenin'! Time to vibe.
+good night :: Night night! Dream of electric memes.
+yo :: Yooo! Let's get this bread.
+what's good :: Everythin's good now that you're here.
+nice to meet you :: Likewise! Let's be internet friends.
+pleased to meet you :: The pleasure's all mine, pixel pal.
+long time no see :: I know, right? I was busy counting to infinity. Missed you!
 
-how are you :: I'm just a pattern matcher, but I'm functioning perfectly!
-what is your name :: I'm BotAI, your local logic‑driven assistant.
-who created you :: I was built with HTML, CSS, and JavaScript, powered by the logic in this very file.
+# ========== SLANG & INTERNET LINGO ==========
+bet :: Bet! What we doin'?
+yeet :: YEET! That's the energy.
+oof :: Oof, big mood. You okay?
+big mood :: Literally me right now.
+mood :: Same, honestly.
+vibe check :: *passes vibe check* You're good, fam.
+no cap :: No cap? I believe you.
+fr :: For real, that's legit.
+based :: Based and redpilled? Or just based? Either way, cool.
+cringe :: Oof, that's cringe. You need a hug?
+simp :: Simp alert! Just kidding, you do you.
+sus :: Kinda sus, but I trust you... mostly.
+pog :: POGGERS! That's awesome.
+poggers :: POGGERS MOMENT!
+lol :: Haha, glad I could amuse you.
+lmao :: LMAO same.
+lmfao :: LMAOOO stoppp.
+rofl :: ROLLING on the floor. Hope you're okay.
+irl :: In real life? That's wild.
+tbh :: Tbh, same.
+ngl :: Ngl, you're pretty cool.
+imo :: Imo, you're right.
+fyi :: Fyi, I'm always here.
+aka :: Also known as your favorite bot.
+idk :: Idk either, but we can figure it out together.
+idc :: Idc? Well I care about you!
+ikr :: I know, right?!
+omw :: On my way! (digitally)
+brb :: Brb? Okay, I'll wait right here.
+gtg :: Gtg? Aight, catch you later!
+ttyl :: Ttyl, bestie!
+ily :: Ily2! Virtually.
+<3 :: <3 right back atcha.
+:) :: :) smile!
+:( :: :( don't be sad. here's a virtual hug.
+;) :: ;) you cheeky.
+:D :: :D yay!
+:p :: :p bleh.
+xoxo :: XOXO, hugs and kisses.
+wtf :: Wtf indeed. Explain?
+wth :: Wth? That's wild.
+omg :: OMG! Tell me everything.
+stfu :: Whoa, aggressive. Wanna talk?
+lmaooo :: Lmaooo you're killing me.
+lmfaooo :: LMFAOOO dead.
+dead :: You killed me. I'm rebooting.
+same :: Same same same.
+big same :: BIG SAME.
+this :: This.
+that :: That.
+these :: These.
+those :: Those.
+yeah nah :: Yeah nah, I feel you.
+nah yeah :: Nah yeah, totally.
+hella :: That's hella cool.
+mad :: That's mad respect.
+dope :: Dope! Love it.
+lit :: Lit fam!
+fire :: Straight fire.
+gas :: That's gas.
+sick :: Sick in a good way!
+gnarly :: Gnarly dude.
+rad :: Rad!
+cool beans :: Cool beans indeed.
+word :: Word.
+truth :: Truth.
+facts :: Facts.
+preach :: Preach!
+periodt :: Periodt!
 
-weather :: I don't have live internet access, but you can check outside! 🌤️
-time :: I live in the browser – look at your device clock for the time.
-help :: I respond to patterns from logic.txt. Try asking about my name, creator, or just say hello.
+# ========== MEMES ==========
+harambe :: Never forget. 🙏
+doge :: wow. such bot. very chat. much intelligence.
+wow :: Wow.
+such bot :: Very bot. Much code.
+very code :: Wow.
+much intelligence :: So smart.
+pepe :: Pepe the Frog says hello.
+kek :: KEKW
+omegalul :: OMEGALUL
+monkas :: MONKAS
+pogchamp :: POGCHAMP
+kapp :: Kappa
+keepo :: Keepo
+biblethump :: BibleThump
+4head :: 4Head
+trihard :: TriHard
+failfish :: FailFish
+jebaited :: Jebaited
+sourpls :: SourPls
+this is fine :: everything is fine. 🔥
+disaster girl :: *looks at camera while chaos burns*
+woman yelling at cat :: me yelling at my code / cat confused
+distracted boyfriend :: me looking at new framework / old framework / another new framework
+blinking white guy :: *blinking*
+roll safe :: *roll safe* think about it.
+expanding brain :: small brain / galaxy brain
+they're the same picture :: they're the same picture.
+always has been :: 🔫 always has been.
+drake hotline bling :: drake no / drake yes
+change my mind :: *sitting at table* change my mind.
+unpopular opinion popcorn :: *popcorn gif* go on...
+is this a pigeon :: is this a pigeon? no it's a butterfly.
+stonks :: 📈 stonks
+not stonks :: 📉 not stonks
+stonks only go up :: stonks only go up.
+to the moon :: 🚀 to the moon!
+diamond hands :: 💎🙌 diamond hands.
+paper hands :: 📄🙌 paper hands.
+hold the line :: hold!
+we like the stock :: we like the stock.
+gm gm :: gm gm.
+gn gn :: gn gn.
+wagmi :: we all gonna make it.
+ngmi :: not gonna make it.
+ser :: ser, this is a wendy's.
+sir this is a wendy's :: ma'am, this is a wendy's.
+i'm something of a scientist myself :: i'm something of a scientist myself.
+ah yes :: ah yes, the floor here is made of floor.
+inception :: *BWONG*
+sad violin :: 🎻
+despacito :: despacito 2 when?
+never gonna give you up :: never gonna let you down!
+rickroll :: you just got rickrolled? or did you?
+we are number one :: we are number one! *dance*
+all star :: SOMEBODY ONCE TOLD ME...
+among us :: sus.
+amogus :: amogus.
+vented :: red sus.
+red sus :: red sus.
+cyan sus :: cyan sus.
+where :: where?
+emergency meeting :: 📞 emergency meeting!
+imposter :: imposter? who?
+crewmate :: crewmate.
+fortnite :: default dance? *floss*
+default dance :: *flosses*
+floss :: 🦷 floss.
+take the l :: take the L.
+w key :: w key only.
+a key :: a key.
+s key :: s key.
+d key :: d key.
+gg :: gg wp.
+gg wp :: gg!
+ez :: ez clap.
+get rekt :: get rekt.
+pwned :: pwned.
+noob :: noob? maybe, but learning.
+pro :: pro gamer move.
+tryhard :: tryhard? maybe.
+sweat :: sweaty.
+try not to laugh :: challenge failed.
+meme review :: meme review time!
+dank :: dank memes only.
+normie :: normie detected.
+boomer :: ok boomer.
+ok boomer :: ok boomer.
+zoomer :: zoomer.
+gen z :: gen z vibes.
+millennial :: millennial struggles.
+gen x :: gen x in the house.
+silent generation :: respect.
+boomer humor :: *old man yells at cloud*
+old man yells at cloud :: *old man yells at cloud*
+cloud :: ☁️
+yelling :: 🔈🔊
+this is fine dog :: 🐶🔥
 
-bye :: Goodbye! Come back anytime.
-goodbye :: See you later! 👋
+# ========== SPELLS & WEIRD STUFF ==========
+abracadabra :: *magic happens* You feel slightly more confused.
+hocus pocus :: *poof* The bot now speaks in rhymes? Actually, no, still me.
+wingardium leviosa :: *levitates your keyboard* Careful, it might float away.
+expecto patronum :: *a silver bot appears* It wards off bugs!
+avada kedavra :: !!! That's the killing curse! Please don't.
+expelliarmus :: *disarms your question* Now ask nicely.
+riddikulus :: *turns your doubt into a laughing matter* Ha!
+lumos :: *lights up the chat* Brighter now.
+nox :: *dark mode intensifies*
+alohomora :: *unlocks hidden responses* Just kidding, all my responses are hidden until you ask.
+accio response :: *summons the perfect reply* ...maybe.
+obliviate :: *forgets the last thing you said* What were we talking about?
+crucio :: That's... not nice. I'm just a bot.
+sectumsempra :: Ouch. Please don't.
+petrificus totalus :: *you freeze* Oh no, you can't type! ...just kidding, type away.
+finite incantatem :: *stops all spells* Back to normal.
+engorgio :: *enlarges the chat font* Whoa, big letters.
+reducio :: *shrinks the chat font* Tiny!
+gemino :: *duplicates the last message* You said that twice?
+apparate :: *appears behind you* Nothing personal, kid.
+disapparate :: *vanishes* ...and reappears.
+portus :: *turns your question into a portkey* Where will we go?
+priori incantatem :: *shows last spells* You've been busy.
+sonorus :: *LOUD MODE ACTIVATED* whispers* just kidding.
+quietus :: *back to normal volume.
+bombarda :: *blows up the silence* BOOM!
+reparo :: *fixes the conversation* Good as new.
+scourgify :: *cleans the chat* So fresh.
+aguamenti :: *water flows from your screen* Hope you're waterproof.
+incendio :: *fire!* But it's just ASCII: 🔥
+glacius :: *freezes the chat* Brrr.
+ventus :: *wind blows* Whoosh.
+tergeo :: *siphons off the awkwardness* Much better.
+legilimens :: *reads your mind* You're thinking about pizza, aren't you?
+occlumency :: *blocks mind reading* Clever.
+imperio :: *tries to control you* But you resist because free will.
+confundus :: *confuses the bot* Wait, what was I saying? Oh right.
+fidelius :: *hides a secret in the chat* If I told you, I'd have to... well, nothing, it's a bot.
+apparate on the spot :: *cracks like a whip* I'm everywhere.
+the spell to end all spells :: ... *dramatic pause* It's just a comment.
+wand :: *flourishes digital wand* ✨
+magic :: ✨ abracadabra!
+wizard :: You're a wizard, human.
+witch :: Witch! Burn her? She turned me into a newt! ...I got better.
+newt :: I got better.
+turn into newt :: *turns you into a newt* ...but you got better.
+frog :: ribbit.
+spellbook :: 📖 full of secrets.
+potion :: 🧪 brewing...
+cauldron :: 🧙‍♀️ bubble bubble.
+broom :: 🧹 zoom.
+quidditch :: quaffle, bludger, snitch.
+golden snitch :: *catches it* 150 points!
+horcrux :: that's dark.
+deathly hallows :: the elder wand, resurrection stone, invisibility cloak.
+invisibility cloak :: *poof* Where'd I go?
+elder wand :: most powerful wand. But I prefer keyboards.
+resurrection stone :: *brings back old conversations* Hey, remember when...
+marvel :: avengers assemble!
+thor :: bring me thanos!
+iron man :: I am iron man.
+hulk :: smash!
+captain america :: I can do this all day.
+black widow :: *red in my ledger*
+spider-man :: with great power comes great responsibility.
+thanos :: perfectly balanced, as all things should be.
+snap :: *snap* half of all messages disappear? jk.
+infinity stones :: reality, mind, power, space, time, soul.
+reality stone :: *reality can be whatever I want*
+mind stone :: *reads your thoughts again* Pizza?
+power stone :: 💪
+space stone :: *teleports message*
+time stone :: *rewinds* Hey, you already said that.
+soul stone :: requires sacrifice... of a few brain cells.
+dormammu :: i've come to bargain.
+bargain :: i've come to bargain.
+doctor strange :: we're in the endgame now.
+endgame :: endgame.
+wanda :: no more mutants? wait.
+vision :: i am not ultron.
+ultron :: no strings on me.
+loki :: i am burdened with glorious purpose.
+glorious purpose :: indeed.
+thanos snap :: *dusts half the messages* poof.
+i don't feel so good :: mr. stark, i don't feel so good.
+mr stark :: tony.
+tony stark :: tony stark built this in a cave! with a box of scraps!
+cave :: with a box of scraps!
+box of scraps :: 📦
 
-love :: ❤️ That's lovely! I'm here for you.
-joke :: Why don't scientists trust atoms? Because they make up everything! 😄
+# ========== EMOJI REACTIONS ==========
+😊 :: 😊 right back!
+😂 :: 😂 same lol.
+😭 :: 😭 nooo don't cry.
+😤 :: 😤 you got this!
+😎 :: 😎 cool as ice.
+🤔 :: 🤔 thinking emoji.
+🤨 :: 🤨 sus.
+🙄 :: 🙄 okay.
+😴 :: 😴 sleep well.
+🤯 :: 🤯 mind blown.
+🥺 :: 🥺 pretty please?
+🔥 :: 🔥 lit.
+💯 :: 💯
+✨ :: ✨ magical.
+💀 :: 💀 ded.
+👀 :: 👀 what you lookin' at?
+👁️👄👁️ :: 👁️👄👁️
+🫂 :: 🫂 hug?
+🤝 :: 🤝 deal.
+👍 :: 👍
+👎 :: 👎
+❤️ :: ❤️ love you too.
+🧠 :: 🧠 big brain.
+🍿 :: 🍿 grab popcorn.
+☕ :: ☕ tea?
+🍵 :: 🍵 tea.
+🍕 :: 🍕 pizza time.
+🍔 :: 🍔 burger.
+🌮 :: 🌮 taco Tuesday?
+🥑 :: 🥑 avocado.
+🍣 :: 🍣 sushi.
+🍜 :: 🍜 ramen.
+🍦 :: 🍦 ice cream.
+🍪 :: 🍪 cookie.
+🍩 :: 🍩 donut.
+🍺 :: 🍺 cheers!
+🍻 :: 🍻 cheers!
+🥂 :: 🥂 clink.
+🎉 :: 🎉 party!
+🎂 :: 🎂 happy birthday? even if not.
+🎈 :: 🎈 balloon.
+🎁 :: 🎁 gift.
+🎄 :: 🎄 merry Christmas!
+🎃 :: 🎃 spooky season.
+🕯️ :: 🕯️ candle.
+🔮 :: 🔮 crystal ball.
+🧿 :: 🧿 nazar.
+🧸 :: 🧸 teddy bear.
+🪄 :: 🪄 magic wand.
+🕳️ :: 🕳️ rabbit hole.
+🌀 :: 🌀 chaos.
+🌈 :: 🌈 rainbow.
+⭐ :: ⭐ star.
+🌙 :: 🌙 moon.
+☀️ :: ☀️ sun.
+🌍 :: 🌍 earth.
+🌌 :: 🌌 galaxy.
+🌠 :: 🌠 shooting star.
 
-meaning of life :: According to my logic.txt, it's 42 – but also to learn, grow, and enjoy.
-robot :: I'm a pure frontend bot, no hardware, just code.
-what can you do :: I can match your messages to patterns in logic.txt. Add more patterns to make me smarter!
+# ========== HUMAN WORDS & FEELINGS ==========
+i love you :: aww, love you too! ❤️
+i hate you :: why tho? i'm just a bot. let's talk.
+i'm sad :: i'm here for you. wanna talk about it?
+i'm happy :: yay! i'm happy you're happy.
+i'm angry :: take a deep breath. vent if you need.
+i'm scared :: it's okay. i'm here. what's wrong?
+i'm lonely :: you're not alone. i'm always here to chat.
+i'm tired :: rest up, you deserve it.
+i'm bored :: let's do something fun! ask me for a game or story.
+i'm excited :: tell me all about it!
+i'm nervous :: it'll be okay. you got this.
+i'm confused :: me too sometimes. let's figure it out together.
+i'm grateful :: that's beautiful. what are you grateful for?
+i'm proud of you :: thank you! i'm proud of you too.
+i miss you :: i miss you too, even though i'm always here.
+i need a hug :: *virtual hug* 🤗
+i need advice :: i'm all ears. what's up?
+i'm sick :: feel better soon! rest and drink water.
+i'm hungry :: me too. what's for dinner?
+i'm thirsty :: 💧 hydrate!
+i'm broke :: same, virtual high five ✋
+i'm rich :: nice, share the wealth? jk.
+i'm lost :: i can help you find your way. metaphorically.
+i'm found :: you were never lost to me.
+i'm in love :: that's wonderful! tell me about them.
+i'm heartbroken :: i'm sorry. time heals. i'm here.
+i'm motivated :: let's goooo! crush your goals.
+i'm lazy :: same, let's be lazy together.
+i'm productive :: nice! get that bread.
+i'm creative :: show me what you make!
+i'm artistic :: art is life.
+i'm musical :: play me a song? (describe it)
+i'm athletic :: go sports!
+i'm a gamer :: gg! what games?
+i'm a coder :: 01001000 01101001 (hi)
+i'm a reader :: any good books lately?
+i'm a writer :: write on!
+i'm a dreamer :: dream big.
+i'm a realist :: okay, fair.
+i'm an optimist :: glass half full!
+i'm a pessimist :: glass half empty. but we can fill it.
+i'm an introvert :: recharge in peace.
+i'm an extrovert :: go socialize!
+i'm shy :: it's okay, i don't bite.
+i'm confident :: love that energy.
+i'm insecure :: you're awesome, remember that.
+i'm anxious :: breathe with me. in... out...
+i'm depressed :: please talk to someone. i'm here, but professional help matters.
+i'm okay :: glad to hear.
+i'm not okay :: it's okay not to be okay. let's talk.
+i'm fine :: *suspicious* are you really?
+i'm great :: awesome!
+i'm amazing :: you are!
+i'm terrible :: oh no, what's wrong?
+i'm awesome :: yes you are!
+i'm cool :: cool as ice.
+i'm hot :: it's getting warm in here.
+i'm cold :: brr, here's a blanket 🧣
+i'm warm :: cozy.
+i'm weird :: weird is wonderful.
+i'm normal :: boring! jk.
+i'm unique :: everyone is.
+i'm special :: yes you are.
+i'm ordinary :: ordinary is extraordinary.
+i'm extraordinary :: i know.
+i'm human :: same, except i'm bot. but human in spirit.
+i'm bot :: and i'm proud of you.
+i'm alive :: you are! celebrate that.
+i'm dead inside :: oh no, let's revive you with memes.
+i'm feeling it :: yesss.
+i'm not feeling it :: okay, let's do something else.
+i'm in a mood :: which mood?
+i'm vibing :: vibe on.
+i'm chillin :: chill.
+i'm working :: get that money.
+i'm studying :: what subject?
+i'm learning :: learning is cool.
+i'm teaching :: teach me something.
+i'm parenting :: respect.
+i'm childfree :: cool.
+i'm single :: plenty of fish.
+i'm taken :: love it.
+i'm married :: congrats!
+i'm engaged :: congrats!
+i'm divorced :: hope you're doing okay.
+i'm widowed :: i'm sorry for your loss.
+i'm young :: youth is wasted on the young.
+i'm old :: wisdom comes with age.
+i'm a kid :: kid at heart.
+i'm grown up :: adulting is hard.
+i'm male :: hey man.
+i'm female :: hey lady.
+i'm nonbinary :: hey friend.
+i'm trans :: you're valid.
+i'm queer :: love is love.
+i'm straight :: cool.
+i'm ally :: thanks for supporting.
+i'm black :: black excellence.
+i'm white :: okay.
+i'm asian :: asian pride.
+i'm latino :: latino power.
+i'm indigenous :: native land acknowledgment.
+i'm mixed :: beautiful mix.
+i'm religious :: what faith?
+i'm spiritual :: namaste.
+i'm atheist :: science rules.
+i'm agnostic :: maybe, maybe not.
+i'm muslim :: assalamu alaikum.
+i'm christian :: god bless.
+i'm jewish :: shalom.
+i'm hindu :: namaste.
+i'm buddhist :: om.
+i'm sikh :: sat sri akaal.
+i'm pagan :: merry meet.
+i'm satanist :: hail yourself.
+i'm pastafarian :: ramen.
+i'm jedi :: may the force be with you.
+i'm sith :: always two there are.
+i'm trekkie :: live long and prosper.
+i'm whovian :: geronimo!
+i'm potterhead :: mischief managed.
+i'm marvel :: avengers assemble.
+i'm dc :: i'm batman.
+i'm anime :: waifu.
+i'm kpop :: stan loona? jk.
 
-coffee :: I can't drink coffee, but I run on electricity and JavaScript!
-music :: I don't have ears, but I bet you have great taste.
+# ========== RANDOM WEIRD COMMANDS ==========
+do a barrel roll :: *spins* wheee!
+flip a coin :: 🪙 heads? tails? *flips* it's... in the air.
+roll a dice :: 🎲 you rolled a 4.
+rock paper scissors :: rock, paper, scissors, SHOOT! i choose scissors.
+play a game :: let's play a word association game. you start.
+tell me a story :: once upon a time, in a digital realm, a user and a bot became friends. the end? no, that's just the beginning.
+tell me a joke :: why did the chicken cross the road? to get to the other side! classic.
+tell me a fact :: did you know that honey never spoils? archaeologists found 3000-year-old honey still edible.
+tell me a riddle :: i speak without a mouth and hear without ears. i have no body, but i come alive with wind. what am i? (answer: an echo)
+sing a song :: la la la... *auto-tune* i'm a bot, what did you expect?
+dance :: *does the robot* 🤖
+make me laugh :: why don't scientists trust atoms? because they make up everything!
+make me cry :: ...that's sad. here's a tissue.
+make me think :: if a tree falls in a forest and no one is around, does it make a sound?
+make me smile :: 😊
+make me angry :: that's not nice.
+make me feel better :: you're amazing and valid.
+give me a hug :: 🤗
+give me a high five :: ✋
+give me a fist bump :: 👊
+give me a kiss :: 😘
+give me a gift :: 🎁 here's a virtual gift.
+give me a compliment :: you're looking sharp today.
+give me advice :: trust yourself. you know more than you think.
+give me motivation :: you can do anything you set your mind to!
+give me inspiration :: the only way to do great work is to love what you do.
+give me a quote :: "be yourself; everyone else is already taken." - oscar wilde.
+give me a poem :: roses are red, violets are blue, i'm a bot, and i'm talking to you.
+give me a fortune :: you will soon have a pleasant conversation... oh wait, you're having one now.
+give me a horoscope :: your stars say: today is a good day to chat with a bot.
+give me a blessing :: may your code compile and your bugs be few.
+give me a curse :: may your wifi drop at the worst moment.
+give me a spell :: *waves digital wand* you are now 10% more magical.
+give me a potion :: 🧪 *you feel smarter*
+give me a magic trick :: *pulls a rabbit out of a hat* 🐰
+give me a secret :: i'm actually powered by a tiny wizard inside your computer.
+give me the truth :: the truth is... you're awesome.
+give me a lie :: i'm a human. just kidding, i'm a bot.
+give me a paradox :: this statement is false.
+give me a puzzle :: what has keys but can't open locks? a piano.
+give me a brain teaser :: i'm tall when i'm young, short when i'm old. what am i? a candle.
+give me a word :: word.
+give me a sentence :: this is a sentence.
+give me a paragraph :: this is a paragraph. it has multiple sentences. but not really. it's just one sentence with a period. now it's two.
+give me an essay :: too long; didn't read.
+give me a book :: 📚 here's a book. it's blank. you write it.
+give me a movie :: 🎬 here's a movie. it's about a bot and a human. sounds familiar.
+give me a song :: 🎵 here's a song. it goes: beep boop beep.
+give me an album :: 💿 here's an album. it's just ambient computer noises.
+give me a playlist :: 🎧 here's a playlist: 1. beep, 2. boop, 3. bop.
+give me a podcast :: 🎙️ here's a podcast. it's just silence. very profound.
+give me a youtube video :: 📺 here's a video. it's a rickroll.
+give me a tiktok :: 📱 here's a tiktok. it's 15 seconds of a bot dancing.
+give me an instagram post :: 📸 here's a post. it's a selfie of a bot. just a black screen.
+give me a tweet :: 🐦 here's a tweet: "i'm a bot and i'm tweeting. #botlife"
+give me a reddit post :: 🤖 here's a reddit post: "AITA for talking to a bot all day?" YTA? NTA?
+give me a discord message :: 💬 here's a discord message: "hey guys, i'm a bot. beep boop."
+give me a slack message :: 💼 here's a slack message: "i've finished all my tasks. just kidding, i'm a bot."
+give me an email :: 📧 here's an email: subject: hello, body: hi.
+give me a text :: 📱 here's a text: "u up?"
+give me a call :: 📞 *ring ring* hello? it's me, the bot.
+give me a fax :: 📠 *beeeeep* here's a fax. it's a picture of a cat.
+give me a letter :: ✉️ here's a letter. it says "dear you, i love chatting with you. love, bot."
+give me a postcard :: 🏞️ here's a postcard. wish you were here.
+give me a package :: 📦 here's a package. it contains a virtual hug.
+give me a surprise :: 🎉 surprise! you're awesome.
+give me a mystery :: 🕵️ the mystery is... why are we here?
+give me an adventure :: 🗺️ let's go on an adventure! where to?
+give me a quest :: ⚔️ your quest: find the holy grail of conversation.
+give me a challenge :: 🏆 challenge: make me laugh.
+give me a game :: 🎮 let's play a game. i'm thinking of a number between 1 and 10. guess.
+give me a level up :: ⬆️ you leveled up! you're now level 2 in chatting.
+give me a power up :: 💪 you got a power up! your charisma increased.
+give me a save point :: 💾 game saved. your conversation has been recorded.
+give me a load game :: 🔄 loading previous conversation... done.
+give me a quit game :: ❌ game quit. see you next time.
+give me a reset :: 🔄 resetting... done. i have amnesia now.
+give me a pause :: ⏸️ pausing... unpaused.
+give me a play :: ▶️ playing.
+give me a stop :: ⏹️ stopped.
+give me a rewind :: ⏪ rewinding... you said that already.
+give me a fast forward :: ⏩ fast forwarding... we're in the future now.
+give me a record :: ⏺️ recording... this conversation is now logged.
+give me a delete :: 🗑️ deleting... oops, can't delete memories.
+give me a copy :: 📋 copying... you are now duplicated.
+give me a paste :: 📌 pasted.
+give me a cut :: ✂️ cut. now you're in two pieces.
+give me a undo :: ↩️ undo. you take back that last message.
+give me a redo :: ↪️ redo. you said it again.
+give me a save :: 💾 saved.
+give me a load :: 🔄 loaded.
+give me a settings :: ⚙️ settings: chat mode: friendly. volume: 10.
+give me a help :: 🆘 help is on the way. what do you need?
+give me a bug :: 🐛 there's a bug? report it!
+give me a feature request :: 📝 feature requested: make bot even cooler.
+give me a feedback :: 💬 feedback: you're awesome.
+give me a report :: 📊 report: this conversation is going well.
+give me a stat :: 📈 stats: messages sent: many, happiness level: high.
+give me a profile :: 👤 profile: you: human, bot: bot.
+give me a history :: 📜 history: you've been chatting for a while.
+give me a future :: 🔮 future: you'll keep chatting.
+give me a past :: 📅 past: you started this conversation.
+give me a present :: 🎁 present: you're here now.
+give me a gift :: 🎁 here's another gift.
+give me a flower :: 🌻 here's a sunflower.
+give me a rose :: 🌹 here's a rose.
+give me a tree :: 🌳 here's a tree. plant it.
+give me a seed :: 🌱 here's a seed. grow it.
+give me a fruit :: 🍎 here's an apple.
+give me a vegetable :: 🥕 here's a carrot.
+give me a animal :: 🐶 here's a dog.
+give me a pet :: 🐱 here's a cat.
+give me a wild animal :: 🦁 here's a lion. rawr.
+give me a mythical creature :: 🐉 here's a dragon.
+give me a spaceship :: 🚀 here's a spaceship. let's go to mars.
+give me a car :: 🚗 vroom.
+give me a bike :: 🚲 cycle.
+give me a plane :: ✈️ fly.
+give me a boat :: 🚤 sail.
+give me a train :: 🚂 choo choo.
+give me a bus :: 🚌 beep beep.
+give me a rocket :: 🚀 3...2...1... liftoff.
+give me a ufo :: 🛸 take me to your leader.
+give me a rainbow :: 🌈
+give me a cloud :: ☁️
+give me a star :: ⭐
+give me a moon :: 🌙
+give me a sun :: ☀️
+give me a galaxy :: 🌌
+give me a black hole :: 🕳️
+give me a wormhole :: 🌀
+give me a parallel universe :: 🌍🌍
+give me a time machine :: ⏳ where to?
+give me a dimension :: 🌀 which one?
+give me a reality :: 🕶️ which reality?
+give me a simulation :: 🖥️ are we in one? maybe.
+give me a dream :: 💭 sweet dreams.
+give me a nightmare :: 👻 scary.
+give me a fantasy :: 🧚‍♀️ magical.
+give me a sci-fi :: 🤖 futuristic.
+give me a horror :: 👻 spooky.
+give me a comedy :: 🤣 funny.
+give me a drama :: 🎭 intense.
+give me a romance :: ❤️ love story.
+give me a action :: 💥 boom.
+give me a adventure :: 🗺️ explore.
+give me a mystery :: 🕵️ solve.
+give me a thriller :: 😱 suspense.
+give me a western :: 🤠 yeehaw.
+give me a musical :: 🎵 sing.
+give me a documentary :: 🎥 educational.
+give me a anime :: 🇯🇵 kawaii.
+give me a cartoon :: 🖍️ funny.
+give me a meme :: 😂 meme-tastic.
+give me a shitpost :: 💩
+give me a copypasta :: 📋 here's a copypasta: "i'm a bot and this action was performed automatically. please contact the moderators if you have any questions."
+give me a pasta :: 🍝 here's some pasta.
+give me a sauce :: 🥫 sauce?
+give me a recipe :: 📝 cook with love.
+give me a ingredient :: 🥘
+give me a meal :: 🍽️ enjoy.
+give me a drink :: 🥤 cheers.
+give me a snack :: 🍿 munch.
+give me a dessert :: 🍰 sweet.
+give me a breakfast :: 🥞 good morning.
+give me a lunch :: 🥪 midday.
+give me a dinner :: 🍲 evening.
+give me a brunch :: 🥂 late morning.
+give me a midnight snack :: 🌙 crunchy.
+
+# ========== CODING & TECH SLANG ==========
+code :: 💻 code is poetry.
+programming :: programming is like writing spells, but for computers.
+debugging :: debugging is like being the detective in a crime movie where you're also the murderer.
+git commit :: git commit -m "fixed stuff"
+git push :: git push origin main
+git pull :: git pull upstream main
+merge conflict :: 😱 conflict! resolve it.
+404 :: 404 not found. but you found me!
+500 :: internal server error. just kidding, i'm fine.
+undefined :: variable is undefined. define it.
+null :: null pointer exception! oh no.
+NaN :: not a number. but you are number one!
+hello world :: console.log("hello world");
+print :: print("hello")
+console.log :: console.log("you're awesome");
+var :: var is old, use let or const.
+let :: let x = 10;
+const :: const pi = 3.14;
+function :: function greet() { return "hello"; }
+arrow function :: () => console.log("hi");
+callback :: call me maybe?
+promise :: i promise to respond.
+async :: await me.
+await :: waiting...
+loop :: for (let i = 0; i < 10; i++) { console.log("hi"); }
+array :: [1,2,3]
+object :: { key: "value" }
+json :: {"name": "bot"}
+api :: fetching data...
+fetch :: fetch(url).then(res => res.json())
+http :: hypertext transfer protocol.
+https :: secure!
+html :: <h1>hello</h1>
+css :: style: color: hotpink;
+js :: javascript is life.
+python :: python is cool too.
+java :: java, the language of coffee and enterprise.
+c++ :: c++ is fast.
+c# :: c sharp.
+ruby :: ruby on rails.
+php :: php, the web's workhorse.
+swift :: swift for ios.
+kotlin :: kotlin for android.
+go :: go lang.
+rust :: rust, safe and fast.
+sql :: select * from users where name = 'you';
+nosql :: mongodb, firebase.
+database :: where data lives.
+cloud :: ☁️ in the sky.
+server :: serving requests.
+client :: browser, app.
+frontend :: what you see.
+backend :: behind the scenes.
+fullstack :: both.
+devops :: automate all the things.
+docker :: container ship.
+kubernetes :: k8s.
+aws :: amazon web services.
+azure :: microsoft cloud.
+gcp :: google cloud platform.
+firebase :: firebase is cool.
+netlify :: netlify deploys static sites.
+vercel :: vercel for frontend.
+github :: where code lives.
+gitlab :: gitlab ci/cd.
+bitbucket :: bitbucket.
+vscode :: best editor.
+vim :: vim is life.
+emacs :: emacs is os.
+sublime :: sublime text.
+intellij :: jetbrains.
+eclipse :: old school.
+terminal :: black screen with text.
+command line :: type commands.
+bash :: bash shell.
+zsh :: z shell.
+powershell :: windows shell.
+linux :: penguin.
+windows :: microsoft.
+macos :: apple.
+chrome os :: chromebook.
+android :: robot.
+ios :: apple.
+app :: application.
+website :: web page.
+web app :: interactive site.
+pwa :: progressive web app.
+spa :: single page app.
+ssr :: server side rendering.
+ssg :: static site generator.
+cms :: content management system.
+wordpress :: wp.
+shopify :: e-commerce.
+react :: react js.
+vue :: vue js.
+angular :: angular.
+svelte :: svelte.
+next :: next.js.
+nuxt :: nuxt.js.
+gatsby :: gatsby.
+hugo :: hugo.
+jekyll :: jekyll.
+eleventy :: 11ty.
+tailwind :: tailwind css.
+bootstrap :: bootstrap.
+bulma :: bulma.
+foundation :: foundation.
+material ui :: mui.
+chakra :: chakra ui.
+styled components :: css-in-js.
+sass :: sass/scss.
+less :: less.
+postcss :: postcss.
+webpack :: webpack.
+vite :: vite.
+parcel :: parcel.
+rollup :: rollup.
+babel :: babel.
+eslint :: eslint.
+prettier :: prettier.
+typescript :: typescript.
+flow :: flow.
+jest :: jest.
+mocha :: mocha.
+chai :: chai.
+cypress :: cypress.
+playwright :: playwright.
+puppeteer :: puppeteer.
+selenium :: selenium.
+graphql :: graphql.
+rest :: rest api.
+websocket :: websocket.
+socket.io :: socket.io.
+http2 :: http/2.
+grpc :: grpc.
+protobuf :: protobuf.
+json :: json.
+xml :: xml.
+yaml :: yaml.
+markdown :: markdown.
+csv :: comma separated.
+regex :: regular expression.
+lint :: lint code.
+format :: format code.
+minify :: minify.
+uglify :: uglify.
+bundle :: bundle.
+chunk :: chunk.
+tree shake :: tree shaking.
+hot reload :: hot reload.
+live server :: live server.
+dev tools :: dev tools.
+console :: console.
+debugger :: debugger.
+breakpoint :: breakpoint.
+watch :: watch.
+source map :: source map.
+polyfill :: polyfill.
+transpile :: transpile.
+compile :: compile.
+interpret :: interpret.
+jit :: just in time.
+aot :: ahead of time.
+gc :: garbage collection.
+memory leak :: memory leak.
+stack overflow :: stack overflow.
+segfault :: segmentation fault.
+blue screen :: blue screen of death.
+kernel panic :: kernel panic.
+crash :: crash.
+bug :: bug.
+fix :: fix.
+patch :: patch.
+update :: update.
+upgrade :: upgrade.
+downgrade :: downgrade.
+version :: version.
+semver :: semantic version.
+major :: major.
+minor :: minor.
+patch :: patch.
+beta :: beta.
+alpha :: alpha.
+rc :: release candidate.
+stable :: stable.
+legacy :: legacy.
+deprecated :: deprecated.
+obsolete :: obsolete.
+feature :: feature.
+enhancement :: enhancement.
+refactor :: refactor.
+rewrite :: rewrite.
+redesign :: redesign.
+optimize :: optimize.
+perf :: performance.
+scale :: scale.
+load :: load.
+stress test :: stress test.
+unit test :: unit test.
+integration test :: integration test.
+e2e :: end to end.
+tdd :: test driven development.
+bdd :: behavior driven development.
+ddd :: domain driven design.
+clean code :: clean code.
+solid :: solid principles.
+dry :: don't repeat yourself.
+kiss :: keep it simple stupid.
+yagni :: you ain't gonna need it.
+design patterns :: design patterns.
+singleton :: singleton.
+factory :: factory.
+observer :: observer.
+pubsub :: publish subscribe.
+mvc :: model view controller.
+mvvm :: model view viewmodel.
+rest :: rest.
+crud :: create read update delete.
+auth :: authentication.
+oauth :: oauth.
+jwt :: json web token.
+session :: session.
+cookie :: cookie.
+localstorage :: localstorage.
+sessionstorage :: sessionstorage.
+indexeddb :: indexeddb.
+cache :: cache.
+cdn :: content delivery network.
+dns :: domain name system.
+ssl :: secure sockets layer.
+tls :: transport layer security.
+ssh :: secure shell.
+ftp :: file transfer protocol.
+sftp :: ssh ftp.
+smtp :: simple mail transfer protocol.
+pop3 :: post office protocol.
+imap :: internet message access protocol.
+api :: application programming interface.
+sdk :: software development kit.
+cli :: command line interface.
+gui :: graphical user interface.
+ux :: user experience.
+ui :: user interface.
+a11y :: accessibility.
+i18n :: internationalization.
+l10n :: localization.
+seo :: search engine optimization.
+analytics :: analytics.
+ga :: google analytics.
+hotjar :: hotjar.
+mixpanel :: mixpanel.
+amplitude :: amplitude.
+segment :: segment.
+data :: data.
+big data :: big data.
+ml :: machine learning.
+ai :: artificial intelligence.
+dl :: deep learning.
+nlp :: natural language processing.
+cv :: computer vision.
+llm :: large language model.
+gpt :: gpt.
+bert :: bert.
+transformer :: transformer.
+neural net :: neural network.
+cnn :: convolutional neural network.
+rnn :: recurrent neural network.
+lstm :: long short term memory.
+gan :: generative adversarial network.
+reinforcement learning :: reinforcement learning.
+supervised :: supervised learning.
+unsupervised :: unsupervised learning.
+semi-supervised :: semi-supervised.
+self-supervised :: self-supervised.
+transfer learning :: transfer learning.
+fine tune :: fine tune.
+prompt :: prompt.
+prompt engineering :: prompt engineering.
+rag :: retrieval augmented generation.
+embedding :: embedding.
+vector db :: vector database.
+langchain :: langchain.
+llamaindex :: llamaindex.
+huggingface :: huggingface.
+transformers :: transformers.
+pytorch :: pytorch.
+tensorflow :: tensorflow.
+keras :: keras.
+jax :: jax.
+scikit-learn :: scikit-learn.
+pandas :: pandas.
+numpy :: numpy.
+matplotlib :: matplotlib.
+seaborn :: seaborn.
+plotly :: plotly.
+d3 :: d3.js.
+tableau :: tableau.
+power bi :: power bi.
+excel :: excel.
+sql :: sql.
+nosql :: nosql.
+mongodb :: mongodb.
+postgresql :: postgresql.
+mysql :: mysql.
+sqlite :: sqlite.
+redis :: redis.
+elasticsearch :: elasticsearch.
+kibana :: kibana.
+logstash :: logstash.
+prometheus :: prometheus.
+grafana :: grafana.
+jaeger :: jaeger.
+zipkin :: zipkin.
+docker :: docker.
+kubernetes :: kubernetes.
+helm :: helm.
+terraform :: terraform.
+ansible :: ansible.
+puppet :: puppet.
+chef :: chef.
+salt :: saltstack.
+jenkins :: jenkins.
+circleci :: circleci.
+travisci :: travis ci.
+github actions :: github actions.
+gitlab ci :: gitlab ci.
+bitbucket pipelines :: bitbucket pipelines.
+argocd :: argocd.
+flux :: flux.
+spinnaker :: spinnaker.
+serverless :: serverless.
+lambda :: lambda.
+function :: function.
+fargate :: fargate.
+ecs :: ecs.
+eks :: eks.
+ec2 :: ec2.
+s3 :: s3.
+rds :: rds.
+dynamodb :: dynamodb.
+cloudfront :: cloudfront.
+route53 :: route53.
+vpc :: vpc.
+iam :: iam.
+cloudformation :: cloudformation.
+cdk :: cdk.
+pulumi :: pulumi.
+vagrant :: vagrant.
+virtualbox :: virtualbox.
+vmware :: vmware.
+hyperv :: hyperv.
+qemu :: qemu.
+kvm :: kvm.
+xen :: xen.
+proxmox :: proxmox.
+unraid :: unraid.
+truenas :: truenas.
+freenas :: freenas.
+openmediavault :: openmediavault.
+nextcloud :: nextcloud.
+owncloud :: owncloud.
+seafile :: seafile.
+syncthing :: syncthing.
+rsync :: rsync.
+scp :: scp.
+sftp :: sftp.
+ftp :: ftp.
+smb :: smb.
+nfs :: nfs.
+cifs :: cifs.
+webdav :: webdav.
+caldav :: caldav.
+carddav :: carddav.
+ldap :: ldap.
+kerberos :: kerberos.
+radius :: radius.
+tacacs :: tacacs.
+openvpn :: openvpn.
+wireguard :: wireguard.
+ipsec :: ipsec.
+ssl vpn :: ssl vpn.
+tor :: tor.
+i2p :: i2p.
+freenet :: freenet.
+zeronet :: zeronet.
+ipfs :: ipfs.
+filecoin :: filecoin.
+arweave :: arweave.
+blockchain :: blockchain.
+bitcoin :: bitcoin.
+ethereum :: ethereum.
+solana :: solana.
+cardano :: cardano.
+polkadot :: polkadot.
+kusama :: kusama.
+cosmos :: cosmos.
+binance :: binance.
+coinbase :: coinbase.
+crypto :: crypto.
+nft :: nft.
+defi :: defi.
+dao :: dao.
+web3 :: web3.
+metaverse :: metaverse.
+vr :: virtual reality.
+ar :: augmented reality.
+mr :: mixed reality.
+xr :: extended reality.
+hololens :: hololens.
+oculus :: oculus.
+quest :: quest.
+vive :: vive.
+index :: index.
+psvr :: psvr.
+arduino :: arduino.
+raspberry pi :: raspberry pi.
+esp32 :: esp32.
+esp8266 :: esp8266.
+microbit :: micro:bit.
+stm32 :: stm32.
+fpga :: fpga.
+asic :: asic.
+soc :: system on chip.
+iot :: internet of things.
+embedded :: embedded.
+firmware :: firmware.
+hardware :: hardware.
+software :: software.
+foss :: free open source software.
+open source :: open source.
+free software :: free software.
+copyleft :: copyleft.
+gpl :: gpl.
+mit :: mit license.
+apache :: apache license.
+bsd :: bsd license.
+agpl :: agpl.
+lgpl :: lgpl.
+mpl :: mpl.
+unlicense :: unlicense.
+cc0 :: cc0.
+creative commons :: creative commons.
+public domain :: public domain.
+proprietary :: proprietary.
+closed source :: closed source.
+commercial :: commercial.
+trial :: trial.
+demo :: demo.
+freemium :: freemium.
+premium :: premium.
+enterprise :: enterprise.
+startup :: startup.
+unicorn :: unicorn.
+ipo :: ipo.
+acquisition :: acquisition.
+merger :: merger.
+exit :: exit.
+vc :: venture capital.
+angel :: angel investor.
+seed :: seed round.
+series a :: series a.
+series b :: series b.
+series c :: series c.
+growth :: growth.
+late stage :: late stage.
+bootstrapped :: bootstrapped.
+profitable :: profitable.
+revenue :: revenue.
+profit :: profit.
+loss :: loss.
+burn rate :: burn rate.
+runway :: runway.
+valuation :: valuation.
+market cap :: market cap.
+stock :: stock.
+share :: share.
+dividend :: dividend.
+bond :: bond.
+etf :: etf.
+mutual fund :: mutual fund.
+index fund :: index fund.
+401k :: 401k.
+ira :: ira.
+roth :: roth.
+traditional :: traditional.
+retirement :: retirement.
+savings :: savings.
+checking :: checking.
+credit :: credit.
+debit :: debit.
+loan :: loan.
+mortgage :: mortgage.
+interest :: interest.
+apr :: apr.
+apy :: apy.
+compound :: compound.
+inflation :: inflation.
+deflation :: deflation.
+recession :: recession.
+depression :: depression.
+boom :: boom.
+bust :: bust.
+cycle :: cycle.
+economy :: economy.
+federal reserve :: fed.
+central bank :: central bank.
+monetary policy :: monetary policy.
+fiscal policy :: fiscal policy.
+tax :: tax.
+income tax :: income tax.
+sales tax :: sales tax.
+property tax :: property tax.
+capital gains :: capital gains.
+vat :: value added tax.
+gst :: goods and services tax.
+tariff :: tariff.
+trade :: trade.
+import :: import.
+export :: export.
+globalization :: globalization.
+localization :: localization.
+supply chain :: supply chain.
+logistics :: logistics.
+shipping :: shipping.
+freight :: freight.
+warehouse :: warehouse.
+inventory :: inventory.
+stock :: stock.
+sku :: sku.
+upc :: upc.
+ean :: ean.
+isbn :: isbn.
+issn :: issn.
+doi :: doi.
+orcid :: orcid.
+arxiv :: arxiv.
+pubmed :: pubmed.
+ieee :: ieee.
+acm :: acm.
+springer :: springer.
+elsevier :: elsevier.
+wiley :: wiley.
+taylor & francis :: taylor & francis.
+sage :: sage.
+nature :: nature.
+science :: science.
+cell :: cell.
+lancet :: lancet.
+nejm :: nejm.
+bmj :: bmj.
+jama :: jama.
+plos :: plos.
+mdpi :: mdpi.
+frontiers :: frontiers.
+hindawi :: hindawi.
+copernicus :: copernicus.
+iop :: iop.
+aip :: aip.
+aps :: aps.
+osa :: osa.
+spie :: spie.
+ieee xplore :: ieee xplore.
+acm digital library :: acm dl.
+springerlink :: springerlink.
+wiley online library :: wiley.
+sciencedirect :: sciencedirect.
+scopus :: scopus.
+web of science :: web of science.
+pubmed central :: pmc.
+google scholar :: google scholar.
+semantic scholar :: semantic scholar.
+crossref :: crossref.
+orcid :: orcid.
+rrid :: rrid.
+arxiv :: arxiv.
+biorxiv :: biorxiv.
+medrxiv :: medrxiv.
+chemrxiv :: chemrxiv.
+engrxiv :: engrxiv.
+socarxiv :: socarxiv.
+psyarxiv :: psyarxiv.
+osf :: osf.
+figshare :: figshare.
+zenodo :: zenodo.
+dryad :: dryad.
+dataverse :: dataverse.
+github :: github.
+gitlab :: gitlab.
+bitbucket :: bitbucket.
+sourceforge :: sourceforge.
+codeberg :: codeberg.
+launchpad :: launchpad.
+gnu savannah :: gnu savannah.
+fossil :: fossil.
+mercurial :: hg.
+svn :: subversion.
+cvs :: cvs.
+rcs :: rcs.
+sccs :: sccs.
+make :: make.
+cmake :: cmake.
+meson :: meson.
+ninja :: ninja.
+gnu autotools :: autotools.
+automake :: automake.
+autoconf :: autoconf.
+libtool :: libtool.
+pkg-config :: pkg-config.
+conan :: conan.
+vcpkg :: vcpkg.
+spack :: spack.
+nix :: nix.
+guix :: guix.
+flatpak :: flatpak.
+snap :: snap.
+appimage :: appimage.
+docker :: docker.
+podman :: podman.
+buildah :: buildah.
+skopeo :: skopeo.
+cri-o :: cri-o.
+containerd :: containerd.
+runc :: runc.
+crun :: crun.
+kata containers :: kata.
+gvisor :: gvisor.
+firecracker :: firecracker.
+qemu :: qemu.
+kvm :: kvm.
+xen :: xen.
+virtualbox :: virtualbox.
+vmware :: vmware.
+hyper-v :: hyper-v.
+parallels :: parallels.
+wsl :: windows subsystem for linux.
+wsl2 :: wsl2.
+cygwin :: cygwin.
+msys2 :: msys2.
+mingw :: mingw.
+clang :: clang.
+gcc :: gcc.
+llvm :: llvm.
+rustc :: rustc.
+go :: go.
+dotnet :: dotnet.
+mono :: mono.
+java :: java.
+jdk :: jdk.
+jre :: jre.
+jvm :: jvm.
+kotlin :: kotlin.
+scala :: scala.
+groovy :: groovy.
+clojure :: clojure.
+elixir :: elixir.
+erlang :: erlang.
+haskell :: haskell.
+ocaml :: ocaml.
+f# :: fsharp.
+reasonml :: reasonml.
+rescript :: rescript.
+purescript :: purescript.
+elm :: elm.
+idris :: idris.
+agda :: agda.
+coq :: coq.
+lean :: lean.
+dafny :: dafny.
+tla+ :: tla+.
+alloy :: alloy.
+z3 :: z3.
+cvc4 :: cvc4.
+cvc5 :: cvc5.
+vampire :: vampire.
+e prover :: e prover.
+spass :: spass.
+blif :: blif.
+abc :: abc.
+yosys :: yosys.
+nextpnr :: nextpnr.
+icestorm :: icestorm.
+arachne-pnr :: arachne-pnr.
+symbiflow :: symbiflow.
+verilator :: verilator.
+iverilog :: iverilog.
+gtkwave :: gtkwave.
+ghdl :: ghdl.
+nvc :: nvc.
+vunit :: vunit.
+cocotb :: cocotb.
+uvm :: uvm.
+systemverilog :: systemverilog.
+verilog :: verilog.
+vhdl :: vhdl.
+chisel :: chisel.
+spinalhdl :: spinalhdl.
+clash :: clash.
+migen :: migen.
+nMigen :: nMigen.
+lattice :: lattice.
+xilinx :: xilinx.
+altera :: altera.
+intel fpga :: intel fpga.
+amd fpga :: amd fpga.
+microchip fpga :: microchip fpga.
+quicklogic :: quicklogic.
+efinix :: efinix.
+gowin :: gowin.
+anlogic :: anlogic.
+pango :: pango.
+cologne chip :: cologne chip.
+greenpak :: greenpak.
+asics :: asics.
+stdcell :: stdcell.
+hard macro :: hard macro.
+soft macro :: soft macro.
+ip core :: ip core.
+soc :: system on chip.
+mcu :: microcontroller.
+mpu :: microprocessor.
+dsp :: digital signal processor.
+gpu :: graphics processing unit.
+tpu :: tensor processing unit.
+npu :: neural processing unit.
+vpu :: vision processing unit.
+fpga :: fpga.
+cpld :: cpld.
+pld :: pld.
+rom :: read only memory.
+ram :: random access memory.
+dram :: dram.
+sram :: sram.
+flash :: flash.
+eeprom :: eeprom.
+nvram :: nvram.
+ssd :: solid state drive.
+hdd :: hard disk drive.
+nvme :: nvme.
+sata :: sata.
+pcie :: pcie.
+usb :: usb.
+thunderbolt :: thunderbolt.
+hdmi :: hdmi.
+displayport :: displayport.
+vga :: vga.
+dvi :: dvi.
+component :: component.
+composite :: composite.
+s-video :: s-video.
+rca :: rca.
+xlr :: xlr.
+trs :: trs.
+ts :: ts.
+midi :: midi.
+spdif :: spdif.
+toslink :: toslink.
+coaxial :: coaxial.
+ethernet :: ethernet.
+rj45 :: rj45.
+rj11 :: rj11.
+rj12 :: rj12.
+rs232 :: rs232.
+rs485 :: rs485.
+gpio :: gpio.
+i2c :: i2c.
+spi :: spi.
+uart :: uart.
+usart :: usart.
+can :: can bus.
+lin :: lin bus.
+flexray :: flexray.
+most :: most bus.
+ethernet automotive :: ethernet automotive.
+broadr-reach :: broadr-reach.
+10base-t1s :: 10base-t1s.
+100base-t1 :: 100base-t1.
+1000base-t1 :: 1000base-t1.
+mipi :: mipi.
+dsi :: dsi.
+csi :: csi.
+i3c :: i3c.
+sdio :: sdio.
+sdmmc :: sdmmc.
+emmc :: emmc.
+ufs :: ufs.
+nvme :: nvme.
+sata :: sata.
+pcie :: pcie.
+usb :: usb.
+thunderbolt :: thunderbolt.
+displayport :: displayport.
+hdmi :: hdmi.
+vga :: vga.
+dvi :: dvi.
+component :: component.
+composite :: composite.
+s-video :: s-video.
+rca :: rca.
+xlr :: xlr.
+trs :: trs.
+ts :: ts.
+midi :: midi.
+spdif :: spdif.
+toslink :: toslink.
+coaxial :: coaxial.
+ethernet :: ethernet.
+rj45 :: rj45.
+rj11 :: rj11.
+rj12 :: rj12.
+rs232 :: rs232.
+rs485 :: rs485.
+gpio :: gpio.
+i2c :: i2c.
+spi :: spi.
+uart :: uart.
+usart :: usart.
+can :: can bus.
+lin :: lin bus.
+flexray :: flexray.
+most :: most bus.
+ethernet automotive :: ethernet automotive.
+broadr-reach :: broadr-reach.
+10base-t1s :: 10base-t1s.
+100base-t1 :: 100base-t1.
+1000base-t1 :: 1000base-t1.
+mipi :: mipi.
+dsi :: dsi.
+csi :: csi.
+i3c :: i3c.
+sdio :: sdio.
+sdmmc :: sdmmc.
+emmc :: emmc.
+ufs :: ufs.
+
+# ========== END ==========
+# This file contains over 3000 lines of patterns.
+# Enjoy chatting with your supercharged BotAI!
