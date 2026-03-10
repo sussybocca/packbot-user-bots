@@ -3,13 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BotAI · CHAOS INTELLIGENCE</title>
-    <!-- Custom creepy fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Eater&family=Nosifer&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
-    <!-- GSAP & Three.js -->
+    <title>BotAI · ABYSS INTELLIGENCE</title>
+    <!-- 25+ custom creepy fonts from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Eater&family=Nosifer&family=UnifrakturMaguntia&family=Butcherman&family=Bloody&family=Berkshire+Swash&family=Metal+Mania&family=Rubik+Glitch&family=Rubik+Wet+Paint&family=Rubik+Beastly&family=Rubik+Burned&family=Rubik+Dirt&family=Rubik+Distressed&family=Rubik+Gemstones&family=Rubik+Glitch+Pop&family=Rubik+Marker+Hatch&family=Rubik+Maze&family=Rubik+Microbe&family=Rubik+Moonrocks&family=Rubik+Pixels&family=Rubik+Storm&family=Rubik+Vinyl&family=Rubik+Wreck&family=Sixtyfour&family=Playfair+Display+SC:ital,wght@1,900&display=swap" rel="stylesheet">
+    <!-- GSAP & Three.js core -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- Three.js addons for post-processing (bloom, glitch) -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/EffectComposer.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/RenderPass.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/UnrealBloomPass.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/GlitchPass.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/CopyShader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/DigitalGlitch.js"></script>
     <style>
+        /* Reset and base chaos */
         * {
             margin: 0;
             padding: 0;
@@ -23,131 +31,144 @@
             align-items: center;
             justify-content: center;
             padding: 1rem;
-            font-family: 'Eater', cursive; /* creepy default */
             overflow: hidden;
             position: relative;
+            font-family: 'Eater', cursive; /* base creepy */
         }
 
-        /* Three.js canvas fills the background */
-        #bg-canvas {
+        /* Multiple layered canvases for depth */
+        #bg-canvas, #fg-canvas, #glow-canvas {
             position: fixed;
             top: 0;
             left: 0;
             width: 100vw;
             height: 100vh;
             z-index: 0;
-            pointer-events: none; /* so chat remains interactive */
+            pointer-events: none;
         }
+        #fg-canvas { z-index: 1; opacity: 0.4; }
+        #glow-canvas { z-index: 2; mix-blend-mode: screen; pointer-events: none; }
 
-        /* Chat container – now semi‑transparent to reveal chaos */
+        /* Chat container – now a rift in reality */
         .bot-container {
             width: 100%;
             max-width: 900px;
             height: 85vh;
-            background: rgba(5, 10, 20, 0.4); /* much more transparent */
-            backdrop-filter: blur(8px) saturate(200%);
-            -webkit-backdrop-filter: blur(8px) saturate(200%);
-            border: 1px solid rgba(255, 0, 100, 0.4); /* eerie pinkish */
-            border-radius: 2.5rem;
-            box-shadow: 0 30px 50px rgba(0, 0, 0, 0.9), 0 0 30px rgba(255, 0, 150, 0.3) inset;
+            background: rgba(0, 0, 0, 0.2); /* ultra transparent */
+            backdrop-filter: blur(12px) saturate(300%) hue-rotate(10deg);
+            -webkit-backdrop-filter: blur(12px) saturate(300%) hue-rotate(10deg);
+            border: 2px solid rgba(255, 0, 200, 0.6);
+            border-radius: 3rem;
+            box-shadow: 0 0 50px #ff00aa, 0 0 100px #ff0066 inset;
             display: flex;
             flex-direction: column;
             overflow: hidden;
-            transition: box-shadow 0.3s ease;
-            z-index: 1;
+            z-index: 10;
             position: relative;
+            transition: all 0.2s;
+            animation: borderPulse 5s infinite alternate;
         }
 
-        .bot-container:hover {
-            box-shadow: 0 35px 60px rgba(200, 0, 255, 0.6), 0 0 0 2px rgba(255, 0, 200, 0.8) inset;
+        @keyframes borderPulse {
+            0% { border-color: rgba(255, 0, 150, 0.4); box-shadow: 0 0 30px #ff0080; }
+            100% { border-color: rgba(255, 0, 255, 0.9); box-shadow: 0 0 80px #ff00ff, 0 0 120px #ff00aa inset; }
         }
 
-        /* header */
+        /* header with morphing fonts */
         .bot-header {
             padding: 1.8rem 2.2rem;
-            background: rgba(0, 0, 0, 0.5);
-            border-bottom: 1px solid rgba(255, 0, 150, 0.5);
+            background: rgba(10, 0, 10, 0.6);
+            border-bottom: 2px solid #ff40c0;
             display: flex;
             align-items: center;
             gap: 1rem;
+            backdrop-filter: blur(5px);
         }
 
         .avatar {
-            width: 52px;
-            height: 52px;
-            background: linear-gradient(145deg, #4a0036, #a0006a);
+            width: 64px;
+            height: 64px;
+            background: radial-gradient(circle at 30% 30%, #ff00aa, #440022);
             border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-            box-shadow: 0 8px 20px #ff00aa80, 0 0 20px #ff00ff;
+            box-shadow: 0 0 30px #ff00ff, 0 0 60px #ff66aa;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.8rem;
-            font-weight: 700;
+            font-size: 2.2rem;
+            font-weight: 900;
             color: white;
             font-family: 'Nosifer', cursive;
-            animation: float 5s infinite ease-in-out, glitch 3s infinite;
+            animation: float 4s infinite ease-in-out, glitchText 0.5s infinite;
         }
 
         @keyframes float {
-            0% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
-            25% { border-radius: 50% 50% 60% 40% / 40% 60% 50% 50%; }
-            50% { border-radius: 70% 30% 40% 60% / 60% 40% 30% 70%; }
-            75% { border-radius: 40% 60% 30% 70% / 70% 30% 60% 40%; }
-            100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+            0% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; transform: rotate(0deg); }
+            25% { border-radius: 50% 50% 60% 40% / 40% 60% 50% 50%; transform: rotate(2deg); }
+            50% { border-radius: 70% 30% 40% 60% / 60% 40% 30% 70%; transform: rotate(-2deg); }
+            75% { border-radius: 40% 60% 30% 70% / 70% 30% 60% 40%; transform: rotate(1deg); }
+            100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; transform: rotate(0deg); }
         }
 
-        /* glitch effect for avatar and title */
-        @keyframes glitch {
-            0% { text-shadow: 0 0 0 red; transform: skew(0deg); }
-            5% { text-shadow: -2px 0 red, 2px 0 blue; transform: skew(2deg); }
-            10% { text-shadow: 2px 0 red, -2px 0 blue; transform: skew(-2deg); }
-            15% { text-shadow: 0 0 0 red; transform: skew(0deg); }
-            100% { text-shadow: 0 0 0 red; transform: skew(0deg); }
+        @keyframes glitchText {
+            0% { text-shadow: -2px 0 red, 2px 0 blue; filter: blur(0px); }
+            20% { text-shadow: 2px 0 red, -2px 0 blue; filter: blur(1px); }
+            40% { text-shadow: -3px 0 lime, 3px 0 magenta; filter: blur(0.5px); }
+            60% { text-shadow: 3px 0 cyan, -3px 0 yellow; transform: skew(2deg); }
+            80% { text-shadow: -1px 0 white, 1px 0 black; filter: blur(2px); }
+            100% { text-shadow: -2px 0 red, 2px 0 blue; filter: blur(0px); }
         }
 
         .title {
-            color: #ffc0e0;
+            color: #ffb0ff;
             font-weight: 300;
-            letter-spacing: 4px;
+            letter-spacing: 6px;
             text-transform: uppercase;
-            font-size: 1.2rem;
+            font-size: 1.4rem;
             font-family: 'Creepster', cursive;
         }
 
         .title span {
-            font-weight: 600;
-            color: #ffaaff;
-            font-size: 2rem;
+            font-weight: 900;
+            color: #fff0ff;
+            font-size: 2.4rem;
             display: block;
             line-height: 1.2;
-            text-shadow: 0 0 8px magenta, 0 0 20px red;
-            animation: glitch 2s infinite;
+            text-shadow: 0 0 10px magenta, 0 0 30px red, 0 0 50px blue;
+            animation: glitchTitle 2s infinite;
+            font-family: 'Butcherman', cursive;
         }
 
-        /* chat area */
+        @keyframes glitchTitle {
+            0%,100% { transform: skew(0deg); opacity: 1; text-shadow: 0 0 10px magenta; }
+            10% { transform: skew(5deg); text-shadow: -5px 0 red, 5px 0 blue; }
+            20% { transform: skew(-5deg); text-shadow: 5px 0 red, -5px 0 blue; }
+            30% { transform: skew(0deg); text-shadow: 0 0 10px magenta; }
+        }
+
+        /* chat window – messages float in chaos */
         .chat-window {
             flex: 1;
-            padding: 1.8rem 2rem;
+            padding: 2rem 2.2rem;
             overflow-y: auto;
             display: flex;
             flex-direction: column;
-            gap: 1.5rem;
+            gap: 1.8rem;
             scroll-behavior: smooth;
         }
 
-        /* message bubbles */
+        /* each message gets a random font from the 25+ pool via JS */
         .message {
-            max-width: 75%;
+            max-width: 80%;
             display: flex;
             align-items: flex-end;
             gap: 0.8rem;
             opacity: 0;
-            transform: translateY(15px);
-            animation: fadeInUp 0.3s ease forwards;
+            transform: translateY(20px) scale(0.9);
+            animation: chaosEnter 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
         }
 
-        @keyframes fadeInUp {
-            to { opacity: 1; transform: translateY(0); }
+        @keyframes chaosEnter {
+            to { opacity: 1; transform: translateY(0) scale(1); }
         }
 
         .message.user {
@@ -156,134 +177,143 @@
         }
 
         .avatar-small {
-            width: 38px;
-            height: 38px;
-            background: #2a001f;
+            width: 42px;
+            height: 42px;
+            background: #330022;
             border-radius: 40% 60% 60% 40% / 40% 50% 50% 60%;
             flex-shrink: 0;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: bold;
-            color: white;
-            border: 1px solid #ff40c0;
-            box-shadow: 0 4px 12px #ff00a0;
+            color: #ffc0ff;
+            border: 2px solid #ff80d0;
+            box-shadow: 0 0 15px #ff40c0;
             font-family: 'Eater', cursive;
+            font-size: 1.2rem;
         }
 
         .bubble {
-            padding: 1rem 1.5rem;
-            border-radius: 1.8rem;
-            background: rgba(15, 5, 20, 0.7);
-            backdrop-filter: blur(4px);
-            border: 1px solid rgba(255, 0, 200, 0.6);
+            padding: 1.2rem 1.8rem;
+            border-radius: 2rem;
+            background: rgba(20, 0, 20, 0.7);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 0, 200, 0.7);
             color: #ffe0ff;
-            font-size: 1rem;
-            line-height: 1.5;
+            font-size: 1.1rem;
+            line-height: 1.6;
             word-break: break-word;
-            box-shadow: 0 6px 14px rgba(255, 0, 150, 0.4);
+            box-shadow: 0 10px 20px rgba(255, 0, 150, 0.5);
             font-family: 'UnifrakturMaguntia', cursive;
+            transition: all 0.2s;
         }
 
         .message.user .bubble {
-            background: rgba(40, 0, 30, 0.8);
-            border: 1px solid #ff66cc;
-            color: white;
-            border-bottom-right-radius: 0.4rem;
+            background: rgba(50, 0, 30, 0.8);
+            border: 2px solid #ff88dd;
+            border-bottom-right-radius: 0.5rem;
+            box-shadow: 0 0 30px #ff22aa;
         }
 
         .message.bot .bubble {
-            border-bottom-left-radius: 0.4rem;
+            border-bottom-left-radius: 0.5rem;
             border-color: #ff44aa;
         }
 
-        /* typing indicator */
+        /* typing indicator gets glitchy */
         .typing .bubble {
             display: flex;
-            gap: 0.3rem;
-            padding: 1.2rem 1.8rem;
+            gap: 0.5rem;
+            padding: 1.4rem 2rem;
+            background: rgba(255,0,100,0.2);
         }
 
         .typing .dot {
-            width: 8px;
-            height: 8px;
+            width: 10px;
+            height: 10px;
             background: #ffaaff;
             border-radius: 50%;
-            animation: pulse 1.4s infinite;
+            animation: pulseGlitch 1s infinite;
         }
 
         .typing .dot:nth-child(2) { animation-delay: 0.2s; }
         .typing .dot:nth-child(3) { animation-delay: 0.4s; }
 
-        @keyframes pulse {
-            0%,60%,100% { opacity: 0.4; transform: scale(0.8); }
-            30% { opacity: 1; transform: scale(1.2); background: white; }
+        @keyframes pulseGlitch {
+            0%,100% { opacity: 0.3; transform: scale(0.8); filter: blur(0px); }
+            50% { opacity: 1; transform: scale(1.5); background: magenta; filter: blur(3px); box-shadow: 0 0 20px white; }
         }
 
-        /* input area */
+        /* input area – corrupted */
         .input-area {
-            padding: 1.5rem 2rem;
-            background: rgba(0, 0, 0, 0.6);
-            border-top: 1px solid #ff40a0;
+            padding: 1.8rem 2.2rem;
+            background: rgba(0, 0, 0, 0.7);
+            border-top: 2px solid #ff60b0;
             display: flex;
-            gap: 1rem;
+            gap: 1.2rem;
+            backdrop-filter: blur(10px);
         }
 
         #userInput {
             flex: 1;
-            background: rgba(20, 0, 15, 0.9);
-            border: 1px solid #ff80c0;
+            background: rgba(30, 0, 20, 0.9);
+            border: 2px solid #ffa0e0;
             border-radius: 3rem;
-            padding: 1rem 1.8rem;
-            font-size: 1rem;
-            color: white;
+            padding: 1.2rem 2rem;
+            font-size: 1.1rem;
+            color: #ffddff;
             outline: none;
-            transition: all 0.2s;
-            box-shadow: 0 0 10px #ff40a0;
+            transition: all 0.3s;
+            box-shadow: 0 0 20px #ff40a0;
             font-family: 'Courier New', monospace;
+            letter-spacing: 1px;
         }
 
         #userInput:focus {
-            border-color: #ff00aa;
-            box-shadow: 0 0 18px #ff00aa;
+            border-color: #ff40ff;
+            box-shadow: 0 0 40px #ff80ff, 0 0 80px #ff0080;
+            transform: scale(1.02);
         }
 
         #sendBtn {
-            background: linear-gradient(145deg, #6a004a, #3a0028);
+            background: linear-gradient(145deg, #8a005a, #4a002a);
             border: none;
             border-radius: 3rem;
-            width: 60px;
-            height: 60px;
-            font-size: 1.8rem;
+            width: 70px;
+            height: 70px;
+            font-size: 2.2rem;
             color: white;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: 0.15s;
-            border: 1px solid #ff88cc;
-            box-shadow: 0 4px 12px #ff0088;
+            transition: 0.2s;
+            border: 2px solid #ffaadd;
+            box-shadow: 0 0 20px #ff00aa;
+            font-family: 'Nosifer', cursive;
         }
 
         #sendBtn:hover {
-            background: #b00070;
-            transform: scale(1.05) rotate(-2deg);
-            border-color: #ffccff;
+            background: #d00090;
+            transform: scale(1.1) rotate(5deg);
+            border-color: #ffffff;
+            box-shadow: 0 0 50px #ffaaff;
         }
 
-        /* scrollbar */
+        /* scrollbar – organic */
         .chat-window::-webkit-scrollbar {
-            width: 6px;
+            width: 8px;
         }
         .chat-window::-webkit-scrollbar-track {
-            background: transparent;
+            background: #1a0010;
         }
         .chat-window::-webkit-scrollbar-thumb {
             background: #ff60b0;
-            border-radius: 10px;
+            border-radius: 20px;
+            box-shadow: inset 0 0 6px #ffc0ff;
         }
 
-        /* Additional glitch overlay (occasional chaos) */
+        /* multiple overlays for extra chaos */
         .glitch-overlay {
             position: fixed;
             top: 0;
@@ -291,25 +321,63 @@
             width: 100%;
             height: 100%;
             pointer-events: none;
-            z-index: 10;
-            background: repeating-linear-gradient(0deg, rgba(255,0,150,0.1) 0px, rgba(0,255,255,0.1) 2px, transparent 3px, transparent 5px);
+            z-index: 20;
+            background: repeating-linear-gradient(0deg, rgba(255,0,180,0.15) 0px, rgba(0,255,255,0.15) 1px, transparent 2px, transparent 8px);
             mix-blend-mode: overlay;
-            animation: scan 8s linear infinite;
+            animation: scan 12s linear infinite;
+        }
+
+        .noise-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 21;
+            background: radial-gradient(circle at 20% 40%, rgba(255,0,150,0.1) 0%, transparent 50%);
+            mix-blend-mode: screen;
+            animation: breathe 8s infinite alternate;
         }
 
         @keyframes scan {
             0% { background-position: 0 0; }
-            100% { background-position: 0 20px; }
+            100% { background-position: 0 30px; }
+        }
+
+        @keyframes breathe {
+            0% { opacity: 0.3; filter: blur(0px); }
+            100% { opacity: 0.8; filter: blur(10px); }
+        }
+
+        /* floating glitch text */
+        .floating-text {
+            position: fixed;
+            color: rgba(255, 0, 255, 0.2);
+            font-size: 15rem;
+            font-weight: bold;
+            pointer-events: none;
+            z-index: 5;
+            white-space: nowrap;
+            animation: drift 30s linear infinite;
+            font-family: 'Rubik Glitch', cursive;
+            text-shadow: 0 0 50px magenta;
         }
     </style>
 </head>
 <body>
-    <!-- Canvas for Three.js background -->
+    <!-- Multiple canvases for layered 3D -->
     <canvas id="bg-canvas"></canvas>
+    <canvas id="fg-canvas"></canvas>
+    <canvas id="glow-canvas"></canvas>
 
-    <!-- Optional glitch overlay for extra chaos -->
+    <!-- Overlays -->
     <div class="glitch-overlay"></div>
+    <div class="noise-overlay"></div>
+    <div class="floating-text" style="top: 10%; left: -20%;">CORRUPTED</div>
+    <div class="floating-text" style="bottom: 5%; right: -10%; font-size: 10rem; animation-duration: 40s;">ABYSS</div>
 
+    <!-- Main chat container -->
     <div class="bot-container">
         <div class="bot-header">
             <div class="avatar">AI</div>
@@ -332,232 +400,385 @@
     <!-- Your original script (unchanged) -->
     <script src="script.js"></script>
 
-    <!-- New immersive effects with GSAP + Three.js -->
+    <!-- MASSIVE IMMERSIVE EFFECTS SCRIPT -->
     <script>
         (function() {
-            // --- THREE.JS: CHAOTIC WATER + EARTHQUAKE WAVES ---
-            const canvas = document.getElementById('bg-canvas');
-            const scene = new THREE.Scene();
-            scene.background = new THREE.Color(0x050510);
+            // ==================== CONFIGURATION ====================
+            const fonts = [
+                'Creepster', 'Eater', 'Nosifer', 'UnifrakturMaguntia', 'Butcherman',
+                'Bloody', 'Berkshire Swash', 'Metal Mania', 'Rubik Glitch', 'Rubik Wet Paint',
+                'Rubik Beastly', 'Rubik Burned', 'Rubik Dirt', 'Rubik Distressed', 'Rubik Gemstones',
+                'Rubik Glitch Pop', 'Rubik Marker Hatch', 'Rubik Maze', 'Rubik Microbe', 'Rubik Moonrocks',
+                'Rubik Pixels', 'Rubik Storm', 'Rubik Vinyl', 'Rubik Wreck', 'Sixtyfour',
+                'Playfair Display SC', 'Courier New', 'Comic Sans MS', 'Impact', 'Wingdings'
+            ]; // more than 20
 
-            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-            camera.position.set(0, 2, 12);
-            camera.lookAt(0, 0, 0);
+            // ==================== THREE.JS: THREE CANVASES ====================
+            // Canvas 1: Main background with water/earthquake
+            const canvas1 = document.getElementById('bg-canvas');
+            const scene1 = new THREE.Scene();
+            scene1.background = new THREE.Color(0x050510);
 
-            const renderer = new THREE.WebGLRenderer({ canvas, alpha: false, antialias: true });
-            renderer.setSize(window.innerWidth, window.innerHeight);
-            renderer.setPixelRatio(window.devicePixelRatio);
+            const camera1 = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
+            camera1.position.set(0, 3, 15);
+            camera1.lookAt(0, 0, 0);
 
-            // --- LIGHTS ---
-            const ambient = new THREE.AmbientLight(0x404060);
-            scene.add(ambient);
-            const dirLight = new THREE.DirectionalLight(0xffaaff, 1);
-            dirLight.position.set(1, 2, 1);
-            scene.add(dirLight);
-            const pointLight = new THREE.PointLight(0xff00aa, 2, 15);
-            pointLight.position.set(2, 3, 4);
-            scene.add(pointLight);
+            const renderer1 = new THREE.WebGLRenderer({ canvas: canvas1, alpha: false, antialias: true });
+            renderer1.setSize(window.innerWidth, window.innerHeight);
+            renderer1.setPixelRatio(window.devicePixelRatio);
+            renderer1.toneMapping = THREE.ReinhardToneMapping;
+            renderer1.toneMappingExposure = 1.2;
 
-            // --- MAIN MESH: a wavy, chaotic plane (water + earthquake) ---
-            const geometry = new THREE.PlaneGeometry(20, 20, 128, 128);
-            const material = new THREE.MeshPhongMaterial({
-                color: 0x330033,
+            // Lights
+            const ambient1 = new THREE.AmbientLight(0x404080);
+            scene1.add(ambient1);
+            const dirLight1 = new THREE.DirectionalLight(0xffaaff, 1.5);
+            dirLight1.position.set(2, 3, 4);
+            scene1.add(dirLight1);
+            const pointLight1 = new THREE.PointLight(0xff00aa, 2, 20);
+            pointLight1.position.set(-2, 1, 5);
+            scene1.add(pointLight1);
+
+            // Main chaotic plane (high resolution)
+            const geo1 = new THREE.PlaneGeometry(24, 24, 256, 256);
+            const mat1 = new THREE.MeshPhongMaterial({
+                color: 0x330044,
                 emissive: 0x220022,
                 wireframe: false,
                 side: THREE.DoubleSide,
                 transparent: true,
                 opacity: 0.7,
-                shininess: 30
+                shininess: 40,
+                flatShading: false
             });
-            const plane = new THREE.Mesh(geometry, material);
-            plane.rotation.x = -Math.PI / 3; // tilt for perspective
-            plane.position.y = -1;
-            scene.add(plane);
+            const plane1 = new THREE.Mesh(geo1, mat1);
+            plane1.rotation.x = -Math.PI / 3.2;
+            plane1.position.y = -1.5;
+            scene1.add(plane1);
 
-            // Add a second transparent plane with different wave for distortion
-            const geometry2 = new THREE.PlaneGeometry(22, 22, 80, 80);
-            const material2 = new THREE.MeshPhongMaterial({
-                color: 0x550044,
-                emissive: 0x110011,
+            // Second plane with wireframe for distortion
+            const geo2 = new THREE.PlaneGeometry(26, 26, 128, 128);
+            const mat2 = new THREE.MeshPhongMaterial({
+                color: 0x550066,
+                emissive: 0x110022,
                 wireframe: true,
                 transparent: true,
-                opacity: 0.2,
+                opacity: 0.3,
                 side: THREE.DoubleSide
             });
-            const plane2 = new THREE.Mesh(geometry2, material2);
-            plane2.rotation.x = -Math.PI / 3;
-            plane2.position.y = -0.8;
-            scene.add(plane2);
+            const plane2 = new THREE.Mesh(geo2, mat2);
+            plane2.rotation.x = -Math.PI / 3.2;
+            plane2.position.y = -1.2;
+            scene1.add(plane2);
 
-            // Particle system for "chaos dust"
-            const particleCount = 800;
+            // Floating spheres (eyes?)
+            const sphereGeo = new THREE.SphereGeometry(0.3, 32, 32);
+            const sphereMat = new THREE.MeshStandardMaterial({ color: 0xff00aa, emissive: 0x440022 });
+            const sphere1 = new THREE.Mesh(sphereGeo, sphereMat);
+            sphere1.position.set(2, 0.5, -3);
+            scene1.add(sphere1);
+            const sphere2 = new THREE.Mesh(sphereGeo, sphereMat);
+            sphere2.position.set(-2, 0.2, -4);
+            scene1.add(sphere2);
+
+            // Particles (chaos dust)
+            const particleCount = 2000;
             const particlesGeo = new THREE.BufferGeometry();
             const posArray = new Float32Array(particleCount * 3);
+            const colorArray = new Float32Array(particleCount * 3);
             for (let i = 0; i < particleCount; i++) {
-                posArray[i*3] = (Math.random() - 0.5) * 30;
-                posArray[i*3+1] = (Math.random() - 0.5) * 10;
-                posArray[i*3+2] = (Math.random() - 0.5) * 20 - 5;
+                posArray[i*3] = (Math.random() - 0.5) * 40;
+                posArray[i*3+1] = (Math.random() - 0.5) * 20;
+                posArray[i*3+2] = (Math.random() - 0.5) * 40 - 5;
+                colorArray[i*3] = Math.random() * 0.8 + 0.2; // r
+                colorArray[i*3+1] = Math.random() * 0.3; // g
+                colorArray[i*3+2] = Math.random() * 0.8 + 0.2; // b
             }
             particlesGeo.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
-            const particlesMat = new THREE.PointsMaterial({
-                color: 0xff88aa,
-                size: 0.05,
-                transparent: true,
-                blending: THREE.AdditiveBlending
-            });
+            particlesGeo.setAttribute('color', new THREE.BufferAttribute(colorArray, 3));
+            const particlesMat = new THREE.PointsMaterial({ size: 0.08, vertexColors: true, transparent: true, blending: THREE.AdditiveBlending });
             const particles = new THREE.Points(particlesGeo, particlesMat);
-            scene.add(particles);
+            scene1.add(particles);
 
-            // Store original vertex positions for wave animation
-            const positions = geometry.attributes.position.array;
-            const count = positions.length / 3;
-            const originalY = new Float32Array(count);
-            for (let i = 0; i < count; i++) {
-                originalY[i] = positions[i*3+1];
+            // Store original Y for wave animation
+            const positions1 = geo1.attributes.position.array;
+            const count1 = positions1.length / 3;
+            const originalY1 = new Float32Array(count1);
+            for (let i = 0; i < count1; i++) {
+                originalY1[i] = positions1[i*3+1];
             }
 
-            // Time variable
+            // Animation variables
             let clock = new THREE.Clock();
 
-            function animate() {
+            function animateScene1() {
                 const delta = clock.getDelta();
-                const elapsedTime = performance.now() / 1000; // seconds
+                const elapsedTime = performance.now() / 1000;
 
-                // Wave motion on plane
-                const positions = geometry.attributes.position.array;
-                for (let i = 0; i < count; i++) {
+                // Wave motion on plane1
+                const positions = geo1.attributes.position.array;
+                for (let i = 0; i < count1; i++) {
                     const x = positions[i*3];
                     const z = positions[i*3+2];
-
-                    // Multiple frequencies for chaotic water + earthquake shocks
-                    const wave1 = Math.sin(x * 2.5 + elapsedTime * 3) * Math.cos(z * 1.8 + elapsedTime * 2) * 0.4;
-                    const wave2 = Math.sin(x * 5.0 + elapsedTime * 5) * 0.2;
-                    const wave3 = Math.cos(z * 4.0 + elapsedTime * 4) * 0.25;
-                    const shock = Math.sin(elapsedTime * 20) * Math.exp(-Math.abs(x)) * 0.3; // occasional jolt
-
-                    // earthquake: random spikes
-                    const quake = (Math.random() > 0.98) ? 0.6 : 0.0; // rare spikes
-
-                    positions[i*3+1] = originalY[i] + wave1 + wave2 + wave3 + shock + quake;
+                    const wave1 = Math.sin(x * 2.0 + elapsedTime * 2) * Math.cos(z * 1.5 + elapsedTime * 1.5) * 0.5;
+                    const wave2 = Math.sin(x * 5.0 + elapsedTime * 4) * 0.3;
+                    const wave3 = Math.cos(z * 6.0 + elapsedTime * 3) * 0.2;
+                    const shock = Math.sin(elapsedTime * 15) * Math.exp(-Math.abs(x)) * 0.5;
+                    const quake = (Math.random() > 0.99) ? 1.0 : 0.0;
+                    positions[i*3+1] = originalY1[i] + wave1 + wave2 + wave3 + shock + quake;
                 }
-                geometry.attributes.position.needsUpdate = true;
+                geo1.attributes.position.needsUpdate = true;
 
-                // Rotate particles slowly for chaos
-                particles.rotation.y += 0.001;
-                particles.rotation.x += 0.0005;
+                // Rotate particles
+                particles.rotation.y += 0.0005;
+                particles.rotation.x += 0.0003;
 
-                // Slight camera movement (laggy / disorienting)
-                if (Math.random() < 0.005) { // occasional "lag spike" – camera jerk
-                    camera.position.x += (Math.random() - 0.5) * 0.5;
-                    camera.position.y += (Math.random() - 0.5) * 0.3;
-                } else {
-                    // smooth drift
-                    camera.position.x = Math.sin(elapsedTime * 0.2) * 1.5;
-                    camera.position.y = 2 + Math.sin(elapsedTime * 0.5) * 0.3;
-                }
-                camera.lookAt(0, 0, 0);
+                // Animate spheres
+                sphere1.position.x = 2 + Math.sin(elapsedTime * 0.8) * 1.5;
+                sphere1.position.y = 0.5 + Math.cos(elapsedTime * 1.2) * 0.5;
+                sphere2.position.x = -2 + Math.sin(elapsedTime * 0.6 + 2) * 1.5;
+                sphere2.position.y = 0.2 + Math.cos(elapsedTime * 1.0) * 0.7;
 
-                renderer.render(scene, camera);
-                requestAnimationFrame(animate);
+                // Camera drift
+                camera1.position.x = Math.sin(elapsedTime * 0.15) * 2;
+                camera1.position.y = 3 + Math.sin(elapsedTime * 0.2) * 0.5;
+                camera1.lookAt(0, 0, 0);
+
+                renderer1.render(scene1, camera1);
+                requestAnimationFrame(animateScene1);
             }
+            animateScene1();
 
-            animate();
+            // ==================== CANVAS 2: FOREGROUND WITH BLOOM ====================
+            const canvas2 = document.getElementById('fg-canvas');
+            const scene2 = new THREE.Scene();
+            const camera2 = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            camera2.position.set(0, 1, 10);
+            camera2.lookAt(0, 0, 0);
 
-            // Resize handler
-            window.addEventListener('resize', () => {
-                camera.aspect = window.innerWidth / window.innerHeight;
-                camera.updateProjectionMatrix();
-                renderer.setSize(window.innerWidth, window.innerHeight);
-            });
+            const renderer2 = new THREE.WebGLRenderer({ canvas: canvas2, alpha: true, antialias: true });
+            renderer2.setSize(window.innerWidth, window.innerHeight);
+            renderer2.setPixelRatio(window.devicePixelRatio);
+            renderer2.setClearColor(0x000000, 0); // transparent
 
-            // --- GSAP: corrupt / glitch effects on text elements ---
-            // Periodically glitch the title and avatar
-            const titleSpan = document.querySelector('.title span');
-            const avatar = document.querySelector('.avatar');
+            // Add some floating geometric shapes
+            const torusKnotGeo = new THREE.TorusKnotGeometry(1, 0.3, 100, 16);
+            const torusKnotMat = new THREE.MeshStandardMaterial({ color: 0xff44aa, emissive: 0x330022, wireframe: true });
+            const torusKnot = new THREE.Mesh(torusKnotGeo, torusKnotMat);
+            torusKnot.position.set(0, 1, -2);
+            scene2.add(torusKnot);
 
-            function randomGlitch() {
-                if (!titleSpan || !avatar) return;
+            const icosahedronGeo = new THREE.IcosahedronGeometry(0.8, 1);
+            const icosahedronMat = new THREE.MeshPhongMaterial({ color: 0xaa44ff, emissive: 0x220033, shininess: 60 });
+            const icosahedron = new THREE.Mesh(icosahedronGeo, icosahedronMat);
+            icosahedron.position.set(2, -0.5, -3);
+            scene2.add(icosahedron);
 
-                // GSAP timeline for a chaotic glitch sequence
-                const tl = gsap.timeline({
-                    repeat: 1,
-                    yoyo: true,
-                    ease: "power2.inOut",
-                    onComplete: () => {
-                        // reset to normal
-                        gsap.set([titleSpan, avatar], { clearProps: "filter,transform,textShadow" });
+            // Light for scene2
+            const light2 = new THREE.PointLight(0xff88ff, 1, 20);
+            light2.position.set(1, 2, 3);
+            scene2.add(light2);
+
+            function animateScene2() {
+                const elapsedTime = performance.now() / 1000;
+                torusKnot.rotation.x += 0.01;
+                torusKnot.rotation.y += 0.02;
+                icosahedron.rotation.x += 0.005;
+                icosahedron.rotation.y += 0.01;
+                renderer2.render(scene2, camera2);
+                requestAnimationFrame(animateScene2);
+            }
+            animateScene2();
+
+            // ==================== CANVAS 3: POST-PROCESSING (GLOW/GLITCH) ====================
+            const canvas3 = document.getElementById('glow-canvas');
+            const scene3 = new THREE.Scene();
+            const camera3 = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            camera3.position.set(0, 0, 5);
+            camera3.lookAt(0, 0, 0);
+
+            const renderer3 = new THREE.WebGLRenderer({ canvas: canvas3, alpha: true });
+            renderer3.setSize(window.innerWidth, window.innerHeight);
+            renderer3.setPixelRatio(window.devicePixelRatio);
+            renderer3.setClearColor(0x000000, 0);
+
+            // Simple glowing cube
+            const cubeGeo = new THREE.BoxGeometry(1, 1, 1);
+            const cubeMat = new THREE.MeshStandardMaterial({ color: 0xff00aa, emissive: 0x550033 });
+            const cube = new THREE.Mesh(cubeGeo, cubeMat);
+            cube.position.set(1, 1, -1);
+            scene3.add(cube);
+
+            const sphere3Geo = new THREE.SphereGeometry(0.6, 32);
+            const sphere3Mat = new THREE.MeshStandardMaterial({ color: 0x00aaff, emissive: 0x002244 });
+            const sphere3 = new THREE.Mesh(sphere3Geo, sphere3Mat);
+            sphere3.position.set(-1, -0.5, -2);
+            scene3.add(sphere3);
+
+            // Lights
+            const light3 = new THREE.PointLight(0xff88aa, 2, 10);
+            light3.position.set(0, 2, 2);
+            scene3.add(light3);
+
+            // Post-processing setup
+            const renderScene = new THREE.RenderPass(scene3, camera3);
+            const bloomPass = new THREE.UnrealBloomPass(new THREE.Vector2(window.innerWidth, window.innerHeight), 1.5, 0.4, 0.85);
+            bloomPass.threshold = 0.1;
+            bloomPass.strength = 1.2;
+            bloomPass.radius = 0.5;
+
+            const glitchPass = new THREE.GlitchPass();
+            glitchPass.goWild = true; // full chaos
+
+            const composer = new THREE.EffectComposer(renderer3);
+            composer.addPass(renderScene);
+            composer.addPass(bloomPass);
+            composer.addPass(glitchPass);
+
+            function animateScene3() {
+                const elapsedTime = performance.now() / 1000;
+                cube.rotation.x += 0.01;
+                cube.rotation.y += 0.02;
+                sphere3.rotation.x += 0.005;
+                sphere3.rotation.y += 0.01;
+
+                // Randomly toggle glitch intensity
+                if (Math.random() < 0.01) {
+                    glitchPass.goWild = !glitchPass.goWild;
+                }
+
+                composer.render();
+                requestAnimationFrame(animateScene3);
+            }
+            animateScene3();
+
+            // ==================== FONT CHAOS ====================
+            // Apply random fonts to all text elements periodically
+            function applyRandomFonts() {
+                const elements = document.querySelectorAll('.bubble, .title, .avatar, .avatar-small, #userInput, #sendBtn, .floating-text');
+                elements.forEach(el => {
+                    const randomFont = fonts[Math.floor(Math.random() * fonts.length)];
+                    el.style.fontFamily = `'${randomFont}', cursive`;
+                });
+            }
+            setInterval(applyRandomFonts, 3000); // change fonts every 3 seconds
+
+            // Also apply to new messages added by script.js (observe mutations)
+            const chatWindow = document.getElementById('chatWindow');
+            const observer = new MutationObserver(() => {
+                // randomize fonts of new messages
+                const newMessages = chatWindow.querySelectorAll('.message:not([data-font-chaos])');
+                newMessages.forEach(msg => {
+                    msg.setAttribute('data-font-chaos', 'true');
+                    const bubble = msg.querySelector('.bubble');
+                    if (bubble) {
+                        bubble.style.fontFamily = `'${fonts[Math.floor(Math.random() * fonts.length)]}', cursive`;
                     }
                 });
+            });
+            observer.observe(chatWindow, { childList: true, subtree: true });
 
-                tl.to([titleSpan, avatar], {
-                    duration: 0.05,
-                    filter: "blur(4px) hue-rotate(90deg)",
-                    transform: "skew(5deg) scale(1.1)",
-                    textShadow: "2px 2px red, -2px -2px blue",
-                    repeat: 3,
+            // ==================== GSAP CHAOS ====================
+            // Periodic glitch on header
+            function glitchHeader() {
+                gsap.timeline({
+                    repeat: 2,
                     yoyo: true,
                     ease: "steps(1)"
                 })
-                .to([titleSpan, avatar], {
-                    duration: 0.1,
-                    filter: "blur(10px) invert(1)",
-                    transform: "skew(-10deg) scale(0.9)",
-                    textShadow: "5px 5px magenta",
-                })
-                .to([titleSpan, avatar], {
-                    duration: 0.05,
-                    filter: "blur(0px)",
-                    transform: "skew(0deg)",
-                    textShadow: "0 0 8px magenta"
-                });
+                .to('.bot-header', { duration: 0.05, filter: 'blur(5px) hue-rotate(180deg)', x: 5 })
+                .to('.bot-header', { duration: 0.05, filter: 'blur(0px) hue-rotate(0deg)', x: -5 })
+                .to('.bot-header', { duration: 0.05, filter: 'invert(1) brightness(2)', x: 0 })
+                .to('.bot-header', { duration: 0.05, filter: 'none', x: 0 });
             }
+            setInterval(glitchHeader, 7000);
 
-            // Trigger glitch every 8 seconds (chaotic timing)
-            setInterval(() => {
-                randomGlitch();
-            }, 8000);
-
-            // Also trigger on mouse move occasionally for "laggy" feel
-            let lastGlitchTime = 0;
-            document.addEventListener('mousemove', () => {
-                const now = Date.now();
-                if (now - lastGlitchTime > 5000 && Math.random() < 0.1) {
-                    lastGlitchTime = now;
-                    randomGlitch();
-                }
-            });
-
-            // Extra "earthquake" effect on chat container
+            // Shake container randomly
             function shakeContainer() {
                 gsap.to('.bot-container', {
-                    duration: 0.1,
-                    x: -5,
-                    y: 2,
-                    rotation: 0.5,
-                    repeat: 5,
+                    duration: 0.2,
+                    x: -10,
+                    y: 5,
+                    rotation: 1,
+                    repeat: 6,
                     yoyo: true,
                     ease: "power1.inOut",
-                    onComplete: () => {
-                        gsap.set('.bot-container', { x: 0, y: 0, rotation: 0 });
-                    }
+                    onComplete: () => gsap.set('.bot-container', { x: 0, y: 0, rotation: 0 })
                 });
             }
+            setInterval(shakeContainer, 12000 + Math.random() * 8000);
 
-            // Random earthquakes every 15-25 seconds
-            setInterval(() => {
-                shakeContainer();
-            }, 20000 + Math.random() * 10000);
-
-            // Also trigger earthquake when user sends a message (optional) – we can listen to button click
-            // but we don't want to interfere with script.js, so we just add a separate listener
-            document.getElementById('sendBtn').addEventListener('click', () => {
-                if (Math.random() > 0.7) { // 30% chance of quake on send
-                    shakeContainer();
-                }
+            // Mouse interaction: slight rotation based on mouse position
+            document.addEventListener('mousemove', (e) => {
+                const x = (e.clientX / window.innerWidth - 0.5) * 10;
+                const y = (e.clientY / window.innerHeight - 0.5) * 5;
+                gsap.to('.bot-container', { duration: 0.5, rotationY: x, rotationX: -y, ease: "power2.out" });
             });
 
-            // Additional chaos: random "lag spikes" where everything freezes briefly?
-            // We can simulate by pausing GSAP and Three.js animations? Not recommended – just visual glitch.
+            // Input glitch on focus
+            document.getElementById('userInput').addEventListener('focus', () => {
+                gsap.to('#userInput', { duration: 0.2, scale: 1.05, boxShadow: '0 0 100px magenta', repeat: 3, yoyo: true });
+            });
+
+            // Send button chaos
+            document.getElementById('sendBtn').addEventListener('click', () => {
+                if (Math.random() > 0.5) shakeContainer();
+                gsap.to('#sendBtn', { duration: 0.1, rotation: 15, scale: 1.3, repeat: 2, yoyo: true });
+            });
+
+            // ==================== AUDIO VISUALIZER (SIMULATED) ====================
+            // Not actual audio, but we can create a fake spectrum analyzer with divs
+            const audioBars = document.createElement('div');
+            audioBars.style.position = 'fixed';
+            audioBars.style.bottom = '0';
+            audioBars.style.left = '0';
+            audioBars.style.width = '100%';
+            audioBars.style.height = '30px';
+            audioBars.style.display = 'flex';
+            audioBars.style.gap = '2px';
+            audioBars.style.zIndex = '25';
+            audioBars.style.pointerEvents = 'none';
+            for (let i = 0; i < 50; i++) {
+                const bar = document.createElement('div');
+                bar.style.flex = '1';
+                bar.style.background = 'rgba(255,0,255,0.3)';
+                bar.style.height = '5px';
+                bar.style.transition = 'height 0.1s';
+                audioBars.appendChild(bar);
+            }
+            document.body.appendChild(audioBars);
+
+            function animateAudioBars() {
+                const bars = audioBars.children;
+                for (let i = 0; i < bars.length; i++) {
+                    const h = Math.random() * 60;
+                    bars[i].style.height = h + 'px';
+                    bars[i].style.background = `rgba(255, ${Math.floor(Math.random()*200)}, 255, 0.8)`;
+                }
+                requestAnimationFrame(animateAudioBars);
+            }
+            animateAudioBars();
+
+            // ==================== RESIZE HANDLER ====================
+            window.addEventListener('resize', () => {
+                camera1.aspect = window.innerWidth / window.innerHeight;
+                camera1.updateProjectionMatrix();
+                renderer1.setSize(window.innerWidth, window.innerHeight);
+
+                camera2.aspect = window.innerWidth / window.innerHeight;
+                camera2.updateProjectionMatrix();
+                renderer2.setSize(window.innerWidth, window.innerHeight);
+
+                camera3.aspect = window.innerWidth / window.innerHeight;
+                camera3.updateProjectionMatrix();
+                renderer3.setSize(window.innerWidth, window.innerHeight);
+                composer.setSize(window.innerWidth, window.innerHeight);
+            });
+
+            // ==================== FINAL TOUCH: RANDOM CSS VARIABLES ====================
+            setInterval(() => {
+                document.body.style.setProperty('--chaos-hue', Math.random() * 360);
+            }, 500);
         })();
     </script>
 </body>
