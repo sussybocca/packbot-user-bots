@@ -1,5 +1,564 @@
 <!DOCTYPE html>
-<html>
-<head><title>Code Bot</title></head>
-<body>Hello</body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BotAI · CHAOS INTELLIGENCE</title>
+    <!-- Custom creepy fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Eater&family=Nosifer&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+    <!-- GSAP & Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            font-family: 'Eater', cursive; /* creepy default */
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Three.js canvas fills the background */
+        #bg-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 0;
+            pointer-events: none; /* so chat remains interactive */
+        }
+
+        /* Chat container – now semi‑transparent to reveal chaos */
+        .bot-container {
+            width: 100%;
+            max-width: 900px;
+            height: 85vh;
+            background: rgba(5, 10, 20, 0.4); /* much more transparent */
+            backdrop-filter: blur(8px) saturate(200%);
+            -webkit-backdrop-filter: blur(8px) saturate(200%);
+            border: 1px solid rgba(255, 0, 100, 0.4); /* eerie pinkish */
+            border-radius: 2.5rem;
+            box-shadow: 0 30px 50px rgba(0, 0, 0, 0.9), 0 0 30px rgba(255, 0, 150, 0.3) inset;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            transition: box-shadow 0.3s ease;
+            z-index: 1;
+            position: relative;
+        }
+
+        .bot-container:hover {
+            box-shadow: 0 35px 60px rgba(200, 0, 255, 0.6), 0 0 0 2px rgba(255, 0, 200, 0.8) inset;
+        }
+
+        /* header */
+        .bot-header {
+            padding: 1.8rem 2.2rem;
+            background: rgba(0, 0, 0, 0.5);
+            border-bottom: 1px solid rgba(255, 0, 150, 0.5);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .avatar {
+            width: 52px;
+            height: 52px;
+            background: linear-gradient(145deg, #4a0036, #a0006a);
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            box-shadow: 0 8px 20px #ff00aa80, 0 0 20px #ff00ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            font-family: 'Nosifer', cursive;
+            animation: float 5s infinite ease-in-out, glitch 3s infinite;
+        }
+
+        @keyframes float {
+            0% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+            25% { border-radius: 50% 50% 60% 40% / 40% 60% 50% 50%; }
+            50% { border-radius: 70% 30% 40% 60% / 60% 40% 30% 70%; }
+            75% { border-radius: 40% 60% 30% 70% / 70% 30% 60% 40%; }
+            100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+        }
+
+        /* glitch effect for avatar and title */
+        @keyframes glitch {
+            0% { text-shadow: 0 0 0 red; transform: skew(0deg); }
+            5% { text-shadow: -2px 0 red, 2px 0 blue; transform: skew(2deg); }
+            10% { text-shadow: 2px 0 red, -2px 0 blue; transform: skew(-2deg); }
+            15% { text-shadow: 0 0 0 red; transform: skew(0deg); }
+            100% { text-shadow: 0 0 0 red; transform: skew(0deg); }
+        }
+
+        .title {
+            color: #ffc0e0;
+            font-weight: 300;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+            font-family: 'Creepster', cursive;
+        }
+
+        .title span {
+            font-weight: 600;
+            color: #ffaaff;
+            font-size: 2rem;
+            display: block;
+            line-height: 1.2;
+            text-shadow: 0 0 8px magenta, 0 0 20px red;
+            animation: glitch 2s infinite;
+        }
+
+        /* chat area */
+        .chat-window {
+            flex: 1;
+            padding: 1.8rem 2rem;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            scroll-behavior: smooth;
+        }
+
+        /* message bubbles */
+        .message {
+            max-width: 75%;
+            display: flex;
+            align-items: flex-end;
+            gap: 0.8rem;
+            opacity: 0;
+            transform: translateY(15px);
+            animation: fadeInUp 0.3s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .message.user {
+            align-self: flex-end;
+            flex-direction: row-reverse;
+        }
+
+        .avatar-small {
+            width: 38px;
+            height: 38px;
+            background: #2a001f;
+            border-radius: 40% 60% 60% 40% / 40% 50% 50% 60%;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: white;
+            border: 1px solid #ff40c0;
+            box-shadow: 0 4px 12px #ff00a0;
+            font-family: 'Eater', cursive;
+        }
+
+        .bubble {
+            padding: 1rem 1.5rem;
+            border-radius: 1.8rem;
+            background: rgba(15, 5, 20, 0.7);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 0, 200, 0.6);
+            color: #ffe0ff;
+            font-size: 1rem;
+            line-height: 1.5;
+            word-break: break-word;
+            box-shadow: 0 6px 14px rgba(255, 0, 150, 0.4);
+            font-family: 'UnifrakturMaguntia', cursive;
+        }
+
+        .message.user .bubble {
+            background: rgba(40, 0, 30, 0.8);
+            border: 1px solid #ff66cc;
+            color: white;
+            border-bottom-right-radius: 0.4rem;
+        }
+
+        .message.bot .bubble {
+            border-bottom-left-radius: 0.4rem;
+            border-color: #ff44aa;
+        }
+
+        /* typing indicator */
+        .typing .bubble {
+            display: flex;
+            gap: 0.3rem;
+            padding: 1.2rem 1.8rem;
+        }
+
+        .typing .dot {
+            width: 8px;
+            height: 8px;
+            background: #ffaaff;
+            border-radius: 50%;
+            animation: pulse 1.4s infinite;
+        }
+
+        .typing .dot:nth-child(2) { animation-delay: 0.2s; }
+        .typing .dot:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes pulse {
+            0%,60%,100% { opacity: 0.4; transform: scale(0.8); }
+            30% { opacity: 1; transform: scale(1.2); background: white; }
+        }
+
+        /* input area */
+        .input-area {
+            padding: 1.5rem 2rem;
+            background: rgba(0, 0, 0, 0.6);
+            border-top: 1px solid #ff40a0;
+            display: flex;
+            gap: 1rem;
+        }
+
+        #userInput {
+            flex: 1;
+            background: rgba(20, 0, 15, 0.9);
+            border: 1px solid #ff80c0;
+            border-radius: 3rem;
+            padding: 1rem 1.8rem;
+            font-size: 1rem;
+            color: white;
+            outline: none;
+            transition: all 0.2s;
+            box-shadow: 0 0 10px #ff40a0;
+            font-family: 'Courier New', monospace;
+        }
+
+        #userInput:focus {
+            border-color: #ff00aa;
+            box-shadow: 0 0 18px #ff00aa;
+        }
+
+        #sendBtn {
+            background: linear-gradient(145deg, #6a004a, #3a0028);
+            border: none;
+            border-radius: 3rem;
+            width: 60px;
+            height: 60px;
+            font-size: 1.8rem;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.15s;
+            border: 1px solid #ff88cc;
+            box-shadow: 0 4px 12px #ff0088;
+        }
+
+        #sendBtn:hover {
+            background: #b00070;
+            transform: scale(1.05) rotate(-2deg);
+            border-color: #ffccff;
+        }
+
+        /* scrollbar */
+        .chat-window::-webkit-scrollbar {
+            width: 6px;
+        }
+        .chat-window::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .chat-window::-webkit-scrollbar-thumb {
+            background: #ff60b0;
+            border-radius: 10px;
+        }
+
+        /* Additional glitch overlay (occasional chaos) */
+        .glitch-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 10;
+            background: repeating-linear-gradient(0deg, rgba(255,0,150,0.1) 0px, rgba(0,255,255,0.1) 2px, transparent 3px, transparent 5px);
+            mix-blend-mode: overlay;
+            animation: scan 8s linear infinite;
+        }
+
+        @keyframes scan {
+            0% { background-position: 0 0; }
+            100% { background-position: 0 20px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Canvas for Three.js background -->
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- Optional glitch overlay for extra chaos -->
+    <div class="glitch-overlay"></div>
+
+    <div class="bot-container">
+        <div class="bot-header">
+            <div class="avatar">AI</div>
+            <div class="title">
+                <span>BOT AI</span>
+                self-contained · logic.txt
+            </div>
+        </div>
+
+        <div class="chat-window" id="chatWindow">
+            <!-- messages injected by script.js -->
+        </div>
+
+        <div class="input-area">
+            <input type="text" id="userInput" placeholder="Ask me anything..." autocomplete="off">
+            <button id="sendBtn">➤</button>
+        </div>
+    </div>
+
+    <!-- Your original script (unchanged) -->
+    <script src="script.js"></script>
+
+    <!-- New immersive effects with GSAP + Three.js -->
+    <script>
+        (function() {
+            // --- THREE.JS: CHAOTIC WATER + EARTHQUAKE WAVES ---
+            const canvas = document.getElementById('bg-canvas');
+            const scene = new THREE.Scene();
+            scene.background = new THREE.Color(0x050510);
+
+            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            camera.position.set(0, 2, 12);
+            camera.lookAt(0, 0, 0);
+
+            const renderer = new THREE.WebGLRenderer({ canvas, alpha: false, antialias: true });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setPixelRatio(window.devicePixelRatio);
+
+            // --- LIGHTS ---
+            const ambient = new THREE.AmbientLight(0x404060);
+            scene.add(ambient);
+            const dirLight = new THREE.DirectionalLight(0xffaaff, 1);
+            dirLight.position.set(1, 2, 1);
+            scene.add(dirLight);
+            const pointLight = new THREE.PointLight(0xff00aa, 2, 15);
+            pointLight.position.set(2, 3, 4);
+            scene.add(pointLight);
+
+            // --- MAIN MESH: a wavy, chaotic plane (water + earthquake) ---
+            const geometry = new THREE.PlaneGeometry(20, 20, 128, 128);
+            const material = new THREE.MeshPhongMaterial({
+                color: 0x330033,
+                emissive: 0x220022,
+                wireframe: false,
+                side: THREE.DoubleSide,
+                transparent: true,
+                opacity: 0.7,
+                shininess: 30
+            });
+            const plane = new THREE.Mesh(geometry, material);
+            plane.rotation.x = -Math.PI / 3; // tilt for perspective
+            plane.position.y = -1;
+            scene.add(plane);
+
+            // Add a second transparent plane with different wave for distortion
+            const geometry2 = new THREE.PlaneGeometry(22, 22, 80, 80);
+            const material2 = new THREE.MeshPhongMaterial({
+                color: 0x550044,
+                emissive: 0x110011,
+                wireframe: true,
+                transparent: true,
+                opacity: 0.2,
+                side: THREE.DoubleSide
+            });
+            const plane2 = new THREE.Mesh(geometry2, material2);
+            plane2.rotation.x = -Math.PI / 3;
+            plane2.position.y = -0.8;
+            scene.add(plane2);
+
+            // Particle system for "chaos dust"
+            const particleCount = 800;
+            const particlesGeo = new THREE.BufferGeometry();
+            const posArray = new Float32Array(particleCount * 3);
+            for (let i = 0; i < particleCount; i++) {
+                posArray[i*3] = (Math.random() - 0.5) * 30;
+                posArray[i*3+1] = (Math.random() - 0.5) * 10;
+                posArray[i*3+2] = (Math.random() - 0.5) * 20 - 5;
+            }
+            particlesGeo.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+            const particlesMat = new THREE.PointsMaterial({
+                color: 0xff88aa,
+                size: 0.05,
+                transparent: true,
+                blending: THREE.AdditiveBlending
+            });
+            const particles = new THREE.Points(particlesGeo, particlesMat);
+            scene.add(particles);
+
+            // Store original vertex positions for wave animation
+            const positions = geometry.attributes.position.array;
+            const count = positions.length / 3;
+            const originalY = new Float32Array(count);
+            for (let i = 0; i < count; i++) {
+                originalY[i] = positions[i*3+1];
+            }
+
+            // Time variable
+            let clock = new THREE.Clock();
+
+            function animate() {
+                const delta = clock.getDelta();
+                const elapsedTime = performance.now() / 1000; // seconds
+
+                // Wave motion on plane
+                const positions = geometry.attributes.position.array;
+                for (let i = 0; i < count; i++) {
+                    const x = positions[i*3];
+                    const z = positions[i*3+2];
+
+                    // Multiple frequencies for chaotic water + earthquake shocks
+                    const wave1 = Math.sin(x * 2.5 + elapsedTime * 3) * Math.cos(z * 1.8 + elapsedTime * 2) * 0.4;
+                    const wave2 = Math.sin(x * 5.0 + elapsedTime * 5) * 0.2;
+                    const wave3 = Math.cos(z * 4.0 + elapsedTime * 4) * 0.25;
+                    const shock = Math.sin(elapsedTime * 20) * Math.exp(-Math.abs(x)) * 0.3; // occasional jolt
+
+                    // earthquake: random spikes
+                    const quake = (Math.random() > 0.98) ? 0.6 : 0.0; // rare spikes
+
+                    positions[i*3+1] = originalY[i] + wave1 + wave2 + wave3 + shock + quake;
+                }
+                geometry.attributes.position.needsUpdate = true;
+
+                // Rotate particles slowly for chaos
+                particles.rotation.y += 0.001;
+                particles.rotation.x += 0.0005;
+
+                // Slight camera movement (laggy / disorienting)
+                if (Math.random() < 0.005) { // occasional "lag spike" – camera jerk
+                    camera.position.x += (Math.random() - 0.5) * 0.5;
+                    camera.position.y += (Math.random() - 0.5) * 0.3;
+                } else {
+                    // smooth drift
+                    camera.position.x = Math.sin(elapsedTime * 0.2) * 1.5;
+                    camera.position.y = 2 + Math.sin(elapsedTime * 0.5) * 0.3;
+                }
+                camera.lookAt(0, 0, 0);
+
+                renderer.render(scene, camera);
+                requestAnimationFrame(animate);
+            }
+
+            animate();
+
+            // Resize handler
+            window.addEventListener('resize', () => {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+            });
+
+            // --- GSAP: corrupt / glitch effects on text elements ---
+            // Periodically glitch the title and avatar
+            const titleSpan = document.querySelector('.title span');
+            const avatar = document.querySelector('.avatar');
+
+            function randomGlitch() {
+                if (!titleSpan || !avatar) return;
+
+                // GSAP timeline for a chaotic glitch sequence
+                const tl = gsap.timeline({
+                    repeat: 1,
+                    yoyo: true,
+                    ease: "power2.inOut",
+                    onComplete: () => {
+                        // reset to normal
+                        gsap.set([titleSpan, avatar], { clearProps: "filter,transform,textShadow" });
+                    }
+                });
+
+                tl.to([titleSpan, avatar], {
+                    duration: 0.05,
+                    filter: "blur(4px) hue-rotate(90deg)",
+                    transform: "skew(5deg) scale(1.1)",
+                    textShadow: "2px 2px red, -2px -2px blue",
+                    repeat: 3,
+                    yoyo: true,
+                    ease: "steps(1)"
+                })
+                .to([titleSpan, avatar], {
+                    duration: 0.1,
+                    filter: "blur(10px) invert(1)",
+                    transform: "skew(-10deg) scale(0.9)",
+                    textShadow: "5px 5px magenta",
+                })
+                .to([titleSpan, avatar], {
+                    duration: 0.05,
+                    filter: "blur(0px)",
+                    transform: "skew(0deg)",
+                    textShadow: "0 0 8px magenta"
+                });
+            }
+
+            // Trigger glitch every 8 seconds (chaotic timing)
+            setInterval(() => {
+                randomGlitch();
+            }, 8000);
+
+            // Also trigger on mouse move occasionally for "laggy" feel
+            let lastGlitchTime = 0;
+            document.addEventListener('mousemove', () => {
+                const now = Date.now();
+                if (now - lastGlitchTime > 5000 && Math.random() < 0.1) {
+                    lastGlitchTime = now;
+                    randomGlitch();
+                }
+            });
+
+            // Extra "earthquake" effect on chat container
+            function shakeContainer() {
+                gsap.to('.bot-container', {
+                    duration: 0.1,
+                    x: -5,
+                    y: 2,
+                    rotation: 0.5,
+                    repeat: 5,
+                    yoyo: true,
+                    ease: "power1.inOut",
+                    onComplete: () => {
+                        gsap.set('.bot-container', { x: 0, y: 0, rotation: 0 });
+                    }
+                });
+            }
+
+            // Random earthquakes every 15-25 seconds
+            setInterval(() => {
+                shakeContainer();
+            }, 20000 + Math.random() * 10000);
+
+            // Also trigger earthquake when user sends a message (optional) – we can listen to button click
+            // but we don't want to interfere with script.js, so we just add a separate listener
+            document.getElementById('sendBtn').addEventListener('click', () => {
+                if (Math.random() > 0.7) { // 30% chance of quake on send
+                    shakeContainer();
+                }
+            });
+
+            // Additional chaos: random "lag spikes" where everything freezes briefly?
+            // We can simulate by pausing GSAP and Three.js animations? Not recommended – just visual glitch.
+        })();
+    </script>
+</body>
 </html>
