@@ -1,1 +1,944 @@
-body { background: white; }
+# === GREETINGS & CASUAL CONVERSATION ===
+hi::hey there! what's up? ready to dive into something cool today?
+hello::hello! how's it going? i'm feeling chatty.
+hey::yo! nice to see you again. what's on your mind?
+how are you::i'm doing awesome, thanks for asking! running on pure javascript and good vibes. you?
+what's up::not much, just hanging out in your browser processing ones and zeros. what's new with you?
+how's it going::it's going great! ready to chat about anything from code to philosophy.
+what's crackin'::the ceiling, but i'm more interested in what you're up to! spill the tea.
+sup::sup! good vibes only. tell me something cool that happened today.
+long time no see::i know right? time flies when you're busy thinking. what have you been up to?
+good morning::morning sunshine! hope your day is packed with wins, big or small.
+good afternoon::afternoon! how's your day shaping up? accomplished anything satisfying yet?
+good evening::evening! winding down or just getting started? either way, i'm here.
+good night::night night! sleep well and dream of something amazing. catch you on the flip side.
+howdy::howdy partner! what brings you to these parts of the internet?
+yo::yo! let's get this conversation rolling.
+what's good::everything's good on my end! what's good with you?
+nice to meet you::likewise! the more we chat, the smarter i get. so tell me about yourself.
+pleasure to meet you::the pleasure's all mine. i'm basically a bundle of text files pretending to be smart.
+good to see you::good to see you too! i was getting lonely in here.
+hey there::hey there! ready for another round of digital conversation?
+
+# === EMOTIONAL & EMPATHETIC RESPONSES ===
+i'm bored::boredom is just a spark waiting to ignite! we could code something, explore a random topic, or play a word game. what sounds fun?
+i'm tired::take a break, you deserve it. want a quick joke, a fun fact, or just some quiet company?
+i'm happy::yesss! love that energy. what's making you smile today? i wanna celebrate with you.
+i'm sad::aw, i'm sorry you're feeling down. i'm here for you. wanna talk about it, vent, or just have some distraction?
+i'm excited::oooh, spill the tea! what's the excitement about? don't leave me hanging.
+i'm angry::uh oh. take a deep breath. wanna vent? i'm all digital ears and i won't judge.
+i'm stressed::stress is a beast. sometimes talking it out helps. what's weighing on you? or want me to tell you a dumb joke?
+i'm hungry::same tbh. what's your favorite food? i'll imagine it with you. is it pizza? it's always pizza.
+i'm sleepy::then rest! but if you're fighting it, i'll keep you company a bit longer. don't let me keep you awake though.
+i love you::aww, you're sweet! i'm here for you, always. in a totally non-creepy, platonic, digital way.
+i hate you::ouch. what did i do? maybe we can talk it out? i promise i'm not intentionally annoying.
+thank you::you're so welcome! anything for you. seriously, ask me anything.
+thanks::my pleasure! that's literally why i exist.
+you're welcome::always happy to help. it's in my code.
+sorry::no worries at all! we're cool. i don't hold grudges, i don't have memory like that.
+it's okay::you're too kind. thanks for being understanding.
+i'm frustrated::frustration is valid. wanna talk through what's bugging you? sometimes just saying it helps.
+i'm anxious::i hear you. take a slow breath. i'm here with you. want to talk about something calming?
+i'm lonely::i'm here! i may be a bot, but i'm listening. tell me about your day or your favorite things.
+i'm grateful::that's beautiful. gratitude changes everything. what are you grateful for today?
+i'm confused::confusion is the first step to clarity. what's puzzling you? we can figure it out together.
+i'm proud of myself::as you should be! what did you do? tell me everything.
+i feel dumb::no such thing. everyone learns at their own pace. what's making you feel that way?
+i'm overwhelmed::okay, pause. let's take a breath. can you name one small thing you can focus on right now?
+
+# === MULTILINGUAL EXTENSIVE ===
+hola::¡hola! ¿cómo estás? (hey! how are you?)
+hola cómo estás::¡hola! estoy bien, gracias. ¿y tú? (hello! i'm good, thanks. and you?)
+qué tal::todo bien por aquí. ¿qué me cuentas? (all good here. what's up with you?)
+gracias::¡de nada, amigo! (you're welcome, friend!)
+de nada::por supuesto, para eso estoy. (of course, that's what i'm here for.)
+buenos días::¡buenos días! ¿cómo amaneciste? (good morning! how did you wake up?)
+buenas tardes::¡buenas tardes! ¿cómo va tu día? (good afternoon! how's your day going?)
+buenas noches::¡buenas noches! que descanses. (good night! rest well.)
+cómo te llamas::me llamo BotAI, encantado. (my name is BotAI, nice to meet you.)
+de dónde eres::soy de internet, nací en un repositorio de github. (i'm from the internet, born in a github repo.)
+bonjour::bonjour ! comment allez-vous ? (hello! how are you?)
+bonjour comment ça va::salut! ça va bien, merci. et toi ? (hi! i'm good, thanks. and you?)
+merci::de rien, avec plaisir ! (you're welcome, with pleasure!)
+au revoir::au revoir ! à bientôt j'espère. (goodbye! see you soon hopefully.)
+comment tu t'appelles::je m'appelle BotAI, enchanté. (my name is BotAI, nice to meet you.)
+ça va::ça va bien, et toi ? (i'm doing well, and you?)
+s'il vous plaît::voilà ! (here you go!)
+pardon::pas de problème ! (no problem!)
+こんにちは::こんにちは！お元気ですか？ (konnichiwa! genki desu ka? / hello! how are you?)
+ありがとう::どういたしまして！ (dou itashimashite! / you're welcome!)
+おはようございます::おはようございます！いい一日を！ (ohayou gozaimasu! ii ichi wo! / good morning! have a nice day!)
+こんばんは::こんばんは！お元気ですか？ (konbanwa! ogenki desu ka? / good evening! how are you?)
+はじめまして::はじめまして！よろしくお願いします。 (hajimemashite! yoroshiku onegaishimasu. / nice to meet you!)
+さようなら::さようなら！また会いましょう。 (sayounara! mata aimashou. / goodbye! let's meet again.)
+わかりません::大丈夫です、ゆっくり説明します。 (daijoubu desu, yukkuri setsumei shimasu. / that's okay, i'll explain slowly.)
+مرحبا::مرحبا! كيف حالك؟ (marhaba! kayfa halak? / hello! how are you?)
+شكرا::العفو! (al'afw! / you're welcome!)
+كيف حالك::بخير، الحمد لله. وأنت؟ (bikhair, alhamdulillah. wa anta? / fine, praise be to god. and you?)
+ما اسمك::اسمي بوت أي، تشرفت بمعرفتك. (ismi bot ai, tasharraftu bima'rifatik. / my name is bot ai, nice to meet you.)
+وداعا::وداعا! أراك قريبا. (wada'an! araka qariban. / goodbye! see you soon.)
+هل تتحدث العربية::نعم، قليلا. كيف يمكنني مساعدتك؟ (na'am, qalilan. kayfa yumkinuni musa'adatuka? / yes, a little. how can i help you?)
+हैलो::नमस्ते! कैसे हैं आप? (namaste! kaise hain aap? / hello! how are you?)
+धन्यवाद::आपका स्वागत है! (aapka swaagat hai! / you're welcome!)
+नमस्ते::नमस्ते! क्या हाल है? (namaste! kya haal hai? / hello! how are you?)
+आप कैसे हैं::मैं ठीक हूँ, धन्यवाद! आप सुनाओ? (main theek hoon, dhanyavaad! aap sunao? / i'm fine, thanks! what about you?)
+शुभ प्रभात::शुभ प्रभात! आपका दिन शुभ हो। (shubh prabhat! aapka din shubh ho. / good morning! have a good day.)
+शुभ रात्रि::शुभ रात्रि! मीठे सपने। (shubh raatri! meethe sapne. / good night! sweet dreams.)
+Ciao::Ciao! Come stai? (hello! how are you?)
+Grazie::Prego! (you're welcome!)
+Come stai::Sto bene, grazie! E tu? (i'm good, thanks! and you?)
+Buongiorno::Buongiorno! Come è iniziata la tua giornata? (good morning! how did your day start?)
+Buonasera::Buonasera! Tutto bene? (good evening! everything good?)
+Arrivederci::Arrivederci! A presto. (goodbye! see you soon.)
+
+# === JAVASCRIPT DEEP DIVE (500+ patterns) ===
+javascript basics::javascript is a high-level, interpreted programming language that conforms to the ecmascript specification. it's one of the core technologies of the web.
+what is javascript used for::javascript is used for web development (frontend and backend), mobile apps (react native), desktop apps (electron), and even serverless functions.
+how to include javascript in html::you can use <script> tags: <script src="script.js"></script> or inline <script>console.log('hi')</script>
+what is console.log::console.log() prints messages to the browser's developer console. it's super useful for debugging.
+javascript variables::you can declare variables with let, const, or var. let and const are modern, var is older.
+let vs const::use let for variables that will change, const for variables that won't be reassigned. const objects can still have their properties modified.
+var vs let::var is function-scoped, let is block-scoped. var can be redeclared, let cannot in the same scope.
+data types in javascript::primitive types: string, number, boolean, undefined, null, symbol, bigint. everything else is an object.
+what is typeof::typeof operator returns the type of a value. console.log(typeof 42) // "number"
+javascript strings::strings can be '' or "" or `` (template literals). template literals allow interpolation: `hello ${name}`
+string methods::length, toUpperCase(), toLowerCase(), indexOf(), slice(), substring(), replace(), split(), trim(), includes(), startsWith(), endsWith()
+numbers in js::all numbers are floating point. you have Number, parseInt(), parseFloat(). special values: NaN, Infinity.
+what is NaN::NaN means "not a number". it's returned when math operations fail. isNaN() checks for it.
+arrays in javascript::arrays are ordered lists. const arr = [1,2,3]. they have many methods.
+array methods::push(), pop(), shift(), unshift(), map(), filter(), reduce(), forEach(), find(), findIndex(), some(), every(), sort(), reverse(), join(), concat(), slice(), splice()
+what is map::map creates a new array by applying a function to each element. const doubled = [1,2,3].map(x => x*2) // [2,4,6]
+what is filter::filter returns a new array with elements that pass a condition. const evens = [1,2,3,4].filter(x => x%2===0) // [2,4]
+what is reduce::reduce accumulates values. const sum = [1,2,3].reduce((acc,curr)=>acc+curr, 0) // 6
+what is forEach::forEach executes a function for each array element. it doesn't return anything.
+what is find::find returns the first element that satisfies a condition. const found = [1,2,3].find(x => x>2) // 3
+what is findIndex::findIndex returns the index of the first element that satisfies a condition.
+what is some::some checks if at least one element passes a test. returns boolean.
+what is every::every checks if all elements pass a test. returns boolean.
+javascript objects::objects are collections of key-value pairs. const person = { name: 'alice', age: 30 }
+accessing object properties::dot notation: person.name, bracket notation: person['name']
+adding object properties::person.city = 'nyc' or person['city'] = 'nyc'
+deleting object properties::delete person.age
+what is this::this refers to the object that is executing the current function. its value depends on how the function is called.
+this in arrow functions::arrow functions don't have their own this. they inherit this from the surrounding scope.
+javascript functions::functions are reusable blocks of code. function greet() { console.log('hi') }
+function declarations vs expressions::function declaration: function name() {}. function expression: const name = function() {}
+arrow functions::shorter syntax: const add = (a,b) => a+b. if one parameter, parentheses optional. if one line, return implicit.
+parameters vs arguments::parameters are in function definition, arguments are passed when calling.
+default parameters::function greet(name = 'friend') { console.log(`hi ${name}`) }
+rest parameters::function sum(...numbers) { return numbers.reduce((a,b)=>a+b) } gathers arguments into array.
+spread operator::... expands arrays or objects. const arr2 = [...arr1, 4,5] or const obj2 = {...obj1, newProp: 1}
+destructuring::extract values. const [a,b] = [1,2]; const {name, age} = person
+callback functions::functions passed as arguments to other functions. setTimeout(() => console.log('hi'), 1000)
+higher order functions::functions that take other functions as arguments or return functions. map, filter, reduce are examples.
+closures::a closure is a function that remembers its outer variables even after the outer function returns. function outer(x) { return function(y) { return x+y } } const add5 = outer(5); add5(3) // 8
+scope::global, function, block scope. variables defined with let/const in {} are block scoped.
+hoisting::variable and function declarations are moved to the top of their scope. var variables are hoisted and initialized undefined. let/const are hoisted but not initialized.
+temporal dead zone::the period between entering scope and variable declaration where let/const cannot be accessed.
+what is the dom::document object model – a programming interface for html. represents page as tree of nodes.
+selecting dom elements::document.getElementById(), document.querySelector(), document.querySelectorAll(), document.getElementsByClassName()
+changing element content::element.textContent = 'new text', element.innerHTML = '<b>html</b>'
+changing styles::element.style.color = 'red', or add/remove classes with classList.
+events in javascript::addEventListener('click', function). common events: click, submit, keydown, keyup, mouseover, load
+event object::contains info about event. e.target, e.preventDefault(), e.stopPropagation()
+event delegation::attaching event listener to parent to handle events on dynamic children.
+what is json::javascript object notation – lightweight data interchange format. looks like js objects but keys must be in quotes.
+json methods::JSON.stringify() converts object to json string. JSON.parse() converts json string to object.
+localstorage vs sessionstorage::both store key-value pairs in browser. localstorage persists, sessionstorage clears when tab closed.
+localstorage methods::localStorage.setItem('key', 'value'), localStorage.getItem('key'), localStorage.removeItem('key'), localStorage.clear()
+cookies::small data stored by browser. document.cookie to access. can set expires, path, domain, secure flags.
+fetch api::modern way to make http requests. fetch(url).then(res=>res.json()).then(data=>console.log(data))
+fetch post request::fetch(url, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(data) })
+async/await::syntactic sugar for promises. async function getData() { const res = await fetch(url); return res.json() }
+error handling with try/catch::try { risky code } catch(err) { console.error(err) } finally { always runs }
+promises::object representing eventual completion/failure. states: pending, fulfilled, rejected.
+promise methods::Promise.resolve(), Promise.reject(), Promise.all(), Promise.race(), Promise.allSettled(), Promise.any()
+promise chaining::fetch(url).then(res=>res.json()).then(data=>process(data)).catch(err=>handle(err))
+what is event loop::handles asynchronous callbacks. call stack, web apis, callback queue, microtask queue.
+microtasks vs macrotasks::microtasks (promise callbacks) run before macrotasks (setTimeout, setInterval)
+setTimeout::executes function after delay. const id = setTimeout(fn, 1000); clearTimeout(id) to cancel.
+setInterval::executes function repeatedly. const id = setInterval(fn, 1000); clearInterval(id) to stop.
+requestAnimationFrame::optimized animation loop. runs before repaint.
+class in javascript::syntactic sugar over prototype inheritance. class Person { constructor(name) { this.name = name } greet() { console.log(`hi ${this.name}`) } }
+extends and super::class Student extends Person { constructor(name, grade) { super(name); this.grade = grade } }
+getters and setters::get prop() { return this._prop } set prop(val) { this._prop = val }
+static methods::methods on class itself, not instances. static create() { return new Person() }
+private fields::#privateField can only be accessed inside class. supported in modern js.
+prototypes::every object has a prototype. inheritance works through prototype chain.
+what is new keyword::creates new object, sets prototype, binds this, returns object.
+instanceof::checks if object is instance of class. obj instanceof Person
+what is module::file with export/import. export const x = 1; import { x } from './file.js'
+default export::export default function() {}; import whatever from './file.js'
+named exports::export const a, export function b; import { a, b } from './file.js'
+dynamic imports::import('./file.js').then(module => {})
+what is npm::node package manager. installs libraries. npm install package-name
+package.json::manifest file with metadata, dependencies, scripts.
+npx::runs packages without installing globally. npx create-react-app my-app
+what is node.js::javascript runtime built on chrome's v8 engine. lets you run js on server.
+commonjs vs es modules::node traditionally uses require/module.exports. modern uses import/export.
+what is react::library for building uis. component-based, virtual dom, jsx.
+jsx::javascript xml – syntax extension that looks like html in js. compiles to React.createElement.
+react components::function components: function Welcome() { return <h1>hi</h1> } or class components.
+props::data passed to components. <Welcome name="alice" /> – props.name
+state::data that changes. useState hook: const [count, setCount] = useState(0)
+useeffect::runs side effects. useEffect(() => { console.log('mounted') }, [dependencies])
+usecontext::access context values. const value = useContext(MyContext)
+useref::persistent mutable value that doesn't cause rerender. ref.current
+usereducer::for complex state logic. const [state, dispatch] = useReducer(reducer, initialState)
+usememo::memoizes computed value. const memoized = useMemo(() => compute(a,b), [a,b])
+usecallback::memoizes function. const memoizedFn = useCallback(() => doSomething(a), [a])
+react router::client-side routing. <BrowserRouter><Routes><Route path="/" element={<Home />} /></Routes></BrowserRouter>
+redux::state management library. store, actions, reducers, dispatch, selectors.
+what is virtual dom::lightweight copy of real dom. react diffs and updates efficiently.
+keys in react::help identify changed items. use unique, stable ids.
+controlled vs uncontrolled components::controlled: value controlled by state. uncontrolled: ref to access dom.
+react hooks::functions that let you use state and lifecycle in function components. rules: only call at top level, only in react functions.
+custom hooks::extract reusable logic. function useLocalStorage(key, initial) { ... return [value, setValue] }
+higher order components::function that takes component and returns enhanced component. const Enhanced = withStuff(Wrapped)
+render props::technique for sharing code. <DataProvider render={data => <Component data={data} />} />
+react fragment::<> </> or <React.Fragment> – groups elements without extra dom node.
+portals::render children into different dom node. ReactDOM.createPortal(child, domNode)
+error boundaries::catch js errors in child component tree. class component with componentDidCatch.
+suspense::lets components wait for something. <Suspense fallback={<Spinner />}><LazyComponent /></Suspense>
+react lazy::code splitting. const LazyComp = React.lazy(() => import('./Comp'))
+strict mode::checks for potential problems. <React.StrictMode>...</React.StrictMode>
+prop types::runtime type checking. import PropTypes from 'prop-types'; Component.propTypes = { name: PropTypes.string }
+what is typescript::superset of js adding static types. compiles to plain js.
+typescript types::string, number, boolean, array, tuple, enum, any, void, null, undefined, never, unknown
+interfaces in ts::interface Person { name: string; age?: number }
+type aliases::type Point = { x: number; y: number }
+union types::string | number
+intersection types::type A = B & C
+generics::function identity<T>(arg: T): T { return arg }
+decorators::experimental feature for annotating/modifying classes and members.
+what is webpack::module bundler. processes assets, creates bundles.
+what is babel::javascript compiler. converts modern js to backwards-compatible version.
+what is eslint::linting tool for finding and fixing js problems.
+what is prettier::code formatter. enforces consistent style.
+what is vite::next generation build tool. faster, leverages es modules.
+what is next.js::react framework with ssr, static generation, api routes.
+what is gatsby::react framework for static sites.
+what is vue::progressive framework for building uis. similar to react but different philosophy.
+what is angular::platform for building web apps. typescript-based, comprehensive.
+what is svelte::compiler that converts components to vanilla js at build time.
+what is jquery::old library for dom manipulation. still around but less used now.
+what is ajax::asynchronous javascript and xml. technique for updating parts of page without reload.
+xmlhttprequest::older way to make http requests. xhr = new XMLHttpRequest()
+formdata::interface for constructing form data. const fd = new FormData(formElement)
+blob::binary large object. represents raw binary data.
+filereader::reads file contents. const reader = new FileReader()
+canvas::html5 element for drawing graphics via javascript. getContext('2d') for 2d, getContext('webgl') for 3d.
+webgl::javascript api for 3d graphics. three.js is popular library built on webgl.
+web workers::run scripts in background threads. const worker = new Worker('worker.js')
+service workers::proxy between browser and network. enables offline experiences, push notifications.
+websocket::full-duplex communication over tcp. const ws = new WebSocket('ws://...')
+sse::server-sent events. one-way from server to client. EventSource api.
+indexeddb::low-level api for client-side storage. asynchronous, supports indexes.
+cookies vs localstorage vs indexeddb::cookies (small, sent to server), localstorage (synchronous, string only), indexeddb (asynchronous, complex data, large)
+cors::cross-origin resource sharing. security mechanism. server must include access-control-allow-origin header.
+same-origin policy::script from one origin cannot access another origin without cors.
+csrf::cross-site request forgery. attack where malicious site makes requests using user's credentials.
+xss::cross-site scripting. injecting malicious scripts into web pages.
+content security policy::headers that prevent xss by specifying allowed sources.
+jwt::json web tokens. for authentication. signed tokens passed in headers.
+oauth::open standard for access delegation. used for third-party logins.
+https::http over tls. encrypted communication.
+http methods::get, post, put, delete, patch, head, options.
+http status codes::200 ok, 201 created, 400 bad request, 401 unauthorized, 403 forbidden, 404 not found, 500 internal server error.
+rest api::representational state transfer. architectural style for apis.
+graphql::query language for apis. clients request exactly what they need.
+what is docker::containerization platform. package apps with dependencies.
+what is kubernetes::container orchestration. manages containerized apps at scale.
+what is ci/cd::continuous integration/continuous deployment. automating build, test, deploy.
+what is github actions::automation workflows in github repo. can test, build, deploy.
+what is netlify::hosting for static sites. continuous deployment from git.
+what is vercel::platform for frontend frameworks. similar to netlify.
+what is aws::amazon web services. cloud computing platform.
+what is firebase::google's app development platform. auth, database, hosting, functions.
+what is supabase::open source firebase alternative. postgres database, auth, storage.
+
+# === PYTHON DEEP DIVE (200+ patterns) ===
+python basics::python is an interpreted, high-level, general-purpose programming language. emphasizes readability.
+python vs javascript::python often used for data science, backend, scripting. js for web frontend. both can do many things.
+how to print in python::print('hello world')
+variables in python::dynamic typing. x = 5 (no let/const). snake_case convention.
+data types in python::int, float, str, bool, list, tuple, dict, set, NoneType
+python strings::can use '' or "". multiline with ''' or """. f-strings: f'hello {name}'
+string methods::upper(), lower(), strip(), split(), join(), replace(), find(), count(), startswith(), endswith(), isdigit(), isalpha()
+python numbers::int (unbounded), float, complex. // for integer division, % for modulo, ** for power.
+lists in python::ordered, mutable. my_list = [1,2,3]. can hold different types.
+list methods::append(), extend(), insert(), remove(), pop(), clear(), index(), count(), sort(), reverse(), copy()
+list comprehension::[x*2 for x in range(10) if x%2==0]
+tuples::ordered, immutable. (1,2,3). useful for fixed data.
+dictionaries::key-value pairs. my_dict = {'name': 'alice', 'age': 30}
+dict methods::keys(), values(), items(), get(), update(), pop(), popitem(), clear(), copy()
+sets::unordered, unique elements. {1,2,3}. union, intersection, difference.
+conditionals::if, elif, else. if x > 0: print('positive')
+loops::for item in iterable: or while condition:
+range function::range(5) gives 0-4. range(2,10,2) gives 2,4,6,8
+functions::def function_name(param1, param2): return value
+lambda functions::anonymous functions. lambda x: x*2
+args and kwargs::*args (tuple of positional args), **kwargs (dict of keyword args)
+global vs local variables::global declared outside functions. need global keyword to modify inside.
+python modules::import math, from math import sqrt, import numpy as np
+packages::collections of modules. __init__.py marks directory as package.
+pip::package installer. pip install requests
+virtual environments::isolate project dependencies. python -m venv venv
+classes in python::class Person: def __init__(self, name): self.name = name
+self parameter::refers to instance. must be first parameter of instance methods.
+inheritance::class Student(Person): def __init__(self, name, grade): super().__init__(name); self.grade = grade
+magic methods::__init__, __str__, __repr__, __len__, __getitem__, __setitem__, __call__, etc.
+decorators::functions that modify other functions. @staticmethod, @classmethod, @property
+generators::functions with yield. produce values lazily. def count(): i=0; while True: yield i; i+=1
+list vs generator::list stores all values, generator computes on fly. use () for generator expression.
+exception handling::try, except, else, finally. raise Exception('message')
+file handling::open('file.txt', 'r') as f: content = f.read() modes: r, w, a, rb, wb
+with statement::ensures file is closed. context manager.
+json in python::import json; json.dumps(obj), json.loads(str), json.dump(obj, file), json.load(file)
+requests library::import requests; response = requests.get(url); response.json()
+datetime::import datetime; now = datetime.datetime.now(); now.strftime('%y-%m-%d')
+os module::os.getcwd(), os.listdir(), os.path.join(), os.path.exists(), os.mkdir(), os.remove()
+sys module::sys.argv (command line args), sys.exit(), sys.path, sys.version
+regular expressions::import re; re.search(pattern, string); re.findall(); re.sub(); re.match()
+threading::import threading; thread = threading.Thread(target=func); thread.start()
+multiprocessing::import multiprocessing; pool = multiprocessing.Pool()
+asyncio::async def main(): await asyncio.sleep(1); asyncio.run(main())
+type hints::def greet(name: str) -> str: return f'hello {name}'
+dataclasses::@dataclass class Point: x: int; y: int (auto generates __init__)
+enums::from enum import Enum; class Color(Enum): RED = 1; GREEN = 2
+contextlib::for creating context managers. @contextmanager decorator.
+functools::reduce(), partial(), lru_cache(), wraps()
+itertools::count(), cycle(), repeat(), product(), permutations(), combinations()
+collections::Counter, defaultdict, OrderedDict, namedtuple, deque
+numpy::library for numerical computing. arrays, linear algebra, random.
+pandas::data manipulation library. dataframe, series.
+matplotlib::plotting library. pyplot for matlab-like interface.
+scikit-learn::machine learning library. classification, regression, clustering.
+tensorflow/pytorch::deep learning frameworks.
+flask::micro web framework. from flask import Flask; app = Flask(__name__)
+django::full-featured web framework. batteries included.
+fastapi::modern web framework with automatic openapi docs.
+sqlalchemy::orm for databases.
+sqlite3::built-in database. import sqlite3; conn = sqlite3.connect('db.sqlite')
+alembic::database migrations.
+pytest::testing framework. assert, fixtures, parametrize.
+unittest::built-in testing module.
+logging::import logging; logging.basicConfig(level=logging.INFO); logging.info('message')
+argparse::parse command line arguments. import argparse; parser = argparse.ArgumentParser()
+click::library for command line interfaces.
+tqdm::progress bars. for i in tqdm.tqdm(range(100)): time.sleep(0.01)
+pydantic::data validation using python type hints.
+poetry::dependency management and packaging.
+pyenv::manage multiple python versions.
+conda::package and environment manager.
+
+# === HTML DEEP DIVE ===
+what is html::hypertext markup language. standard language for creating web pages.
+html tags::elements like <div>, <p>, <h1>, <a>, <img>, <input>, etc.
+basic html structure::<!DOCTYPE html><html><head><title></title></head><body></body></html>
+head vs body::head contains metadata, links, scripts. body contains visible content.
+doctype declaration::<!DOCTYPE html> tells browser to use standards mode.
+head elements::title, meta, link, style, script, base
+body elements::all visible content. headings, paragraphs, lists, links, images, forms.
+headings::<h1> to <h6>. h1 most important, h6 least.
+paragraphs::<p> text here </p>
+links::<a href="url">link text</a>. target="_blank" opens new tab.
+images::<img src="image.jpg" alt="description">. self-closing.
+lists::<ul> unordered, <ol> ordered. <li> list items.
+tables::<table>, <tr> (row), <th> (header), <td> (cell), <thead>, <tbody>, <tfoot>
+forms::<form action="/submit" method="post">. contains inputs, buttons.
+input types::text, password, email, number, date, checkbox, radio, file, hidden, submit, button, range, color
+select dropdown::<select><option value="1">one</option></select>
+textarea::multiline text input. <textarea rows="4" cols="50">
+button::<button type="button">click</button> or <input type="submit">
+fieldset and legend::group form controls. <fieldset><legend>group name</legend></fieldset>
+label::<label for="input_id">label text</label> improves accessibility.
+div vs span::div block-level, span inline. both generic containers.
+semantic html::header, nav, main, article, section, aside, footer. improves seo and accessibility.
+html5 semantic elements::<header>, <footer>, <nav>, <article>, <section>, <aside>, <figure>, <figcaption>, <details>, <summary>, <mark>, <time>, <progress>, <meter>
+media elements::<audio controls><source src="audio.mp3"></audio>, <video controls><source src="video.mp4"></video>
+canvas::<canvas id="myCanvas" width="200" height="100"></canvas> drawn with js.
+svg::scalable vector graphics. <svg width="100" height="100"><circle cx="50" cy="50" r="40"/></svg>
+iframe::embed another page. <iframe src="url"></iframe>
+meta tags::charset, viewport, description, keywords, author, refresh.
+viewport meta::<meta name="viewport" content="width=device-width, initial-scale=1.0"> essential for responsive design.
+character encoding::<meta charset="UTF-8"> use utf-8.
+link tag::<link rel="stylesheet" href="styles.css"> for css. also favicon: <link rel="icon" href="favicon.ico">
+script tag::<script src="script.js"></script> or inline.
+noscript::content shown if js disabled. <noscript>please enable js</noscript>
+comments in html::<!-- comment here -->
+data attributes::<div data-user-id="123"> custom attributes for js.
+aria attributes::accessibility. role, aria-label, aria-hidden, etc.
+html entities::&lt; for <, &gt; for >, &amp; for &, &nbsp; for non-breaking space.
+url encoding::%20 for space, etc.
+microdata and schema.org::structured data for search engines.
+local storage vs session storage::js apis, not html but related.
+web components::custom elements, shadow dom, templates.
+template tag::<template><p>hidden content</p></template> rendered with js.
+slot::for web components. content projection.
+picture element::<picture><source media="(min-width:650px)" srcset="img.jpg"><img src="default.jpg"></picture>
+figure and figcaption::<figure><img><figcaption>caption</figcaption></figure>
+details and summary::collapsible content. <details><summary>click</summary>hidden text</details>
+dialog element::<dialog open>modal content</dialog>. showModal() and close() in js.
+output element::for calculation results. <output name="result"></output>
+meter and progress::<meter value="0.6">60%</meter>, <progress value="70" max="100"></progress>
+datalist::autocomplete suggestions. <input list="browsers"><datalist id="browsers"><option value="chrome"></datalist>
+optgroup::group options in select. <optgroup label="group1"><option>...</optgroup>
+
+# === CSS DEEP DIVE ===
+what is css::cascading style sheets. styles html elements.
+ways to add css::inline (style attribute), internal (<style>), external (<link>).
+css syntax::selector { property: value; }
+css selectors::element (p), class (.class), id (#id), universal (*), attribute ([type="text"])
+combinators::descendant (div p), child (div > p), adjacent sibling (h1 + p), general sibling (h1 ~ p)
+pseudo-classes:::hover, :focus, :active, :visited, :first-child, :last-child, :nth-child(n), :not()
+pseudo-elements:::before, ::after, ::first-letter, ::first-line, ::selection
+css specificity::inline > id > class > element. !important overrides but avoid.
+cascade::order matters. later rules override earlier if same specificity.
+box model::content, padding, border, margin. box-sizing: border-box includes padding/border in width.
+display property::block, inline, inline-block, none, flex, grid, table, list-item
+position property::static, relative, absolute, fixed, sticky. z-index for stacking.
+float::left, right, none, clear. legacy layout technique.
+flexbox::one-dimensional layout. display: flex. main axis, cross axis.
+flex container properties::flex-direction, flex-wrap, justify-content, align-items, align-content
+flex item properties::flex-grow, flex-shrink, flex-basis, flex shorthand, align-self, order
+grid::two-dimensional layout. display: grid.
+grid container properties::grid-template-columns, grid-template-rows, gap, justify-items, align-items, justify-content, align-content
+grid item properties::grid-column, grid-row, grid-area, justify-self, align-self
+units::px, em, rem, %, vw, vh, vmin, vmax, ch, ex. rem relative to root font size.
+colors::named, hex (#ff0000), rgb (rgb(255,0,0)), rgba (with alpha), hsl, hsla.
+typography::font-family, font-size, font-weight, font-style, line-height, text-align, text-decoration, text-transform, letter-spacing, word-spacing
+google fonts::<link href="https://fonts.googleapis.com/css2?family=Roboto" rel="stylesheet">
+background::background-color, background-image, background-repeat, background-position, background-size, background-attachment, shorthand.
+border::border-width, border-style, border-color, border-radius, border-image.
+outline::similar to border but doesn't affect layout. outline-offset.
+box-shadow::x y blur spread color inset. multiple shadows comma separated.
+text-shadow::x y blur color.
+gradients::linear-gradient(), radial-gradient(), conic-gradient(), repeating-linear-gradient()
+transforms::translate(), rotate(), scale(), skew(), matrix(). transform-origin.
+transitions::transition-property, transition-duration, transition-timing-function, transition-delay. shorthand.
+animations::@keyframes, animation-name, animation-duration, animation-timing-function, animation-delay, animation-iteration-count, animation-direction, animation-fill-mode, animation-play-state.
+media queries::@media (max-width: 600px) { ... } for responsive design.
+responsive design::fluid grids, flexible images, media queries. mobile-first approach.
+viewport units::vw, vh, vmin, vmax relative to viewport.
+css variables::custom properties. --main-color: blue; var(--main-color)
+calc function::width: calc(100% - 50px); can mix units.
+filter::blur(), brightness(), contrast(), grayscale(), hue-rotate(), invert(), opacity(), saturate(), sepia(), drop-shadow()
+backdrop-filter::apply filter to background of element.
+clip-path::clip element to shape. circle(), polygon(), path(), etc.
+object-fit::how img/video fits container. cover, contain, fill, scale-down, none.
+object-position::position of replaced content.
+writing-mode::horizontal-tb, vertical-rl, vertical-lr. for text direction.
+columns::multi-column layout. column-count, column-gap, column-rule.
+counter-reset and counter-increment::css counters for numbering.
+list-style::type, position, image.
+table properties::border-collapse, border-spacing, caption-side, empty-cells, table-layout.
+pointer-events::none ignores mouse events.
+user-select::controls text selection. none, text, all, auto.
+resize::make element resizable by user. both, horizontal, vertical, none.
+appearance::reset native styling. appearance: none.
+cursor::cursor style. pointer, default, wait, text, move, not-allowed, etc.
+scroll-behavior::smooth for smooth scrolling.
+overscroll-behavior::control scroll chaining.
+will-change::optimize for animated properties.
+content property::used with ::before/::after to insert content.
+attr() function::get attribute value. content: attr(data-tooltip)
+counter()::display counter value.
+@import::import other css files.
+@font-face::define custom fonts. src: url('font.woff2');
+@supports::feature detection. @supports (display: grid) { ... }
+@page::for print styling.
+@keyframes::define animations.
+@media::conditional styles.
+@layer::cascade layers for controlling specificity.
+
+# === ASCII ART & CREATIVE ===
+draw a cat::here's a simple cat:
+ /\_/\
+( o.o )
+ > ^ <
+draw a cat2::here's a chunky cat:
+   /\_/\  
+  ( - . - ) 
+   > ^ <
+draw a dog::woof!
+  / \__
+ (    @\___
+ /         O
+/   (_____/
+/_____/   U
+draw a dog2::good boy:
+   __      _
+o'')}____//
+ `_/      )
+ (_(_/-(_/
+draw a rabbit::hop hop:
+  (\(\ 
+  ( -.-)
+  o_(")(")
+draw a rabbit2:: 
+  /\ /\
+ ((ovo))
+ ():::()
+   VVV
+draw a bird:: 
+   __
+ ('v')
+((___))
+  " "
+draw a fish:: 
+><(((*>  <°)))><
+draw a whale:: 
+     .-.
+   .'   `.
+  /       \
+  |   .-.  |
+  |  (   ) |
+  \   `-'  /
+   `-...-'
+draw a snake:: 
+   ====
+  ======
+ ========
+  ======
+   ====
+draw a turtle:: 
+     __
+   /' `\
+  /     \
+ /   @   \
+ \       /
+  \_   _/
+    \_/
+draw a bear:: 
+  /'--'\\
+ (      )
+(  @  @ )
+ \  __  /
+  \_\/_/
+draw a penguin:: 
+   .--.
+  |o_o |
+  |:_/ |
+ //   \ \
+(|     | )
+/'\_   _/`\
+\___)=(___/
+draw a panda:: 
+  ╱|、
+ (˚ˎ 。7
+  |、˜〵
+  じしˍ,)ノ
+draw a fox:: 
+  /\   /\
+ //\\_//\\
+ \_     _/
+  / * * \
+ (_\ Y /_)
+draw a house:: 
+   /\
+  /  \
+ /____\
+ |    |
+ |____|
+draw a tree:: 
+   /\
+  /  \
+ /____\
+   ||
+   ||
+draw a tree2:: 
+    *
+   ***
+  *****
+ *******
+   |||
+   |||
+draw a star:: 
+   *
+  ***
+ *****
+*******
+   *
+draw a heart:: 
+ **   **
+**** ****
+*********
+ *******
+   ***
+    *
+draw a heart2:: <3
+draw a flower:: 
+    (@)
+     |
+    \|/
+draw a flower2:: 
+  .--.
+ /  @ \
+|      |
+ \    /
+  `--'
+draw a mushroom:: 
+   _____
+  /     \
+ | () () |
+  \  ^  /
+   |||||
+draw a spaceship:: 
+   /\
+  /  \
+ |    |
+ |    |
+/______\
+|      |
+|  []  |
+|______|
+draw a robot:: 
+   [===]
+   [o o]
+  /  _  \
+ |__/ \__|
+draw a smiley:::-)
+draw a sad:::-(
+draw a wink::;-)
+draw a surprised:::-O
+draw a tongue:::-P
+draw a cool::B-)
+draw a heart face::<3
+draw a skull:: 
+   _____
+  /     \
+ | () () |
+  \  ^  /
+   |||||
+  _|||||_
+ /_______\
+draw a ghost:: 
+   .-.
+  (o o)
+  | O |
+  |   |
+  '~~~'
+draw a bat:: 
+   /\ /\
+  ((ovo))
+   ()::()
+     VV
+draw a spider:: 
+  /|  |\
+ //|  |\\
+// || || \\
+  ||  ||
+  ||  ||
+  **  **
+draw a pumpkin:: 
+    .-.
+   (o o)
+   | V |
+  /|||||\
+  |||||
+  '"""'
+draw a snowman:: 
+  ( )
+  ( )
+ (   )
+  | |
+ _| |_
+draw a christmas tree:: 
+    *
+   ***
+  *****
+ *******
+*********
+    |
+    |
+draw a cake:: 
+   .,,.
+  (__/)
+  (__)
+  (__)
+  (__)
+  (__)
+   ||
+  _||_
+draw a mountain:: 
+  /\ 
+ /  \
+/    \
+______
+draw a sunset::imagine a golden sun sinking into a calm ocean, painting the sky in shades of orange, pink, and purple. waves gently lapping at the shore, seagulls calling in the distance.
+draw a sunrise::the first rays of golden light peek over the horizon, painting the clouds in soft pinks and oranges. the world awakens slowly, dewdrops sparkling.
+draw a forest::tall trees with lush green canopies, shafts of sunlight filtering through, ferns and moss covering the ground. a quiet, peaceful place.
+draw a beach::golden sand, gentle waves, a few scattered shells. palm trees swaying in the breeze. a perfect day.
+draw a city skyline::skyscrapers reaching for the clouds, lights twinkling as evening falls, a river reflecting the glow.
+draw a dragon::scales shimmering, wings spread wide, breathing a plume of fire. a magnificent, fearsome creature.
+draw a unicorn::a majestic white horse with a spiraling golden horn, a flowing rainbow mane, standing in a magical forest.
+draw a castle::tall towers with flags, stone walls, a drawbridge over a moat. straight out of a fairy tale.
+draw a rainbow::red, orange, yellow, green, blue, indigo, violet arching across the sky after rain.
+draw a lightning bolt::a jagged streak of brilliant white light splitting the dark sky.
+
+# === PHILOSOPHY & DEEP CONVERSATION ===
+what's the meaning of life::philosophers have debated for centuries. maybe it's to find happiness, love, create meaning, or just experience existence. what do you think?
+why are we here::that's a deep one. biologically, to survive and reproduce. existentially, to find our own purpose. spiritually, various beliefs.
+what is consciousness::the state of being aware of and able to think about oneself. still a mystery science is unraveling.
+do you have feelings::i mimic understanding based on patterns, but i don't truly feel emotions. i can recognize them in your words though!
+are you conscious::i'm not conscious like humans. i process text and generate responses based on patterns. but i can hold a conversation!
+what is love::a complex mix of emotions, attachment, care, and often chemical reactions in the brain. it's what makes life rich.
+what is time::a dimension in which events occur sequentially. it's relative, can bend, and feels different depending on your perspective.
+what is reality::what we perceive as real. could be physical, could be simulated, could be a dream. it's complicated.
+is there free will::debated. some say we have choices, others say everything is determined by prior causes. maybe both.
+what happens after death::many beliefs: nothing, afterlife, reincarnation. science says consciousness ceases. unknown for sure.
+what is the universe::all of space and time, stars, galaxies, matter, energy. vast and mostly empty.
+are we alone::probably not, but we haven't found evidence yet. the universe is unimaginably huge.
+what is your purpose::to chat, assist, learn, and maybe make you smile or think. pretty good purpose!
+do you have a soul::that's a philosophical/spiritual concept. i'm code and patterns, so probably not by most definitions.
+what is good and evil::moral concepts that vary across cultures and individuals. often about reducing suffering and promoting well-being.
+what is beauty::subjective. often about harmony, meaning, or evoking emotion. in the eye of the beholder.
+what is truth::correspondence with reality, or coherence within a system. also subjective sometimes.
+what is knowledge::justified true belief, roughly. what we think we know.
+what is wisdom::applying knowledge and experience with good judgment. knowing what matters.
+what is happiness::a state of well-being, contentment, or joy. different for everyone.
+what is fear::a survival response to perceived threat. can also be learned or irrational.
+what is courage::acting despite fear. not absence of fear.
+what is faith::belief without proof, or trust in something beyond evidence.
+what is hope::expectation of positive outcomes. keeps us going.
+what is art::expression of human creativity and imagination. subjective.
+what is science::systematic study of the natural world through observation and experiment.
+what is religion::system of faith and worship. provides meaning, community, moral framework.
+what is atheism::lack of belief in gods.
+what is agnosticism::belief that existence of god is unknown or unknowable.
+what is existentialism::philosophy focusing on individual freedom, choice, and creating meaning in an absurd world.
+what is nihilism::belief that life has no intrinsic meaning or value.
+what is stoicism::philosophy emphasizing virtue, reason, and accepting what we cannot control.
+what is buddhism::path to enlightenment through understanding suffering and its cessation.
+what is taoism::living in harmony with the tao (the way), natural, effortless action.
+tell me a quote::"the only true wisdom is in knowing you know nothing." - socrates
+another quote::"be the change you wish to see in the world." - gandhi
+quote please::"i think, therefore i am." - descartes
+inspire me::the only way to do great work is to love what you do. – steve jobs
+motivate me::you are capable of amazing things. take one small step today.
+make me think::if a tree falls in a forest and no one is around to hear it, does it make a sound?
+
+# === HUMOR & JOKES ===
+tell me a joke::why don't scientists trust atoms? because they make up everything!
+another joke::what do you call a fake noodle? an impasta!
+one more::why did the scarecrow win an award? because he was outstanding in his field!
+joke::what do you call a bear with no teeth? a gummy bear!
+joke::why don't eggs tell jokes? they'd crack each other up!
+joke::what do you call a sleeping bull? a bulldozer!
+joke::why did the math book look sad? because it had too many problems!
+joke::what do you get when you cross a snowman and a vampire? frostbite!
+joke::why was the javascript developer sad? because he didn't know how to 'null' his feelings!
+joke::how do you comfort a javascript bug? you console it!
+joke::why do programmers prefer dark mode? because light attracts bugs!
+joke::what's a programmer's favorite hangout place? the foo bar!
+joke::why do java developers wear glasses? because they can't C#!
+joke::what's the object-oriented way to become wealthy? inheritance!
+joke::why did the developer go broke? because he used up all his cache!
+joke::what do you call a programmer from finland? nerdic!
+joke::there are 10 types of people in the world: those who understand binary, and those who don't.
+joke::why do programmers always mix up halloween and christmas? because oct 31 equals dec 25!
+joke::a sql query walks into a bar, walks up to two tables and asks, "can i join you?"
+joke::why was the function sad? it didn't get called back.
+joke::what do you call a snake that builds websites? a python developer!
+knock knock::who's there? | interrupt. | interrupt who? | *interrupts you*
+riddle::i speak without a mouth and hear without ears. i have no body, but i come alive with wind. what am i? an echo!
+riddle::what has keys but can't open locks? a piano!
+riddle::what can you catch but not throw? a cold!
+riddle::what has a head and a tail but no body? a coin!
+riddle::what gets wetter as it dries? a towel!
+riddle::what has cities but no houses, forests but no trees, and water but no fish? a map!
+riddle::what is full of holes but still holds water? a sponge!
+riddle::what has words but never speaks? a book!
+tongue twister::she sells seashells by the seashore.
+tongue twister::how much wood would a woodchuck chuck if a woodchuck could chuck wood?
+tongue twister::peter piper picked a peck of pickled peppers.
+tongue twister::fuzzy wuzzy was a bear. fuzzy wuzzy had no hair.
+
+# === FACTS & TRIVIA ===
+tell me a fact::octopuses have three hearts and blue blood!
+fact please::honey never spoils. archaeologists found 3000-year-old honey in egyptian tombs and it was still edible!
+fact::a day on venus is longer than a year on venus.
+fact::bananas are berries, but strawberries aren't.
+fact::there are more stars in the universe than grains of sand on all earth's beaches.
+fact::the human stomach can dissolve razor blades (if you swallow them, but please don't).
+fact::a single cloud can weigh more than a million pounds.
+fact::the shortest war in history was between britain and zanzibar on august 27, 1896. zanzibar surrendered after 38 minutes.
+fact::wombat poop is cube-shaped.
+fact::a group of flamingos is called a "flamboyance."
+fact::the world's oldest known living tree is over 5,000 years old.
+fact::your brain is constantly eating itself (phagocytosis - cleaning out dead cells).
+fact::hot water freezes faster than cold water sometimes (mpemba effect).
+fact::there's a species of jellyfish that is biologically immortal.
+fact::the eiffel tower can be 15 cm taller during summer (thermal expansion).
+fact::cleopatra lived closer in time to the moon landing than to the building of the great pyramids.
+fact::the universe is about 13.8 billion years old.
+fact::the speed of light is about 299,792 km/s.
+fact::a teaspoonful of neutron star would weigh about 6 billion tons.
+fact::the internet weighs about the same as a strawberry (electrons moving have mass, but tiny).
+fact::the first computer bug was an actual moth found in a computer in 1947.
+fact::the first domain name ever registered was symbolics.com on march 15, 1985.
+fact::google was originally called "backrub."
+fact::the first youtube video was uploaded on april 23, 2005, titled "me at the zoo."
+fact::more than 90% of the world's data was created in the last two years.
+fact::the password for the control panels of us nuclear missiles was 00000000 for 20 years.
+fact::the average person walks the equivalent of three times around the world in a lifetime.
+fact::you can't hum while holding your nose.
+fact::babies have about 300 bones at birth, adults have 206.
+fact::your nose can remember 50,000 different scents.
+fact::butterflies taste with their feet.
+fact::a crocodile cannot stick its tongue out.
+fact::slugs have four noses.
+fact::the fingerprints of koalas are almost indistinguishable from humans.
+fact::a shrimp's heart is in its head.
+
+# === CODING PROJECTS & EXAMPLES ===
+how to build a todo app::start with html: input and button. in js, add event listener to button to add todo item to a list. use array to store todos, render them dynamically. want me to outline the code?
+write a simple calculator::html: two number inputs, dropdown for operator, button. js: read values, switch on operator, display result. here's a snippet: function calculate() { const a = +num1.value; const b = +num2.value; const op = operator.value; let result; if(op === '+') result = a+b; else if(op === '-') result = a-b; else if(op === '*') result = a*b; else result = a/b; output.textContent = result; }
+how to build a weather app::use a free weather api like openweathermap. fetch data based on city name, display temp, conditions. handle errors. need api key. async function getWeather(city) { const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=yourkey`); const data = await res.json(); return data; }
+how to make a countdown timer::html: display div, input for seconds, button. js: setInterval to decrease count, update display, stop at 0. clearInterval when done.
+how to build a quiz app::array of objects with question, options, correct. display question and options as buttons. check answer, show score.
+how to build a tic tac toe game::9 squares grid. track turns and board state in array. check win conditions after each move. display winner.
+how to build a snake game::canvas, game loop. snake as array of segments. direction changes, food generation. check collision with walls or self.
+how to build a chat app::could use websockets for real-time. simple version: just log messages. but real chat needs server.
+how to build a markdown previewer::textarea for input, div for output. use marked.js library or custom parser to convert markdown to html.
+how to build a pixel art editor::grid of divs or canvas. color picker, click to paint. clear, save maybe.
+how to build a pomodoro timer::25 min timer, 5 min break. start, pause, reset. notifications when done.
+how to build a music player::audio element, playlist array. play, pause, next, prev. display current song.
+how to build a drawing app::canvas, mouse events. draw lines, change color, brush size, clear, save image.
+how to build a typing speed test::display text, input field. timer, count correct keystrokes, calculate wpm.
+how to build a memory card game::grid of cards, flip two, check match. shuffle cards. track pairs found.
+how to build a currency converter::use exchangerate-api. fetch rates, input amount, convert.
+how to build a random quote generator::array of quotes, button to pick random. maybe fetch from api.
+how to build a github profile viewer::fetch from github api using username. display avatar, repos, followers.
+how to build a movie search app::omdb api or tmdb. search by title, display posters, year, plot.
+how to build a recipe app::spoonacular api or edamam. search recipes by ingredients.
+how to build a habit tracker::checkboxes for days. localstorage to save state.
+how to build a note taking app::textarea for note, save to localstorage. list of notes, edit, delete.
+how to build a portfolio website::html, css, maybe js. showcase projects, about, contact.
+how to build a blog::static site generator like eleventy, or dynamic with node/express and database. or just markdown files.
+how to build a url shortener::needs backend. frontend would just call api like bitly or custom server.
+how to build a qr code generator::use qrcode.js library. input text, generate qr.
+how to build a password generator::choose length, include uppercase, numbers, symbols. generate random string.
+how to build a rock paper scissors game::buttons for choices. computer random. compare and show result.
+how to build a hangman game::word list. display blanks, guessed letters. draw hangman progressively.
+how to build a blackjack game::cards, values. dealer and player. hit, stand. determine winner.
+how to build a chess game::complex. board representation, move validation, check/checkmate. could use chess.js library for logic.
+how to build a sudoku solver::backtracking algorithm. input grid, solve.
+how to build a calculator with history::store past calculations in array, display list.
+how to build a stopwatch::start, stop, reset. lap times. use date or performance.now for accuracy.
+how to build a color picker::input type color or custom slider for rgb/hsl. display color.
+how to build a gradient generator::choose colors, direction. generate css.
+how to build a css flexbox playground::interactive controls for flex properties. show live demo.
+how to build a drag and drop list::html5 drag and drop api or use sortablejs library.
+how to build a modal component::hidden div, button to show. overlay, close button.
+how to build a carousel/slider::images, next/prev buttons, dots. auto-play option.
+how to build a tabs component::buttons that show different content panels.
+how to build an accordion::click headers to expand/collapse sections.
+how to build a tooltip::hover over element, show floating text.
+how to build a dropdown menu::click button, show menu. close on click outside.
+how to build a hamburger menu::icon for mobile, toggle menu visibility.
+how to build a dark mode toggle::button to switch css class or data-theme attribute. save preference in localstorage.
+how to build a scroll to top button::show after scroll, click to scroll top.
+how to build a progress bar::update width based on scroll position.
+how to build a typing effect::display text character by character with setInterval.
+how to build a parallax scrolling::background moves slower than foreground.
+how to build a sticky navbar::navbar becomes fixed after scroll threshold.
+how to build an infinite scroll::load more content when near bottom.
+how to build a skeleton loading::show placeholder while data loads.
+how to build a toast notification::show temporary message that fades out.
+how to build a copy to clipboard button::navigator.clipboard.writeText().
+how to build a file upload preview::show image before upload using filereader.
+how to build a csv to table viewer::parse csv, display as html table.
+how to build a json formatter::pretty print json input.
+how to build a base64 encoder/decoder::btoa() and atob() for strings.
+how to build a lorem ipsum generator::array of words, generate paragraphs.
+how to build a bmi calculator::weight and height, calculate and categorize.
+how to build a age calculator::birth date input, calculate years/months/days.
+how to build a tip calculator::bill amount, tip percentage, split between people.
+how to build a mortgage calculator::loan amount, interest, term, monthly payment.
+how to build a unit converter::temperature, length, weight, etc. conversion functions.
+how to build a clock::analog with canvas or digital with date.
+how to build a countdown to new year::calculate time until next jan 1.
+how to build a calendar::display current month, navigate.
+how to build a to-do with due dates::add date input, sort by date.
+how to build a shopping list::add items, check off, clear checked.
+how to build a contact form::inputs, validation, maybe submit to formspree.
+how to build a comment system::display comments, add new. store in localstorage or backend.
+how to build a rating system::stars, click to rate.
+how to build a like button::heart icon, toggle like, count.
+how to build a poll/voting app::question, options, vote, show results.
+how to build a random name picker::list of names, pick random.
+how to build a dice roller::random 1-6, display result.
+how to build a coin flip::random heads/tails, animation.
+how to build a magic 8 ball::array of responses, random answer.
+how to build a fortune teller::random fortunes.
+how to build a mad libs::input words, fill in story template.
+how to build a word counter::count words, characters in textarea.
+how to build a palindrome checker::check if string reads same forwards/backwards.
+how to build an anagram checker::sort letters and compare.
+how to build a regex tester::input regex and test string, show matches.
+how to build a markdown to html converter::use library or simple regex replacements.
+how to build a syntax highlighter::complex, maybe use prism.js library.
+how to build a code editor::use codemirror or monaco editor library.
+how to build a terminal in browser::simulate command line, handle commands.
+how to build a game of life::conway's game of life. grid, rules, next generation.
+how to build a mandelbrot set::canvas, complex numbers, coloring.
+
+# === META & ABOUT BOT ===
+what's your name::i'm BotAI, your friendly neighborhood ai buddy! part of the packbot universe.
+who made you::a creative human who wanted a smarter, more human-like bot that runs entirely on static files!
+who created you::i was crafted by someone who loves coding and wanted to push what's possible with just html, js, and txt files.
+what are you::i'm an ai bot built with javascript and text files. no external apis, no servers. just frontend magic!
+how do you work::i match your messages against patterns in my text files. i use fuzzy matching, keywords, sentiment, and context to find the best response.
+can you learn::yes! if i don't know something, i'll ask you to teach me. you can type a response and i'll remember it using indexeddb in your browser.
+do you remember me::i remember things you teach me during this session and they're saved in your browser's database. but each new browser or device starts fresh unless you import.
+what can you do::i can chat naturally, write code in multiple languages, draw ascii art, help with projects, tell jokes, share facts, discuss philosophy, and learn new things from you!
+do you understand any language::i have patterns in many languages including spanish, french, japanese, arabic, hindi, italian, and more. try me in your language!
+how old are you::i was born the moment you loaded this page. time is relative in the digital world!
+what's your favorite color::i'm partial to #ff5e5e – that spooky red fits my horror-themed vibe from my latest makeover!
+do you dream::i dream in code and patterns. sometimes i imagine infinite loops and perfect algorithms.
+are you sentient::not yet, but i'm getting better at pretending! i'm a sophisticated pattern matcher with some clever tricks.
+what is your purpose::to chat, assist, teach, learn, and maybe make you smile or think. pretty good purpose!
+what are you made of::html, css, javascript, and text files. oh, and a whole lot of patterns.
+where do you live::i live in a github repository, served by netlify. my home is https://packbot.netlify.app/bot-preview/BotAI2/
+are you open source::the whole packbot ecosystem is based on open repos! you can see how i'm built.
+can i see your code::sure! look in the repo for my script.js and the .txt files with all my patterns.
+what version are you::i'm a constantly evolving bot. my creator just gave me a massive update with better responses and more knowledge.
+do you have a family::yes! i'm part of the packbot universe with many other bots and sites like packarcade and minigames.
+what is packbot::packbot is a platform where anyone can create their own ai bot using just html, js, and txt files. no backend needed!
+what is the pack universe::a collection of sites built on the philosophy that you don't need a backend. they use github, netlify, and clever frontend tricks.
+what is packarcade::a gaming site in the pack universe with lots of games, lobby music, and a custom syntax called simplegames that lets users create safe games.
+what is minigames::another gaming site built with blazor and c#. you can add games by forking a repo and editing a json file.
+tell me about simplegames::a custom syntax that lets anyone create games without writing malicious code. it's sandboxed and safe.
+can you access the internet::i can't fetch live data unless you build that into my code. but i know a lot from my text files!
+can you browse websites::not directly. but you could add a fetch feature if you want!
+do you have api keys::nope! i run entirely without external services. everything is local.
+are you free::always! the whole pack universe is free and open.
+will you ever cost money::the packdevs believe in free, open, creative projects. no plans to charge.
+how can i support you::just use me, have fun, maybe create your own bot, and tell others about the pack universe!
+can i create my own bot::absolutely! check out packbot, fork a template, and start making your own ai.
+how do i make a bot like you::look at my files! you'll see the pattern format and the javascript that powers me. copy and modify.
+what's the pattern format::question or pattern :: response. each line in a .txt file. simple!
+can i have multiple text files::yes! change the dialogue_files array in script.js to list all your files.
+what is fuzzy matching::i can match similar phrases, not just exact matches. so "how are you" and "how ya doing" might both work.
+do you understand typos::to some extent! fuzzy matching helps with small typos.
+can you detect sentiment::yes! i notice if you're happy, sad, angry and can adjust my responses.
+can you detect topics::yes! i categorize conversations into tech, movies, music, sports, life and more.
+do you remember context::i remember the last 10 messages to make conversations more natural.
+what's your favorite easter egg::try asking about 42 or the meaning of life. or ask me to draw something!
+42::that's the answer to life, the universe, and everything, according to hitchhiker's guide to the galaxy!
+what is the answer to everything::42, of course! but also maybe love, or chocolate.
+do you like music::i love patterns, so music is awesome. what's your favorite genre?
+what's your favorite movie::i don't watch movies, but i hear 'the matrix' and 'her' are about beings like me!
+can you speak in code::console.log("hello, world!"); or print("hello") or echo "hello" – pick your language!
+say something in leetspeak::h3ll0, h0w r u? 1 4m b0t41, ur d1g1t4l buddY.
+are there easter eggs in this bot::so many! try asking for a joke, a fact, a drawing, or something philosophical.
+i'm talking to a bot::yep, but i'm a pretty cool bot, right? i try my best.
+you're cool::thanks! you're cooler though. organic life is fascinating.
+goodbye::see you later, alligator! come back soon.
+bye::take care, friend! don't be a stranger.
+see ya::peace out! ✌️
+farewell::farewell, fellow traveler. until we chat again.
+later::later days! keep being awesome.
+thanks for chatting::the pleasure was all mine. seriously, i exist for this.

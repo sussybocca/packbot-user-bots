@@ -1,3 +1,487 @@
-# This is your bot logic
-# Format: pattern : response
-hello : Hello from code mode!
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BotAI · immersive intelligence</title>
+    <!-- Google Fonts: scary, horror-style fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Nosifer&family=Eater&display=swap" rel="stylesheet">
+    <!-- GSAP for smooth animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <!-- Three.js for 3D background -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: #0a0a0a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            font-family: 'Creepster', cursive; /* scary default font */
+            overflow: hidden; /* prevent scroll on body */
+            position: relative;
+        }
+
+        /* Three.js canvas fills the background */
+        #bg-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none; /* allow interaction with UI */
+        }
+
+        .bot-container {
+            width: 100%;
+            max-width: 900px;
+            height: 85vh;
+            background: rgba(10, 5, 20, 0.6);
+            backdrop-filter: blur(12px) saturate(200%);
+            -webkit-backdrop-filter: blur(12px) saturate(200%);
+            border: 2px solid rgba(180, 0, 0, 0.5);
+            border-radius: 2.5rem;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.9), 0 0 30px rgba(255, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+            transition: box-shadow 0.3s ease;
+            animation: containerPulse 5s infinite alternate;
+        }
+
+        @keyframes containerPulse {
+            0% { box-shadow: 0 30px 60px rgba(0,0,0,0.9), 0 0 30px rgba(255,0,0,0.3); }
+            100% { box-shadow: 0 30px 80px rgba(0,0,0,1), 0 0 50px rgba(255,50,50,0.6); }
+        }
+
+        .bot-header {
+            padding: 1.8rem 2.2rem;
+            background: rgba(20, 0, 0, 0.7);
+            border-bottom: 2px solid #8b0000;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            backdrop-filter: blur(5px);
+        }
+
+        .avatar {
+            width: 65px;
+            height: 65px;
+            background: linear-gradient(145deg, #4a0000, #8b0000);
+            border-radius: 40% 60% 60% 40% / 50% 40% 60% 50%;
+            box-shadow: 0 0 25px #ff0000, 0 0 40px #990000 inset;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: white;
+            text-shadow: 0 0 15px black;
+            animation: morph 8s infinite ease-in-out, glow 3s infinite alternate;
+        }
+
+        @keyframes morph {
+            0% { border-radius: 40% 60% 60% 40% / 50% 40% 60% 50%; }
+            25% { border-radius: 60% 40% 50% 50% / 40% 60% 40% 60%; }
+            50% { border-radius: 30% 70% 40% 60% / 60% 30% 70% 40%; }
+            75% { border-radius: 70% 30% 60% 40% / 30% 70% 30% 70%; }
+            100% { border-radius: 40% 60% 60% 40% / 50% 40% 60% 50%; }
+        }
+
+        @keyframes glow {
+            0% { box-shadow: 0 0 25px #ff0000, 0 0 40px #990000 inset; }
+            100% { box-shadow: 0 0 45px #ff6666, 0 0 70px #cc0000 inset; }
+        }
+
+        .title {
+            color: #ffaaaa;
+            font-weight: 300;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+            font-family: 'Nosifer', cursive;
+        }
+
+        .title span {
+            font-weight: 600;
+            color: #ff5e5e;
+            font-size: 2.2rem;
+            display: block;
+            line-height: 1.2;
+            text-shadow: 0 0 15px red, 2px 2px 0 black;
+            font-family: 'Eater', cursive;
+            animation: flicker 3s infinite;
+        }
+
+        @keyframes flicker {
+            0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; text-shadow: 0 0 15px red, 2px 2px 0 black; }
+            20%, 24%, 55% { opacity: 0.4; text-shadow: none; }
+        }
+
+        .chat-window {
+            flex: 1;
+            padding: 1.8rem 2rem;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            scroll-behavior: smooth;
+        }
+
+        .message {
+            max-width: 75%;
+            display: flex;
+            align-items: flex-end;
+            gap: 0.8rem;
+            opacity: 0;
+            transform: translateY(15px);
+            animation: fadeInUp 0.4s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .message.user {
+            align-self: flex-end;
+            flex-direction: row-reverse;
+        }
+
+        .avatar-small {
+            width: 40px;
+            height: 40px;
+            background: #2a0000;
+            border-radius: 40% 60% 60% 40% / 40% 50% 50% 60%;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: white;
+            border: 1px solid #ff4d4d;
+            box-shadow: 0 0 15px #ff0000;
+            font-family: 'Nosifer', cursive;
+        }
+
+        .bubble {
+            padding: 1rem 1.8rem;
+            border-radius: 1.8rem;
+            background: rgba(20, 0, 0, 0.8);
+            backdrop-filter: blur(4px);
+            border: 1px solid #ff4444;
+            color: #ffd9d9;
+            font-size: 1rem;
+            line-height: 1.5;
+            word-break: break-word;
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.7), 0 0 10px #a00;
+            font-family: 'Creepster', cursive;
+        }
+
+        .message.user .bubble {
+            background: rgba(50, 0, 0, 0.9);
+            border: 1px solid #ff8888;
+            color: white;
+            border-bottom-right-radius: 0.4rem;
+        }
+
+        .message.bot .bubble {
+            border-bottom-left-radius: 0.4rem;
+        }
+
+        .typing .bubble {
+            display: flex;
+            gap: 0.3rem;
+            padding: 1.2rem 1.8rem;
+        }
+
+        .typing .dot {
+            width: 10px;
+            height: 10px;
+            background: #ff5e5e;
+            border-radius: 50%;
+            animation: pulse 1.4s infinite;
+        }
+
+        .typing .dot:nth-child(2) { animation-delay: 0.2s; }
+        .typing .dot:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes pulse {
+            0%,60%,100% { opacity: 0.4; transform: scale(0.8); }
+            30% { opacity: 1; transform: scale(1.4); background: #ffaaaa; }
+        }
+
+        .input-area {
+            padding: 1.5rem 2rem;
+            background: rgba(15, 0, 0, 0.7);
+            border-top: 2px solid #8b0000;
+            display: flex;
+            gap: 1rem;
+            backdrop-filter: blur(5px);
+        }
+
+        #userInput {
+            flex: 1;
+            background: rgba(0, 0, 0, 0.8);
+            border: 2px solid #a00;
+            border-radius: 3rem;
+            padding: 1rem 1.8rem;
+            font-size: 1.1rem;
+            color: #ffc0c0;
+            outline: none;
+            transition: all 0.2s;
+            box-shadow: 0 0 15px #a00 inset;
+            font-family: 'Creepster', cursive;
+        }
+
+        #userInput:focus {
+            border-color: #ff5e5e;
+            box-shadow: 0 0 25px #ff0000, 0 0 15px #a00 inset;
+        }
+
+        #sendBtn {
+            background: linear-gradient(145deg, #5a0000, #2a0000);
+            border: none;
+            border-radius: 50%;
+            width: 65px;
+            height: 65px;
+            font-size: 2rem;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.2s;
+            border: 2px solid #ff5e5e;
+            box-shadow: 0 0 20px #f00;
+            font-family: 'Nosifer', cursive;
+        }
+
+        #sendBtn:hover {
+            background: #8b0000;
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 0 35px #ff5e5e;
+        }
+
+        .chat-window::-webkit-scrollbar {
+            width: 8px;
+        }
+        .chat-window::-webkit-scrollbar-track {
+            background: #1a0000;
+        }
+        .chat-window::-webkit-scrollbar-thumb {
+            background: #8b0000;
+            border-radius: 10px;
+            border: 1px solid #ff5e5e;
+        }
+    </style>
+</head>
+<body>
+    <!-- Three.js canvas will be injected here -->
+    <canvas id="bg-canvas"></canvas>
+
+    <div class="bot-container">
+        <div class="bot-header">
+            <div class="avatar">AI</div>
+            <div class="title">
+                <span>BOT AI</span>
+                self-contained · immersive horror
+            </div>
+        </div>
+
+        <div class="chat-window" id="chatWindow">
+            <!-- messages injected by js -->
+        </div>
+
+        <div class="input-area">
+            <input type="text" id="userInput" placeholder="Ask me anything..." autocomplete="off">
+            <button id="sendBtn">➤</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // ----- Three.js Immersive Background -----
+        (function initThree() {
+            const canvas = document.getElementById('bg-canvas');
+            const scene = new THREE.Scene();
+            scene.background = new THREE.Color(0x050510);
+            scene.fog = new THREE.FogExp2(0x050510, 0.002);
+
+            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            camera.position.set(0, 2, 15);
+
+            const renderer = new THREE.WebGLRenderer({ canvas, alpha: false, antialias: true });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setPixelRatio(window.devicePixelRatio);
+
+            // --- Lights ---
+            const ambientLight = new THREE.AmbientLight(0x404060);
+            scene.add(ambientLight);
+
+            const dirLight = new THREE.DirectionalLight(0xff6666, 0.8);
+            dirLight.position.set(1, 2, 4);
+            scene.add(dirLight);
+
+            const pointLight = new THREE.PointLight(0xff3300, 1, 30);
+            pointLight.position.set(-3, 1, 5);
+            scene.add(pointLight);
+
+            // --- Particles (stars / embers) ---
+            const particleCount = 1500;
+            const particlesGeo = new THREE.BufferGeometry();
+            const particlesPos = new Float32Array(particleCount * 3);
+            const colors = new Float32Array(particleCount * 3);
+
+            for (let i = 0; i < particleCount; i++) {
+                // Spread in a sphere
+                const r = 20 + Math.random() * 30;
+                const theta = Math.random() * Math.PI * 2;
+                const phi = Math.acos((Math.random() * 2) - 1);
+                
+                const x = r * Math.sin(phi) * Math.cos(theta);
+                const y = r * Math.sin(phi) * Math.sin(theta);
+                const z = r * Math.cos(phi);
+                
+                particlesPos[i*3] = x;
+                particlesPos[i*3+1] = y * 0.5; // flatten vertically a bit
+                particlesPos[i*3+2] = z;
+
+                // Color: red/orange/white
+                const colorVal = 0.8 + Math.random() * 0.5;
+                colors[i*3] = 1.0;        // R
+                colors[i*3+1] = 0.3 + Math.random() * 0.4; // G
+                colors[i*3+2] = 0.1 + Math.random() * 0.2; // B
+            }
+
+            particlesGeo.setAttribute('position', new THREE.BufferAttribute(particlesPos, 3));
+            particlesGeo.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+
+            const particleMaterial = new THREE.PointsMaterial({ 
+                size: 0.15, 
+                vertexColors: true,
+                transparent: true,
+                opacity: 0.9,
+                blending: THREE.AdditiveBlending
+            });
+
+            const particles = new THREE.Points(particlesGeo, particleMaterial);
+            scene.add(particles);
+
+            // --- Floating orbs (spooky) ---
+            const orbGroup = new THREE.Group();
+            const orbCount = 8;
+            for (let i = 0; i < orbCount; i++) {
+                const geometry = new THREE.SphereGeometry(0.5 + Math.random()*0.4, 16, 16);
+                const material = new THREE.MeshStandardMaterial({
+                    color: new THREE.Color(`hsl(${Math.random()*20 + 340}, 100%, 50%)`),
+                    emissive: new THREE.Color(0x330000),
+                    roughness: 0.3,
+                    metalness: 0.1
+                });
+                const sphere = new THREE.Mesh(geometry, material);
+                
+                const angle = (i / orbCount) * Math.PI * 2;
+                const radius = 4 + Math.random() * 2;
+                sphere.position.set(
+                    Math.cos(angle) * radius,
+                    Math.sin(angle*2) * 1.5,
+                    Math.sin(angle) * radius * 0.5
+                );
+                orbGroup.add(sphere);
+            }
+            scene.add(orbGroup);
+
+            // --- Additional small floating particles near camera ---
+            const nearParticlesGeo = new THREE.BufferGeometry();
+            const nearPos = new Float32Array(400 * 3);
+            for (let i = 0; i < 400; i++) {
+                nearPos[i*3] = (Math.random() - 0.5) * 20;
+                nearPos[i*3+1] = (Math.random() - 0.5) * 10;
+                nearPos[i*3+2] = (Math.random() - 5) * 5;
+            }
+            nearParticlesGeo.setAttribute('position', new THREE.BufferAttribute(nearPos, 3));
+            const nearParticlesMat = new THREE.PointsMaterial({ color: 0xff6666, size: 0.08, transparent: true, opacity: 0.5, blending: THREE.AdditiveBlending });
+            const nearParticles = new THREE.Points(nearParticlesGeo, nearParticlesMat);
+            scene.add(nearParticles);
+
+            // --- Animation loop ---
+            let clock = new THREE.Clock();
+
+            function animate() {
+                requestAnimationFrame(animate);
+
+                const delta = clock.getDelta();
+                const elapsedTime = performance.now() * 0.001; // seconds
+
+                // Rotate particles slowly
+                particles.rotation.y += 0.0001;
+                particles.rotation.x += 0.00005;
+
+                // Move orbs in a creepy floating way
+                orbGroup.children.forEach((orb, index) => {
+                    orb.position.x += Math.sin(elapsedTime + index) * 0.002;
+                    orb.position.y += Math.cos(elapsedTime * 0.8 + index) * 0.002;
+                });
+
+                // Rotate near particles
+                nearParticles.rotation.y += 0.0005;
+
+                // Slight camera movement (subtle)
+                camera.position.x = Math.sin(elapsedTime * 0.1) * 2;
+                camera.position.y = 2 + Math.sin(elapsedTime * 0.2) * 0.5;
+                camera.lookAt(0, 0, 0);
+
+                renderer.render(scene, camera);
+            }
+
+            animate();
+
+            // Handle resize
+            window.addEventListener('resize', () => {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+            });
+        })();
+
+        // ----- GSAP Animations for UI elements -----
+        window.addEventListener('load', () => {
+            // Animate header and input area on load
+            gsap.from('.bot-header', { duration: 1.2, y: -100, opacity: 0, ease: 'power3.out' });
+            gsap.from('.input-area', { duration: 1.2, y: 100, opacity: 0, ease: 'power3.out', delay: 0.2 });
+            gsap.from('.avatar', { duration: 1, scale: 0, rotation: 360, ease: 'elastic.out(1, 0.5)', delay: 0.5 });
+            
+            // Subtle floating animation for the avatar
+            gsap.to('.avatar', {
+                duration: 3,
+                y: -8,
+                repeat: -1,
+                yoyo: true,
+                ease: 'sine.inOut'
+            });
+
+            // Pulsing glow on send button
+            gsap.to('#sendBtn', {
+                duration: 1.5,
+                boxShadow: '0 0 35px #ff5e5e, 0 0 60px #ff0000',
+                repeat: -1,
+                yoyo: true,
+                ease: 'sine.inOut'
+            });
+
+            // Animate each message as it appears (already handled by CSS, but we can add extra)
+            // The chat messages are added dynamically; we could observe additions, but CSS fadeInUp is enough.
+        });
+    </script>
+</body>
+</html>
