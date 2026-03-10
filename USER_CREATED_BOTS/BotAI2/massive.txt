@@ -250,7 +250,6 @@ student :: student life. i remember (not really).
 book :: books are knowledge. i'm like a tiny book.
 read :: read me! i'm full of patterns.
 write :: write more patterns for me!
-draw :: draw something cool.
 art :: art is expression. i'm a form of art? maybe.
 music :: music to my ears... if i had ears.
 song :: sing me a song! i'll clap virtually.
